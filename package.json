@@ -38,5 +38,6 @@
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.7",
     "vite": "^4.1.0"
-  }
+  },
+  "homepage": "https://alex143061.github.io/Alexander"
 }
