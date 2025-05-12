@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-    <a href="https://alex-dev-portfolio.vercel.app/"><strong>🚀 View Live Demo</strong></a>
+    <a href="https://alex143061.github.io/Alexander"><strong>🚀 View Live Demo</strong></a>
 </p>
 
 ## About The Project
