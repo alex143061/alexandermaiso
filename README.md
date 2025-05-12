@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://github.com/alex143061/Alexander">
-        <img src="src/assets/logo3.png" alt="3D Portfolio Logo" width="235" height="150">
+        <img src="src/assets/logo.svg" alt="3D Portfolio Logo" width="235" height="150">
     </a>
 </div>
 
@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-    <a href="https://your-deployment-url.vercel.app/"><strong>🚀 View Demo</strong></a> <!-- Replace with your actual deployment URL -->
+    <a href="https://github.com/alex143061/Alexander"><strong>🚀 View Demo</strong></a> <!-- Replace with your actual deployment URL -->
 </p>
 
 ## About The Project
