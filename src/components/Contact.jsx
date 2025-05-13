@@ -18,13 +18,8 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    const { target } = e;
-    const { name, value } = target;
-
-    setForm({
-      ...form,
-      [name]: value,
-    });
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
   };
 
   const handleSubmit = (e) => {
@@ -35,7 +30,7 @@ const Contact = () => {
     emailjs
       .send(
         import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_CONTACT_TEMPLATE_ID,  // Contact template ID
+        import.meta.env.VITE_APP_EMAILJS_CONTACT_TEMPLATE_ID,
         {
           name: form.name,
           to_name: "Alexander Maiso",
@@ -51,12 +46,13 @@ const Contact = () => {
           emailjs
             .send(
               import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-              import.meta.env.VITE_APP_EMAILJS_AUTO_REPLY_TEMPLATE_ID,  // Auto-reply template ID
+              import.meta.env.VITE_APP_EMAILJS_AUTO_REPLY_TEMPLATE_ID,
               {
                 name: form.name,
                 to_name: form.name,
                 email: form.email,
-                message: "Thank you for reaching out! We will get back to you as soon as possible.",
+                message:
+                  "Thank you for reaching out! We will get back to you as soon as possible.",
               },
               import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
             )
@@ -64,39 +60,41 @@ const Contact = () => {
               () => {
                 setLoading(false);
                 alert("Thank you. I will get back to you as soon as possible.");
-                setForm({
-                  name: "",
-                  email: "",
-                  message: "",
-                });
+                setForm({ name: "", email: "", message: "" });
               },
               (error) => {
                 setLoading(false);
                 console.error(error);
-                alert("Ahh, something went wrong. Please try again.");
+                alert("Oops, something went wrong with the auto-reply.");
               }
             );
         },
         (error) => {
           setLoading(false);
           console.error(error);
-          alert("Ahh, something went wrong. Please try again.");
+          alert("Oops, something went wrong with the contact email.");
         }
       );
   };
 
   return (
-    <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
+    <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
         className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
       >
         <p className={styles.sectionSubText}>Get in touch</p>
-        <h2 className={`${styles.sectionHeadText} animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black`}>
+        <h2
+          className={`${styles.sectionHeadText} animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black`}
+        >
           Contact.
         </h2>
 
-        <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col gap-8">
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          className="mt-12 flex flex-col gap-8"
+        >
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Name</span>
             <input
@@ -109,7 +107,7 @@ const Contact = () => {
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your email</span>
+            <span className="text-white font-medium mb-4">Your Email</span>
             <input
               type="email"
               name="email"
