@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { LOGO2 } from "../assets";
+import { logo_white } from "../assets";
 import Typewriter from "react-ts-typewriter";
 import { Link } from "react-router-dom";
 
@@ -17,7 +18,7 @@ const Footer = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={LOGO2} alt="logo" className="w-28 h-28 object-contain" />
+          <img src={logo_white} alt="logo" className="w-28 h-28 object-contain" />
         </Link>
         <p className="text-secondary text-[17px] leading-[30px] text-center select-none">
           {new Date().getFullYear()} &copy; Created by Alex. All rights

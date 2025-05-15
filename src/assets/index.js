@@ -1,4 +1,5 @@
 import logo from "./logo3.png";
+import logo_alex from "./logo_alex.png";
 import backend from "./backend.png";
 import creator from "./creator.png";
 import mobile from "./mobile.png";
@@ -66,6 +67,7 @@ import portfolio15 from "./portfolio15.png"
 import portfolio16 from "./portfolio16.png"
 import portfolio17 from "./portfolio17.png"
 import LOGO2 from "./LOGO2.webp";
+import logo_white from "./logo_white.png";
 import tiktok from "./tiktok.png";
 import ig from "./ig.png";
 import linktree from "./linktree.png";
@@ -79,6 +81,8 @@ import zapflow from "./zapflow.png";
 
 export {
   alexa,
+  logo_alex,
+
   logo,
   java,
   wordpress,
@@ -129,6 +133,7 @@ export {
   portfolio16,
   portfolio17,
   LOGO2,
+  logo_white,
   tiktok,
   ig,
   linktree,

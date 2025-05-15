@@ -6,6 +6,7 @@ import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
 import resume from "/src/alex_cv.pdf";
 import { LOGO2 } from "../assets";
+import { logo_white } from "../assets";
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
@@ -43,7 +44,7 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={LOGO2} alt='logo' className='w-24 h-24 object-contain' />
+          <img src={logo_white} alt='logo' className='w-24 h-24 object-contain' />
           <p className='text-white text-[18px] font-bold cursor-pointer flex'>
             Alexander Maiso &nbsp;
             {/* <span className='sm:block hidden'> | Portfolio</span> */}
