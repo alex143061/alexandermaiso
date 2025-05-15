@@ -451,7 +451,7 @@ const projects = [
   {
     name: "Line Follower Robot",
     description:
-      "Experience unparalleled team collaboration with Notable, a cutting-edge SaaS platform designed to enhance productivity dynamically. Built with Next.js 13 and adorned with the latest technologies like Stripe for secure payments, Drizzle ORM for efficient data management, Tailwind CSS for intuitive styling, Supabase for a scalable backend, and WebSockets for real-time interactions, Notable offers a modern workspace for teams and individuals to thrive in real time. Perfect for startups and large enterprises alike, Notable seamlessly integrates advanced collaboration tools into your daily operations, setting a new standard for what a collaborative platform can achieve.",
+      "I developed a Line Follower Robot as part of my robotics learning experience using the Arduino platform. The robot is designed to follow a black line on a white surface autonomously using infrared (IR) sensors for path detection. I used an Arduino Uno as the main microcontroller and programmed it using the Arduino IDE. To control the motors, I implemented the L298N motor driver module, which provided reliable dual-motor direction and speed control. The IR sensors detect the contrast between the line and the background, sending signals to the Arduino to adjust the robot’s direction accordingly. The robot reacts in real time to stay on track, demonstrating basic automation and feedback control. This project strengthened my understanding of embedded systems, sensor integration, and motor control in robotics.",
     tags: [
       {
         name: "Arduino",
