@@ -56,7 +56,14 @@ import {
   tiktok,
   ig,
   beeclone,
+
   smartrep,
+  pautang,
+  line_follower,
+  lost_found,
+
+
+
   matrixai,
   zapflow,
   notable,
@@ -420,71 +427,71 @@ const imageProjects = [
 
 const projects = [
   {
-    name: "SmartRep AI",
+    name: "Pautang Gadget System",
     description:
-      "SmartRep AI is an advanced AI chatbot designed to streamline customer interactions, book appointments, process payments, and manage leads. It seamlessly integrates with any website, offering a customizable interface and a suite of powerful features to enhance user experience and business operations.",
+      "The Pautang Gadget System is a desktop-based lending management application developed using Visual Basic .NET. It was created as a final project for our Software Design course, in collaboration with a real client. The system integrates a MySQL database to manage and store gadget loan data securely. Users can register, log in, and use a user-friendly interface to view the status of their loan applications. Administrators have access to a dedicated dashboard to manage users, monitor loan records, and process approvals or rejections. The application is designed to streamline loan-related processes and improve transparency for users. This project successfully met both academic goals and the practical needs of the client.",
     tags: [
       {
-        name: "Next.js",
+        name: "VB.net",
         color: "blue-text-gradient",
       },
       {
-        name: "Neon",
+        name: "MySQL",
         color: "green-text-gradient",
       },
       {
-        name: "Typescript",
+        name: "Wamp Server",
         color: "pink-text-gradient",
       },
     ],
-    image: smartrep,
-    source_code_link: "https://github.com/jeffjiang13/smartrep-ai",
-    liveUrl: "https://jj-smartrep.vercel.app/",
+    image: pautang,
+    source_code_link: "https://github.com/alex143061/Pautang-Gadget-System-",
+    liveUrl: "https://github.com/alex143061",
   },
-  // {
-  //   name: "Notable",
-  //   description:
-  //     "Experience unparalleled team collaboration with Notable, a cutting-edge SaaS platform designed to enhance productivity dynamically. Built with Next.js 13 and adorned with the latest technologies like Stripe for secure payments, Drizzle ORM for efficient data management, Tailwind CSS for intuitive styling, Supabase for a scalable backend, and WebSockets for real-time interactions, Notable offers a modern workspace for teams and individuals to thrive in real time. Perfect for startups and large enterprises alike, Notable seamlessly integrates advanced collaboration tools into your daily operations, setting a new standard for what a collaborative platform can achieve.",
-  //   tags: [
-  //     {
-  //       name: "Next.js",
-  //       color: "blue-text-gradient",
-  //     },
-  //     {
-  //       name: "Supabase",
-  //       color: "green-text-gradient",
-  //     },
-  //     {
-  //       name: "Typescript",
-  //       color: "pink-text-gradient",
-  //     },
-  //   ],
-  //   image: notable,
-  //   source_code_link: "https://github.com/jeffjiang13/notable",
-  //   liveUrl: "https://jj-notable.up.railway.app/",
-  // },
-  // {
-  //   name: "ZapFlow",
-  //   description:
-  //     "ZapFlow is a SaaS Automation Builder, a powerful and versatile platform designed to automate and streamline your business processes. Built from the ground up without relying on integration libraries, this builder offers a seamless and customizable experience for creating automation flows. Whether you are a small business or a large enterprise, our builder has the features you need to connect various services and automate your workflows efficiently.",
-  //   tags: [
-  //     {
-  //       name: "Next.js",
-  //       color: "blue-text-gradient",
-  //     },
-  //     {
-  //       name: "Neon",
-  //       color: "green-text-gradient",
-  //     },
-  //     {
-  //       name: "Tailwind",
-  //       color: "pink-text-gradient",
-  //     },
-  //   ],
-  //   image: zapflow,
-  //   source_code_link: "https://github.com/jeffjiang13/saas-automation",
-  //   liveUrl: "https://jj-zapflow.vercel.app/",
-  // },
+  {
+    name: "Line Follower Robot",
+    description:
+      "Experience unparalleled team collaboration with Notable, a cutting-edge SaaS platform designed to enhance productivity dynamically. Built with Next.js 13 and adorned with the latest technologies like Stripe for secure payments, Drizzle ORM for efficient data management, Tailwind CSS for intuitive styling, Supabase for a scalable backend, and WebSockets for real-time interactions, Notable offers a modern workspace for teams and individuals to thrive in real time. Perfect for startups and large enterprises alike, Notable seamlessly integrates advanced collaboration tools into your daily operations, setting a new standard for what a collaborative platform can achieve.",
+    tags: [
+      {
+        name: "Arduino",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "C++",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Automation",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: line_follower,
+    source_code_link: "",
+    liveUrl: "",
+  },
+  {
+    name: "Lost & Found System @UM Matina",
+    description:
+      "The Lost and Found System – UM Matina is a desktop application developed as my final project for the Data Structures and Algorithms course in Computer Engineering at the University of Mindanao, Matina Campus. It was built using C++ as the backend language, showcasing algorithmic thinking and structured data handling. The system features a clean, intuitive GUI that allows users to report, search for, and claim lost or found items on campus. It includes a secure login system and an admin panel for managing item records and user activity. The logic behind the system was carefully designed to ensure efficient processing, tracking, and retrieval of data. Developing this project strengthened my understanding of C++ programming and software design principles. Overall, it demonstrates how core computer science concepts can be applied to create a practical solution for real-world campus needs.",
+    tags: [
+      {
+        name: "C++",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "MySQL",
+        color: "green-text-gradient",
+      },
+      {
+        name: "MySQL Workbench Server",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: lost_found,
+    source_code_link: "",
+    liveUrl: "",
+  },
   // {
   //   name: "Beeclone",
   //   description:

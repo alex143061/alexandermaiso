@@ -71,7 +71,14 @@ import logo_white from "./logo_white.png";
 import tiktok from "./tiktok.png";
 import ig from "./ig.png";
 import linktree from "./linktree.png";
+
+
 import smartrep from "./smartrep.png";
+import pautang from "./pautang.png";
+import line_follower from "./line_follower.jpg";
+import lost_found from "./lost_found.png";
+
+
 import matrixai from "./matrixai.png";
 import beeclone from "./beeclone.png";
 import notable from "./notable.png";
@@ -137,7 +144,14 @@ export {
   tiktok,
   ig,
   linktree,
+
+
   smartrep,
+  pautang,
+  line_follower,
+  lost_found,
+
+
   matrixai,
   beeclone,
   notable,
