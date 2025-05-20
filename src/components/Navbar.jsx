@@ -5,8 +5,8 @@ import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
 import resume from "/src/alex_cv.pdf";
-import { LOGO2 } from "../assets";
 import { logo_white } from "../assets";
+
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
@@ -15,15 +15,9 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(scrollTop > 100);
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -35,44 +29,39 @@ const Navbar = () => {
         scrolled ? "backdrop-blur-sm" : "bg-transparent"
       }`}
     >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
+      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
-          to='/'
-          className='flex items-center'
+          to="/"
+          className="flex items-center"
           onClick={() => {
             setActive("");
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo_white} alt='logo' className='w-24 h-24 object-contain' />
-          <p className='text-white text-[18px] font-bold cursor-pointer flex'>
-            Alexander Maiso &nbsp;
-            {/* <span className='sm:block hidden'> | Portfolio</span> */}
+          <img src={logo_white} alt="logo" className="w-24 h-24 object-contain" />
+          <p className="text-white text-[18px] font-bold cursor-pointer flex">
+            Alexander Maiso
           </p>
         </Link>
 
+        {/* Desktop Menu */}
         <ul className="list-none hidden sm:flex flex-row items-center gap-10">
-        <a href={resume} download="alex_cv.pdf">
+          <a href={resume} download="alex_cv.pdf">
             <button
               className={`${
                 active === Link.title ? "abhishek" : "abhishek-btn"
-              }   font-medium cursor-pointer border-[1px]`}
+              } font-medium cursor-pointer border-[1px]`}
               onClick={() => setActive(Link.title)}
             >
               <span className="flex items-center animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black">
-                {" "}
-                <svg
-                  class="fill-current w-4 h-4 mr-2"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
+                <svg className="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                   <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-                </svg>{" "}
+                </svg>
                 Download CV
               </span>
-
             </button>
           </a>
+
           {navLinks.map((nav) => (
             <li
               key={nav.id}
@@ -84,43 +73,51 @@ const Navbar = () => {
               <a href={`#${nav.id}`}>{nav.title}</a>
             </li>
           ))}
+
+          {/* CRUD Button */}
+          <button
+            onClick={() => (window.location.href = "http://127.0.0.1:8000/login")}
+            className="bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 animate-gradient-bg text-white font-bold py-2 px-4 rounded"
+          >
+            CRUD
+          </button>
         </ul>
 
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        {/* Mobile Menu */}
+        <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
             src={toggle ? close : menu}
-            alt='menu'
-            className='w-[28px] h-[28px] object-contain'
+            alt="menu"
+            className="w-[28px] h-[28px] object-contain"
             onClick={() => setToggle(!toggle)}
           />
 
           <div
             className={`${
               !toggle ? "hidden" : "flex"
-            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[160px] z-10 rounded-xl`}
           >
-            <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
-            <a href={resume} download="alex_cv.pdf">
-            <button
-              className={`${
-                active === Link.title ? "abhishek" : "abhishek-btn"
-              }   font-medium cursor-pointer border-[1px]`}
-              onClick={() => setActive(Link.title)}
-            >
-              <span className="flex items-center animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black">
-                {" "}
-                <svg
-                  class="fill-current w-4 h-4 mr-2"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
+            <ul className="list-none flex justify-end items-start flex-1 flex-col gap-4">
+              <a href={resume} download="alex_cv.pdf">
+                <button
+                  className={`${
+                    active === Link.title ? "abhishek" : "abhishek-btn"
+                  } font-medium cursor-pointer border-[1px]`}
+                  onClick={() => setActive(Link.title)}
                 >
-                  <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-                </svg>{" "}
-                Download CV
-              </span>
+                  <span className="flex items-center animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black">
+                    <svg
+                      className="fill-current w-4 h-4 mr-2"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+                    </svg>
+                    Download CV
+                  </span>
+                </button>
+              </a>
 
-            </button>
-          </a>
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
@@ -135,6 +132,14 @@ const Navbar = () => {
                   <a href={`#${nav.id}`}>{nav.title}</a>
                 </li>
               ))}
+
+              {/* CRUD button for Mobile */}
+              <button
+                onClick={() => (window.location.href = "http://127.0.0.1:8000/login")}
+                className="bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 animate-gradient-bg text-white font-bold py-2 px-4 rounded"
+              >
+                CRUD
+              </button>
             </ul>
           </div>
         </div>
