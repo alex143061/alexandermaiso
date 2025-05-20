@@ -7,6 +7,44 @@ import { logo, menu, close } from "../assets";
 import resume from "/src/alex_cv.pdf";
 import { logo_white } from "../assets";
 
+// GradientButton for "Download CV"
+const GradientButton = ({ onClick, iconPath, label, downloadLink }) => {
+  const buttonContent = (
+    <span className="flex items-center animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black">
+      <svg
+        className="fill-current w-4 h-4 mr-2"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+      >
+        <path d={iconPath} />
+      </svg>
+      {label}
+    </span>
+  );
+
+  return downloadLink ? (
+    <a href={downloadLink} download>
+      <button className="abhishek-btn font-medium cursor-pointer border-[1px]" onClick={onClick}>
+        {buttonContent}
+      </button>
+    </a>
+  ) : (
+    <button onClick={onClick} className="abhishek-btn font-medium cursor-pointer border-[1px]">
+      {buttonContent}
+    </button>
+  );
+};
+
+// 🔥 Super Saiyan Fire-Like CRUD Button
+const CrudButton = () => (
+  <button
+    onClick={() => (window.location.href = "http://127.0.0.1:8000/login")}
+    className="fire-button"
+  >
+    CRUD
+  </button>
+);
+
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
@@ -23,9 +61,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${
-        styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-20 ${
+      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 ${
         scrolled ? "backdrop-blur-sm" : "bg-transparent"
       }`}
     >
@@ -46,21 +82,12 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <ul className="list-none hidden sm:flex flex-row items-center gap-10">
-          <a href={resume} download="alex_cv.pdf">
-            <button
-              className={`${
-                active === Link.title ? "abhishek" : "abhishek-btn"
-              } font-medium cursor-pointer border-[1px]`}
-              onClick={() => setActive(Link.title)}
-            >
-              <span className="flex items-center animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black">
-                <svg className="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                  <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-                </svg>
-                Download CV
-              </span>
-            </button>
-          </a>
+          <GradientButton
+            downloadLink={resume}
+            iconPath="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"
+            label="Download CV"
+            onClick={() => setActive("")}
+          />
 
           {navLinks.map((nav) => (
             <li
@@ -74,13 +101,7 @@ const Navbar = () => {
             </li>
           ))}
 
-          {/* CRUD Button */}
-          <button
-            onClick={() => (window.location.href = "http://127.0.0.1:8000/login")}
-            className="bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 animate-gradient-bg text-white font-bold py-2 px-4 rounded"
-          >
-            CRUD
-          </button>
+          <CrudButton />
         </ul>
 
         {/* Mobile Menu */}
@@ -98,25 +119,15 @@ const Navbar = () => {
             } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[160px] z-10 rounded-xl`}
           >
             <ul className="list-none flex justify-end items-start flex-1 flex-col gap-4">
-              <a href={resume} download="alex_cv.pdf">
-                <button
-                  className={`${
-                    active === Link.title ? "abhishek" : "abhishek-btn"
-                  } font-medium cursor-pointer border-[1px]`}
-                  onClick={() => setActive(Link.title)}
-                >
-                  <span className="flex items-center animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black">
-                    <svg
-                      className="fill-current w-4 h-4 mr-2"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-                    </svg>
-                    Download CV
-                  </span>
-                </button>
-              </a>
+              <GradientButton
+                downloadLink={resume}
+                iconPath="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"
+                label="Download CV"
+                onClick={() => {
+                  setActive("");
+                  setToggle(false);
+                }}
+              />
 
               {navLinks.map((nav) => (
                 <li
@@ -133,13 +144,7 @@ const Navbar = () => {
                 </li>
               ))}
 
-              {/* CRUD button for Mobile */}
-              <button
-                onClick={() => (window.location.href = "http://127.0.0.1:8000/login")}
-                className="bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 animate-gradient-bg text-white font-bold py-2 px-4 rounded"
-              >
-                CRUD
-              </button>
+              <CrudButton />
             </ul>
           </div>
         </div>

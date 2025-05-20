@@ -521,3 +521,69 @@
   border-radius: 8px; /* Optional: Adds rounded corners to your images */
 }
 
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(253, 224, 71, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(253, 224, 71, 1);
+  }
+}
+
+@keyframes flameFlicker {
+  0%, 100% {
+    box-shadow:
+      0 0 6px #ffdb4d,
+      0 0 12px #ffc107,
+      0 0 18px #ff9800,
+      0 0 24px #ff5722;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow:
+      0 0 10px #fff176,
+      0 0 16px #ffca28,
+      0 0 24px #ff9800,
+      0 0 30px #f57c00;
+    transform: scale(1.03) rotate(-1deg);
+  }
+}
+
+@keyframes flameHover {
+  0%, 100% {
+    box-shadow:
+      0 0 10px #fff176,
+      0 0 20px #ffca28,
+      0 0 30px #ff9800,
+      0 0 40px #f57c00;
+    transform: scale(1.06);
+  }
+  50% {
+    box-shadow:
+      0 0 14px #fff59d,
+      0 0 26px #ffd54f,
+      0 0 36px #ffa726,
+      0 0 48px #ff7043;
+    transform: scale(1.09);
+  }
+}
+
+.fire-button {
+  animation: flameFlicker 1.5s infinite ease-in-out;
+  background-color: #facc15; /* tailwind yellow-400 */
+  color: white;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  transition: all 0.3s ease-in-out;
+  text-shadow: 0 0 6px white, 0 0 10px #ffcc00;
+  cursor: pointer;
+  /* 👇 removed border */
+  border: none;
+}
+
+.fire-button:hover {
+  animation: flameHover 0.8s infinite ease-in-out;
+  background-color: #ffe066;
+  transform: scale(1.08);
+}
