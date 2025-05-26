@@ -37,12 +37,11 @@ const GradientButton = ({ onClick, iconPath, label, downloadLink }) => {
 
 // 🔥 Super Saiyan Fire-Like CRUD Button
 const CrudButton = () => (
-  <button
-    onClick={() => (window.location.href = "http://127.0.0.1:8000/login")}
-    className="fire-button"
-  >
-    CRUD
-  </button>
+  <Link to="/login"> {/* Change the route as needed (e.g., '/login' or '/register') */}
+    <button className="fire-button">
+      CRUD
+    </button>
+  </Link>
 );
 
 const Navbar = () => {
