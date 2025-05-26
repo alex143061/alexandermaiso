@@ -10,16 +10,33 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
 
-    // Retrieve existing users from localStorage
-    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+    // Basic input validation
+    if (!username || !email || !password) {
+      alert("Please fill in all fields.");
+      return;
+    }
 
-    // Save the new user registration data
+    // Retrieve existing users from sessionStorage
+    const existingUsers = JSON.parse(sessionStorage.getItem("users")) || [];
+
+    // Check for duplicate username or email
+    const duplicateUser = existingUsers.find(
+      (user) => user.username === username || user.email === email
+    );
+
+    if (duplicateUser) {
+      alert("Username or email already exists.");
+      return;
+    }
+
+    // Add the new user to the users array
     existingUsers.push({ username, email, password });
 
-    // Store the updated array of users in localStorage
-    localStorage.setItem("users", JSON.stringify(existingUsers));
+    // Store the updated users array in sessionStorage
+    sessionStorage.setItem("users", JSON.stringify(existingUsers));
 
-    // Redirect to login page after successful registration
+    // Redirect to login page
+    alert("Registration successful!");
     navigate("/login");
   };
 
@@ -30,21 +47,21 @@ const Register = () => {
         <input
           type="text"
           placeholder="Username"
-          className="p-2 rounded text-black"
+          className="p-2 rounded bg-gray-800 text-white placeholder-gray-400"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="email"
           placeholder="Email"
-          className="p-2 rounded text-black"
+          className="p-2 rounded bg-gray-800 text-white placeholder-gray-400"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
           placeholder="Password"
-          className="p-2 rounded text-black"
+          className="p-2 rounded bg-gray-800 text-white placeholder-gray-400"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

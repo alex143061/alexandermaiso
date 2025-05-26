@@ -15,13 +15,13 @@ const Login = () => {
       return;
     }
 
-    // Retrieve stored users data from localStorage
-    const storedUserData = JSON.parse(localStorage.getItem("users"));
+    // Retrieve stored users data from sessionStorage
+    const storedUserData = JSON.parse(sessionStorage.getItem("users"));
 
     console.log("Stored User Data:", storedUserData); // Debugging
 
     if (!storedUserData || storedUserData.length === 0) {
-      // If no user data is found in localStorage
+      // If no user data is found in sessionStorage
       alert("No registered users found. Please register first.");
       return;
     }
@@ -40,6 +40,8 @@ const Login = () => {
     } else {
       // Show error if credentials are incorrect
       alert("Invalid credentials. Please try again.");
+      setUsername("");
+      setPassword("");
     }
   };
 
@@ -50,14 +52,14 @@ const Login = () => {
         <input
           type="text"
           placeholder="Username"
-          className="p-2 rounded text-black"
+          className="p-2 rounded bg-gray-800 text-white placeholder-gray-400"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="password"
           placeholder="Password"
-          className="p-2 rounded text-black"
+          className="p-2 rounded bg-gray-800 text-white placeholder-gray-400"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
