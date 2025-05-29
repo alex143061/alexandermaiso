@@ -73,6 +73,8 @@ import {
   laravel,
   java,
   wordpress,
+  laravel_alex,
+  ml_alex,
  
 
 
@@ -372,6 +374,20 @@ const imageProjects = [
     image: cybercert,
     url: "https://www.coursera.org/account/accomplishments/certificate/OVU9YNGVXRQD",
     title: "The Foundations of Cybersecurity",
+    description: "",
+  },
+  {
+    id: 8,
+    image: laravel_alex,
+    url: "",
+    title: "Introduction to Laravel",
+    description: "",
+  },
+  {
+    id: 9,
+    image: ml_alex,
+    url: "",
+    title: "Machine Learning Seminar",
     description: "",
   },
   // {

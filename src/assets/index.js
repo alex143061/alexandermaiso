@@ -61,6 +61,9 @@ import cyberpic from "./cyberpic.png"
 import crmhub from "./crmhub.png"
 import googleworkspace from "./googleworkspace.png"
 import cybercert from "./cybercert.png"
+import laravel_alex from "./laravel_alex.png"
+import ml_alex from "./ml_alex.png"
+
 
 
 import portfolio15 from "./portfolio15.png"
@@ -169,4 +172,6 @@ export {
   crmhub,
   googleworkspace,
   cybercert,
+  laravel_alex,
+  ml_alex,
 };
