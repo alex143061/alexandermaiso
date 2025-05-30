@@ -105,7 +105,7 @@ const services = [
     icon: mobile,
   },
   {
-    title: "Tech Support Specialist",
+    title: "Tech Support",
     icon: backend,
   },
   {
@@ -243,9 +243,10 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "2021",
     points: [
-      "Successfully led a team of engineers in the development and deployment of a high-performance API web application within a tight six-week timeframe.",
-      "Designed and implemented a scalable backend service utilizing MongoDB and FastAPI, following a test-driven development approach, ensuring a stable and well-tested codebase.",
-      "Implemented secure user authentication by integrating Simple JWT, ensuring secure access to sensitive user information and a seamless user experience.",
+      "Developed and managed the clinic’s website using WordPress hosted on Bluehost, ensuring smooth performance and reliable uptime.",
+      "Focused on plugin development to add custom features tailored to the clinic’s needs.",
+      "Set up and maintained secure SSL certificates for safe and trusted user access.",
+      "Handled updates, backups, and security settings to keep the site running securely and efficiently.",
     ],
   },
   {
@@ -261,15 +262,15 @@ const experiences = [
     ],
   },
   {
-    title: "Full-Stack Developer",
-    company_name: "Madamcoon",
+    title: "Full-Stack Developer (Desktop Application & Web Application)",
+    company_name: "Personal Projects",
     icon: code1,
     iconBg: "#E6DEDD",
     date: "2023",
     points: [
-      "Spearheaded the revamp of Madamcoon, focusing on responsive design and user experience improvements.",
-      "Integrated CMS and implemented SEO strategies for enhanced online visibility.",
-      "Optimized the website for increased engagement and performance metrics.",
+      "Lost and Found System (University of Mindanao – Matina Campus): Developed a complete desktop application using Java and MySQL, handling both the front-end interface and back-end database for tracking lost and found items.",
+      "Lost and Found Replica (University of Mindanao – Matina Campus): Rebuilt the system using C++ and MySQL as a university project to explore performance and structural differences.",
+      "Web Application (Personal Learning): Built a test web app using the Laravel framework for routing and backend logic, and currently learning the MVC structure of Laravel to improve understanding of how to organize and build scalable applications.",
     ],
   },
   // {
