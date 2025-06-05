@@ -9,7 +9,7 @@ const CanvasAI = () => {
     const ctx = canvas.getContext("2d");
 
     let width, height;
-    const pointCount = 100;
+    const pointCount = 50;
     const maxDistance = 150;
     let points = [];
 
