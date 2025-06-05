@@ -83,6 +83,7 @@
     #f12711,
     #f5af19
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -99,6 +100,7 @@
     #11998e,
     #38ef7d
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -116,6 +118,7 @@
     #2f80ed,
     #56ccf2
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -132,7 +135,8 @@
     #ec008c,
     #fc6767
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-background-clip: text;;
   -webkit-text-fill-color: transparent;
 }
 
@@ -586,4 +590,25 @@
   animation: flameHover 0.8s infinite ease-in-out;
   background-color: #ffe066;
   transform: scale(1.08);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: #1f2937; /* Tailwind slate-800 */
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+canvas {
+  display: block;
+  background: transparent;
+}
+
+.blog-wrapper {
+  position: relative;
+  z-index: 1;
 }
