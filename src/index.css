@@ -83,7 +83,6 @@
     #f12711,
     #f5af19
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -100,7 +99,6 @@
     #11998e,
     #38ef7d
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -135,8 +133,7 @@
     #ec008c,
     #fc6767
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-clip: text;
-  -webkit-background-clip: text;;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -601,6 +598,8 @@ body,
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow-x: hidden;
+  /* Ensure smooth scrolling */
+  scroll-behavior: smooth;
 }
 
 canvas {
@@ -611,4 +610,13 @@ canvas {
 .blog-wrapper {
   position: relative;
   z-index: 1;
+}
+
+/* Optional: Ensure backdrop-filter works on supported browsers */
+nav {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  /* For smoother rendering on some devices */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
