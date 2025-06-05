@@ -18,8 +18,13 @@ const CanvasAI = () => {
     const resize = () => {
       width = window.innerWidth;
       height = window.innerHeight;
-      canvas.width = width;
-      canvas.height = height;
+
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = width + "px";
+      canvas.style.height = height + "px";
+      ctx.scale(dpr, dpr);
     };
 
     class Point {
@@ -92,17 +97,25 @@ const CanvasAI = () => {
       requestAnimationFrame(animate);
     };
 
+    // Initial setup
     resize();
     initPoints();
     animate();
 
-    window.addEventListener("resize", () => {
-      resize();
-      initPoints();
-    });
+    // Debounce resize event to avoid performance issues on mobile
+    let resizeTimeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        resize();
+        initPoints();
+      }, 150);
+    };
+
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -110,6 +123,7 @@ const CanvasAI = () => {
     <canvas
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full pointer-events-none -z-10"
+      style={{ willChange: "transform" }}
     />
   );
 };
