@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import dota2Img from "../blogimages/dota2.jpg";
 import cybersecurityImg from "../blogimages/cybersecurity.jpg";
 import roboticsImg from "../blogimages/robotics.jpg";
-import CanvasAI from "../aiAnimatedLines/CanvasAs";
+import CanvasAI from "../aiAnimatedLines/alex.jsx";
 
 
 
