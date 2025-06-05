@@ -1,11 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
 import dota2Img from "../blogimages/dota2.jpg";
 import cybersecurityImg from "../blogimages/cybersecurity.jpg";
 import roboticsImg from "../blogimages/robotics.jpg";
-import CanvasAI from "../aiAnimatedLines/alex.jsx";
-
-
+import CanvasAI from "../aiAnimatedLines/alex"; // no .jsx extension here
 
 const blogPosts = [
   {
@@ -52,7 +50,7 @@ const Blog = () => {
         {blogPosts.map((post, index) => (
           <article
             key={index}
-            className="mb-12 p-6 rounded-xl bg-[#273549] shadow-lg" // slightly lighter bg for posts
+            className="mb-12 p-6 rounded-xl bg-[#273549] shadow-lg"
           >
             <img
               src={post.image}
@@ -73,5 +71,4 @@ const Blog = () => {
   );
 };
 
-
-export default blog;
+export default Blog;
