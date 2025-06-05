@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import {
@@ -15,12 +16,12 @@ import {
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard"; // Import the Dashboard component
+import Dashboard from "./pages/Dashboard";
+import Blog from "./pages/blog"; // Import the Blog component
 
 const App = () => {
   return (
     <BrowserRouter>
-      {/* Navbar at top level so it's always visible */}
       <Navbar />
 
       <Routes>
@@ -64,7 +65,6 @@ const App = () => {
           path="/login"
           element={
             <div className="relative z-0 bg-primary min-h-screen pt-28">
-              {/* Added pt-28 to offset for fixed navbar */}
               <Login />
             </div>
           }
@@ -84,6 +84,16 @@ const App = () => {
           element={
             <div className="relative z-0 bg-primary min-h-screen pt-28">
               <Dashboard />
+            </div>
+          }
+        />
+
+        {/* Blog Route */}
+        <Route
+          path="/blog"
+          element={
+            <div className="relative z-0 bg-primary min-h-screen pt-28">
+              <Blog />
             </div>
           }
         />

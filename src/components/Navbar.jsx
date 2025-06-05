@@ -37,10 +37,15 @@ const GradientButton = ({ onClick, iconPath, label, downloadLink }) => {
 
 // 🔥 Super Saiyan Fire-Like CRUD Button
 const CrudButton = () => (
-  <Link to="/login"> {/* Change the route as needed (e.g., '/login' or '/register') */}
-    <button className="fire-button">
-      CRUD
-    </button>
+  <Link to="/login">
+    <button className="fire-button">CRUD</button>
+  </Link>
+);
+
+// 🔥 Matching Blog Button (corrected link)
+const BlogsButton = () => (
+  <Link to="/blog"> {/* Corrected path here */}
+    <button className="fire-button">Blog</button>
   </Link>
 );
 
@@ -101,6 +106,7 @@ const Navbar = () => {
           ))}
 
           <CrudButton />
+          <BlogsButton />
         </ul>
 
         {/* Mobile Menu */}
@@ -135,7 +141,7 @@ const Navbar = () => {
                     active === nav.title ? "text-white" : "text-secondary"
                   }`}
                   onClick={() => {
-                    setToggle(!toggle);
+                    setToggle(false);
                     setActive(nav.title);
                   }}
                 >
@@ -144,6 +150,7 @@ const Navbar = () => {
               ))}
 
               <CrudButton />
+              <BlogsButton />
             </ul>
           </div>
         </div>
