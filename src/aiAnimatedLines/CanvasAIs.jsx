@@ -1,4 +1,3 @@
-// CanvasAI.jsx
 import React, { useRef, useEffect } from "react";
 
 const CanvasAI = () => {
@@ -9,8 +8,8 @@ const CanvasAI = () => {
     const ctx = canvas.getContext("2d");
 
     let width, height;
-    const pointCount = 50;
-    const maxDistance = 150;
+    const pointCount = 20; // 20 particles total
+    const maxDistance = 100; // smaller connection distance for performance
     let points = [];
 
     const random = (min, max) => Math.random() * (max - min) + min;
@@ -18,21 +17,18 @@ const CanvasAI = () => {
     const resize = () => {
       width = window.innerWidth;
       height = window.innerHeight;
-
-      const dpr = window.devicePixelRatio || 1;
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      canvas.style.width = width + "px";
-      canvas.style.height = height + "px";
-      ctx.scale(dpr, dpr);
+      canvas.width = width;
+      canvas.height = height;
     };
 
     class Point {
       constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.vx = random(-1, 1);
-        this.vy = random(-1, 1);
+        // Slower velocity for smoother animation, adjust if you want faster
+        const speedRange = 0.5;
+        this.vx = random(-speedRange, speedRange);
+        this.vy = random(-speedRange, speedRange);
         this.radius = 2 + Math.random() * 2;
       }
 
@@ -84,6 +80,8 @@ const CanvasAI = () => {
       }
     };
 
+    let animationId;
+
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
 
@@ -94,28 +92,32 @@ const CanvasAI = () => {
 
       drawConnections();
 
-      requestAnimationFrame(animate);
+      animationId = requestAnimationFrame(animate);
     };
 
-    // Initial setup
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(animationId);
+      } else {
+        animate();
+      }
+    };
+
     resize();
     initPoints();
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
     animate();
 
-    // Debounce resize event to avoid performance issues on mobile
-    let resizeTimeout;
-    const handleResize = () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        resize();
-        initPoints();
-      }, 150);
-    };
-
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", () => {
+      resize();
+      initPoints();
+    });
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(animationId);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("resize", resize);
     };
   }, []);
 
@@ -123,7 +125,6 @@ const CanvasAI = () => {
     <canvas
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full pointer-events-none -z-10"
-      style={{ willChange: "transform" }}
     />
   );
 };
