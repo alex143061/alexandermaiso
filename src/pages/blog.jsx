@@ -1,9 +1,13 @@
 import React from "react";
 
+import dota2Img from "../blogimages/dota2.jpg";
+import cybersecurityImg from "../blogimages/cybersecurity.jpg";
+import roboticsImg from "../blogimages/robotics.jpg";
 const blogPosts = [
   {
     title: "Why Dota 2 Is More Than Just a Game",
     date: "June 5, 2025",
+    image: dota2Img,
     summary:
       "Dota 2 isn’t just about quick reflexes—it’s about teamwork, strategy, and constant learning.",
     content: `Dota 2 has been the game of my life ever since, and this is because there is much more beyond clicking onto heroes and farming creeps; it delves much deeper into strategy within which every decision counts and teamwork becomes the turning point of battle.
@@ -13,17 +17,17 @@ What I love most about it is that every game is unique. You are always adjusting
   {
     title: "Cybersecurity in 2025: What Everyone Should Know",
     date: "May 20, 2025",
+    image: cybersecurityImg,
     summary:
       "Cybersecurity isn’t just for tech experts—it’s something we all need to understand in today’s connected world.",
     content: `Cybersecurity has not entered the great realm of buzzword any longer; the year is 2025, and it is now a necessity. With a connected lifestyle from smart homes all the way to mobile banking, the risks have also climbed higher.
 
-The threats are vast and keep evolving, ranging from the usual theft of personal data to large-scale industrial attacks. The key factor is awareness, using strong passwords, two-factor authentication, and knowing how to identify phishing scams. This knowledge helps mitigate most of the problems. Whether you are a developer or a business owner or just someone browsing the Internet, keeping well-informed is your greatest defense.
-
-`
+The threats are vast and keep evolving, ranging from the usual theft of personal data to large-scale industrial attacks. The key factor is awareness, using strong passwords, two-factor authentication, and knowing how to identify phishing scams. This knowledge helps mitigate most of the problems. Whether you are a developer or a business owner or just someone browsing the Internet, keeping well-informed is your greatest defense.`
   },
   {
     title: "How Robotics Is Changing Our Everyday Lives",
     date: "April 10, 2025",
+    image: roboticsImg,
     summary:
       "Robots aren’t just sci-fi anymore—they’re here, and they’re making real changes in healthcare, manufacturing, and even our homes.",
     content: `Since the good ol' days of futuristic movies, robotics has crossover from being an abstract fantasy to a legitimate tool altering various facets of everyday life. Surgical robots assist doctors in performing surgery with precision, while warehouse bots expedite the delivery process. Altogether, robots have contributed towards speed, safety, and efficiency.
@@ -41,6 +45,11 @@ const Blog = () => {
           key={index}
           className="mb-10 p-6 rounded-xl bg-gradient-to-r from-gray-800 to-gray-900 shadow-md"
         >
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-full h-64 object-cover rounded-xl mb-4"
+          />
           <h2 className="text-2xl font-semibold text-teal-400 mb-2">{post.title}</h2>
           <p className="text-sm text-gray-400 mb-4">{post.date}</p>
           <p className="text-white mb-4">{post.summary}</p>
