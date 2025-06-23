@@ -237,11 +237,23 @@ const technologies = [
 
 const experiences = [
   {
-    title: "WordPress Developer",
+    title: "Full-Stack Developer (Desktop Application & Web Application)",
+    company_name: "Personal Projects",
+    icon: code1,
+    iconBg: "#E6DEDD",
+    date: "2023 - 2025",
+    points: [
+      "Lost and Found System (University of Mindanao – Matina Campus): Developed a complete desktop application using Java and MySQL, handling both the front-end interface and back-end database for tracking lost and found items.",
+      "Lost and Found Replica (University of Mindanao – Matina Campus): Rebuilt the system using C++ and MySQL as a university project to explore performance and structural differences.",
+      "Web Application (Personal Learning): Built a test web app using the Laravel framework for routing and backend logic, and currently learning the MVC structure of Laravel to improve understanding of how to organize and build scalable applications.",
+    ],
+  },
+  {
+  title: "WordPress Developer",
     company_name: "C & L Physiotherapy Clinic",
     icon: code1,
     iconBg: "#E6DEDD",
-    date: "2021",
+    date: "2021 - 2023",
     points: [
       "Developed and managed the clinic’s website using WordPress hosted on Bluehost, ensuring smooth performance and reliable uptime.",
       "Focused on plugin development to add custom features tailored to the clinic’s needs.",
@@ -250,7 +262,8 @@ const experiences = [
     ],
   },
   {
-    title: "Super Reviewer Trainee",
+   
+  title: "Super Reviewer Trainee",
     company_name: "Remotask",
     icon: code1,
     iconBg: "#383E56",
@@ -261,18 +274,9 @@ const experiences = [
       "Collaborated with annotation teams to identify inconsistencies and maintain high annotation standards across complex 3D environments.",
     ],
   },
-  {
-    title: "Full-Stack Developer (Desktop Application & Web Application)",
-    company_name: "Personal Projects",
-    icon: code1,
-    iconBg: "#E6DEDD",
-    date: "2023",
-    points: [
-      "Lost and Found System (University of Mindanao – Matina Campus): Developed a complete desktop application using Java and MySQL, handling both the front-end interface and back-end database for tracking lost and found items.",
-      "Lost and Found Replica (University of Mindanao – Matina Campus): Rebuilt the system using C++ and MySQL as a university project to explore performance and structural differences.",
-      "Web Application (Personal Learning): Built a test web app using the Laravel framework for routing and backend logic, and currently learning the MVC structure of Laravel to improve understanding of how to organize and build scalable applications.",
-    ],
-  },
+
+
+
   // {
   //   title: "Fulstack Developer",
   //   company_name: "YOUTUBE CLONE",
