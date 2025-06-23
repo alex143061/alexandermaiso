@@ -75,6 +75,7 @@ import {
   wordpress,
   laravel_alex,
   ml_alex,
+  clinic,
  
 
 
@@ -480,11 +481,11 @@ const projects = [
       },
       {
         name: "C++",
-        color: "green-text-gradient",
+        color: "pink-text-gradient",
       },
       {
         name: "Automation",
-        color: "pink-text-gradient",
+        color: "green-text-gradient",
       },
     ],
     image: line_follower,
@@ -498,21 +499,52 @@ const projects = [
     tags: [
       {
         name: "C++",
-        color: "blue-text-gradient",
+        color: "pink-text-gradient",
       },
       {
         name: "MySQL",
-        color: "green-text-gradient",
+        color: "blue-text-gradient",
       },
       {
         name: "MySQL Workbench Server",
-        color: "pink-text-gradient",
+        color: "green-text-gradient",
       },
     ],
     image: lost_found,
     source_code_link: "https://github.com/alex143061/Lost-And-Found-System-UM-Matina",
     liveUrl: "",
   },
+    {
+    name: "C & L Physiotherapy",
+    description:
+      "Built and maintained a WordPress site on Bluehost for strong performance, developed custom plugins tailored to clinic-specific functionality needs, and ensured reliable website uptime while implementing SEO best practices for enhanced visibility. ",
+    tags: [
+      {
+        name: "Cpanel",
+        color: "green-text-gradient",
+      },
+      {
+        name: "phpMyAdmin",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "MySQL",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "SSL/TLS",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Wordpress",
+        color: "blue-text-gradient",
+      },
+    ],
+    image: clinic,
+    source_code_link: "https://www.healthdirect.gov.au/",
+    liveUrl: "https://www.healthdirect.gov.au/",
+  },
+
   // {
   //   name: "Beeclone",
   //   description:

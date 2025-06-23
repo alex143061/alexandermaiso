@@ -80,6 +80,7 @@ import smartrep from "./smartrep.png";
 import pautang from "./pautang.png";
 import line_follower from "./line_follower.jpg";
 import lost_found from "./lost_found.png";
+import clinic from "./clinic.png";
 
 
 import matrixai from "./matrixai.png";
@@ -174,4 +175,5 @@ export {
   cybercert,
   laravel_alex,
   ml_alex,
+  clinic,
 };
