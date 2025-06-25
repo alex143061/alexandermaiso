@@ -5,7 +5,7 @@ import { styles } from "../styles"
 import { SectionWrapper } from "../hoc"
 import { fadeIn, textVariant } from "../utils/motion"
 import { CVDuncan } from "../constants"
-import CVDoc from "../assets/alex_cv.pdf"
+import CVDoc from "../assets/AlexanderMaiso_ComputerEngineer_Resume.pdf"
 
 const Card = ({ index, text, name, designation, company, image }) => (
   <div className="bg-black-200 p-10 rounded-3xl xs:w-[320px] w-full select-none">
@@ -33,7 +33,7 @@ const CV = () => {
 
             <a href={CVDoc} download>
               <button className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary text-[21px]">
-                Download CV
+                Resume.pdf
               </button>
             </a>
           </div>

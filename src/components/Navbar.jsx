@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
-import resume from "/src/alex_cv.pdf";
+import resume from "/src/AlexanderMaiso_ComputerEngineer_Resume.pdf";
 import { logo_white } from "../assets";
 
 // GradientButton for "Download CV"
@@ -89,7 +89,7 @@ const Navbar = () => {
           <GradientButton
             downloadLink={resume}
             iconPath="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"
-            label="Download CV"
+            label="Resume.pdf"
             onClick={() => setActive("")}
           />
 
@@ -127,7 +127,7 @@ const Navbar = () => {
               <GradientButton
                 downloadLink={resume}
                 iconPath="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"
-                label="Download CV"
+                label="Resume.pdf"
                 onClick={() => {
                   setActive("");
                   setToggle(false);
