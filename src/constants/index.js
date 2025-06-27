@@ -545,6 +545,29 @@ const projects = [
     liveUrl: "https://www.healthdirect.gov.au/",
   },
 
+  {
+    name: "Alexander Maiso E-commerce App",
+    description:
+      "I built a fully responsive, full-stack e-commerce application from scratch using local development. The project leverages modern React and Next.js best practices and integrates Stripe for secure payment processing. It features a dynamic content management system powered by Sanity, allowing real-time updates to the home page and product listings. The application is optimized for mobile devices and includes robust features such as product management (add/edit), advanced cart functionality, and a complete checkout flow.",
+    tags: [
+      {
+        name: "Next.js",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Stripe",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Sanity",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: shop,
+    source_code_link: "https://alexandermaiso-ecommerce-app.vercel.app/",
+    liveUrl: "https://alexandermaiso-ecommerce-app.vercel.app/",
+  },
+
   // {
   //   name: "Beeclone",
   //   description:
@@ -743,28 +766,7 @@ const projects = [
   //   source_code_link: "https://github.com/jeffjiang13/movie-app",
   //   liveUrl: "https://jj-movie-app.netlify.app/",
   // },
-  // {
-  //   name: "Ecommerce App",
-  //   description:
-  //     "Fully responsive, full-stack e-commerce application with payments. It includes advanced React and Next.js best practices, and integrates Stripe for payment processing. The content of the app can be managed using Sanity, which allows for dynamic modifications of the store's home page and product details. The app is mobile-responsive and includes features such as adding and editing products, advanced card functionalities, and a complete checkout process.",
-  //   tags: [
-  //     {
-  //       name: "Next.js",
-  //       color: "blue-text-gradient",
-  //     },
-  //     {
-  //       name: "Stripe",
-  //       color: "green-text-gradient",
-  //     },
-  //     {
-  //       name: "Sanity",
-  //       color: "pink-text-gradient",
-  //     },
-  //   ],
-  //   image: shop,
-  //   source_code_link: "https://github.com/jeffjiang13/ecommerce_sanity",
-  //   liveUrl: "https://jj-ecomstore.vercel.app/",
-  // },
+  // 
   // {
   //   name: "YouTube Clone",
   //   description:
