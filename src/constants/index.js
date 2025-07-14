@@ -548,7 +548,7 @@ const projects = [
   {
     name: "Alexander Maiso E-commerce App",
     description:
-      "I built a fully responsive, full-stack e-commerce application from scratch using local development. The project leverages modern React and Next.js best practices and integrates Stripe for secure payment processing. It features a dynamic content management system powered by Sanity, allowing real-time updates to the home page and product listings. The application is optimized for mobile devices and includes robust features such as product management (add/edit), advanced cart functionality, and a complete checkout flow.",
+      "A modern headless e-commerce platform built with WordPress as the backend CMS and Next.js for the frontend. Product and content data are managed in WordPress and fetched via WPGraphQL, WooCommerce, and Advanced Custom Fields (ACF), then rendered on the frontend through a blazing-fast Vercel deployment.",
     tags: [
       {
         name: "WPGraphQL",
