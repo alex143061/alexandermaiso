@@ -551,15 +551,15 @@ const projects = [
       "I built a fully responsive, full-stack e-commerce application from scratch using local development. The project leverages modern React and Next.js best practices and integrates Stripe for secure payment processing. It features a dynamic content management system powered by Sanity, allowing real-time updates to the home page and product listings. The application is optimized for mobile devices and includes robust features such as product management (add/edit), advanced cart functionality, and a complete checkout flow.",
     tags: [
       {
-        name: "Next.js",
+        name: "WPGraphQL",
         color: "blue-text-gradient",
       },
       {
-        name: "Stripe",
+        name: "WooCommerce",
         color: "green-text-gradient",
       },
       {
-        name: "Sanity",
+        name: "Advanced Custom Fields (ACF)",
         color: "pink-text-gradient",
       },
     ],
