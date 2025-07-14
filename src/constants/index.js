@@ -634,28 +634,28 @@ const projects = [
   //   source_code_link: "https://github.com/jeffjiang13/LinkTree",
   //   liveUrl: "https://jj-linktri.vercel.app/",
   // },
-  // {
-  //   name: "Instagram Clone,",
-  //   description:
-  //     "The IG App 2024 is a comprehensive clone of the Instagram platform, designed to replicate the core functionalities and visual appeal of the original app with added enhancements. Developed using modern web technologies such as Vite, React.js, and Tailwind CSS, this project emphasizes a responsive and eye-catching user interface, ensuring optimal performance and user experience across various devices, specifically optimized for screens with a minimum width of 375px.",
-  //   tags: [
-  //     {
-  //       name: "Vite.js",
-  //       color: "blue-text-gradient",
-  //     },
-  //     {
-  //       name: "React.js",
-  //       color: "green-text-gradient",
-  //     },
-  //     {
-  //       name: "Tailwind",
-  //       color: "pink-text-gradient",
-  //     },
-  //   ],
-  //   image: ig,
-  //   source_code_link: "https://github.com/jeffjiang13/IG-2.0",
-  //   liveUrl: "https://quicktele.netlify.app/",
-  // },
+  {
+    name: "Instagram Clone,",
+    description:
+      "A headless Instagram-style web app using WordPress as the backend (Elementor and ACF for content management) and a custom frontend deployed on Vercel. The project replicates the core layout and user interface of Instagram.",
+    tags: [
+      {
+        name: "WordPress",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Headless CMS",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Elementor",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: ig,
+    source_code_link: "https://wordpress-insta-alex.vercel.app/",
+    liveUrl: "https://wordpress-insta-alex.vercel.app/",
+  },
   // {
   //   name: "TikTok Clone",
   //   description:
