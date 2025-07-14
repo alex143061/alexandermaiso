@@ -635,7 +635,7 @@ const projects = [
   //   liveUrl: "https://jj-linktri.vercel.app/",
   // },
   {
-    name: "Instagram Clone,",
+    name: "Instagram Clone",
     description:
       "A headless Instagram-style web app using WordPress as the backend (Elementor and ACF for content management) and a custom frontend deployed on Vercel. The project replicates the core layout and user interface of Instagram.",
     tags: [
