@@ -528,7 +528,7 @@ const projects = [
         color: "blue-text-gradient",
       },
       {
-        name: "MySQL",
+        name: "Elementor",
         color: "pink-text-gradient",
       },
       {
