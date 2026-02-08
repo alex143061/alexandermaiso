@@ -48,14 +48,18 @@ const About = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-         I'm Alexander Maiso, a dedicated Computer Engineer and Full-Stack Developer with a solid background in WordPress development, software development, and technical support. I enjoy building dynamic websites, creating custom plugins, and integrating APIs to help improve web and business systems. I’ve worked with MySQL, CRM workflows and automation, and desktop applications, and I approach every project with a focus on learning, efficiency, and real-world results. With a natural inclination for tech support, I also offer reliable troubleshooting and network administration to help keep systems running smoothly. Feel free to explore my projects or reach out at {" "}
+         I am a Computer Engineer and Fullstack Developer with a strong background in Technical Virtual Assistance. I specialize in building high-performance WordPress sites and managing complex business systems through API integrations, CRM automation, and technical support.
+
+By combining engineering precision with executive-level support, I bridge the gap between development and operations. I focus on delivering clean code, efficient workflows, and reliable troubleshooting to help businesses run smoothly and scale effectively.
+
+Explore my projects below or reach out at  {" "}
           <a
             href="alexandermaiso99@gmail.com"
             className="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black"
           >
             alexandermaiso99@gmail.com
           </a>{" "}
-       . I'm always open to learning from others and working on meaningful collaborations.{" "}
+       to discuss how I can support your technical and business needs.{" "}
         </p>
         <Tilt className="xs:w-[350px] xs:h-[350px] w-full h-full m-auto max-[1000px]:my-14">
           <div
