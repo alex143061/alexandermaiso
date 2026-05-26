@@ -678,6 +678,10 @@ const projects = [
         name: "Elementor Pro",
         color: "pink-text-gradient",
       },
+      {
+        name: "Custom Code",
+        color: "green-text-gradient",
+      },
     ],
     image: learneducolor2,
     source_code_link: "https://learneducolor.com/",
@@ -706,6 +710,10 @@ const projects = [
       },
           {
         name: "Woocommerce",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Custom Code",
         color: "green-text-gradient",
       },
     ],
