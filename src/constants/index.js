@@ -56,6 +56,9 @@ import {
   tiktok,
   ig,
   beeclone,
+  learneducolor2,
+  createlabz,
+  educolorworld,
 
   smartrep,
   pautang,
@@ -548,7 +551,7 @@ const projects = [
   {
     name: "Alexander Maiso E-commerce App",
     description:
-      "A modern headless e-commerce platform built with WordPress as the backend CMS and Next.js for the frontend. Product and content data are managed in WordPress and fetched via WPGraphQL, WooCommerce, and Advanced Custom Fields (ACF), then rendered on the frontend through a blazing-fast Vercel deployment.",
+      "Web Link: alexandermaiso-ecommerce-app.vercel.app — A modern headless e-commerce platform built with WordPress as the backend CMS and Next.js for the frontend, where product and content data are managed in WordPress and fetched via WPGraphQL, WooCommerce, and Advanced Custom Fields (ACF), then rendered through a blazing-fast Vercel deployment.",
     tags: [
       {
         name: "WPGraphQL",
@@ -634,28 +637,116 @@ const projects = [
   //   source_code_link: "https://github.com/jeffjiang13/LinkTree",
   //   liveUrl: "https://jj-linktri.vercel.app/",
   // },
-  {
-    name: "Instagram Clone",
+  // {
+  //   name: "Instagram Clone",
+  //   description:
+  //     "Web Link: wordpress-insta-alex.vercel.app/login — A headless Instagram-style web app using WordPress as the backend, with Elementor Pro and Advanced Custom Fields (ACF) for content management, and a custom frontend deployed on Vercel, replicating the core layout and user interface of Instagram.",
+  //   tags: [
+  //     {
+  //       name: "WordPress",
+  //       color: "blue-text-gradient",
+  //     },
+  //     {
+  //       name: "Headless CMS",
+  //       color: "green-text-gradient",
+  //     },
+  //     {
+  //       name: "Elementor Pro",
+  //       color: "pink-text-gradient",
+  //     },
+  //   ],
+  //   image: ig,
+  //   source_code_link: "https://wordpress-insta-alex.vercel.app/",
+  //   liveUrl: "https://wordpress-insta-alex.vercel.app/",
+  // },
+
+
+ {
+    name: "LearnEduColor LMS Website",
     description:
-      "A headless Instagram-style web app using WordPress as the backend (Elementor and ACF for content management) and a custom frontend deployed on Vercel. The project replicates the core layout and user interface of Instagram.",
+      "Client Website: learneducolor.com — As a WordPress developer for LearnEduColor, I design and develop a fully responsive and user-friendly e-learning platform using Elementor Pro and Tutor LMS Pro, ensuring seamless functionality across desktop, tablet, and mobile devices. My responsibilities include developing modern UI/UX layouts, customizing LMS functionalities, managing course and student experiences, implementing responsive designs, optimizing website performance, and creating dynamic user dashboards to deliver an engaging and professional online learning environment.",
     tags: [
       {
         name: "WordPress",
+        color: "green-text-gradient",
+      },
+      {
+        name: "TutorLmsPro",
         color: "blue-text-gradient",
       },
       {
-        name: "Headless CMS",
+        name: "Elementor Pro",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: learneducolor2,
+    source_code_link: "https://learneducolor.com/",
+    liveUrl: "https://learneducolor.com/",
+  },
+
+
+
+
+ {
+    name: "Createlabz.io IoT based Website",
+    description:
+      "Client Website: createlabz.io — I developed this IoT-inspired e-commerce website using WordPress with the OiTech Theme, Elementor, and WooCommerce to create a modern, responsive, and visually engaging online store showcasing IoT-related products. The project involved extensive customization using custom PHP, JavaScript, and CSS, implementation of custom design elements, configuration of code snippets, and enhancement of UI/UX for a smooth shopping experience. I also ensured full responsiveness across desktop, tablet, and mobile devices, optimized performance, and refined the overall layout to deliver a professional, scalable, and conversion-focused e-commerce platform.",
+    tags: [
+      {
+        name: "WordPress",
         color: "green-text-gradient",
+      },
+      {
+        name: "Oitech Theme",
+        color: "blue-text-gradient",
       },
       {
         name: "Elementor",
         color: "pink-text-gradient",
       },
+          {
+        name: "Woocommerce",
+        color: "green-text-gradient",
+      },
     ],
-    image: ig,
-    source_code_link: "https://wordpress-insta-alex.vercel.app/",
-    liveUrl: "https://wordpress-insta-alex.vercel.app/",
+    image: createlabz,
+    source_code_link: "https://createlabz.io/",
+    liveUrl: "https://createlabz.io/",
   },
+
+
+   {
+    name: "Educolorworld Website",
+    description:
+      "Client Website: educolorworld.com — I redesigned and modernized the existing educolorworld.com website by fully implementing their provided website mockups into a fully functional, responsive, and visually polished funnel website. The platform was strategically developed to serve as the primary gateway directing users toward its connected platforms, learneducolor.com and educolorpress.com. The project involved designing and developing approximately 11 custom pages using WordPress, Elementor Pro, and custom front-end development techniques to create a modern, conversion-focused, and user-friendly experience. I implemented extensive customizations using PHP, JavaScript, and CSS to accurately match the provided mockups while enhancing the overall UI/UX, responsiveness, navigation flow, branding consistency, and website structure. In addition, I optimized the platform across desktop, tablet, and mobile devices to ensure smooth performance and a seamless browsing experience. The final outcome was a professional, scalable, and visually engaging funnel website that strengthens the company’s online presence while effectively guiding users throughout its educational and publishing ecosystem.",
+    tags: [
+      {
+        name: "WordPress",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Javascript",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Elementor Pro",
+        color: "pink-text-gradient",
+      },
+          {
+        name: "Custom Code",
+        color: "green-text-gradient",
+      },
+    ],
+    image: educolorworld,
+    source_code_link: "https://educolorworld.com/",
+    liveUrl: "https://educolorworld.com/",
+  },
+
+
+
+
+
+
   // {
   //   name: "TikTok Clone",
   //   description:

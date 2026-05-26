@@ -48,18 +48,14 @@ const About = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-         I am a Computer Engineer and Fullstack Developer with a strong background in Technical Virtual Assistance. I specialize in building high-performance WordPress sites and managing complex business systems through API integrations, CRM automation, and technical support.
-
-By combining engineering precision with executive-level support, I bridge the gap between development and operations. I focus on delivering clean code, efficient workflows, and reliable troubleshooting to help businesses run smoothly and scale effectively.
-
-Explore my projects below or reach out at  {" "}
+        I am a web developer with a strong foundation in building applications from scratch using Laravel, a PHP framework similar in architecture to WordPress in terms of running on PHP, which gives me deep understanding of backend systems, database design, and scalable application structure. I specialize in developing high-performance WordPress websites and modern web solutions using Elementor, WooCommerce, and custom code to extend functionality and improve user experience. My background in Laravel allows me to approach WordPress development with an engineering mindset, focusing on clean architecture, efficient workflows, API integrations, and system optimization. I also prioritize responsive UI/UX design, performance tuning, and reliable troubleshooting to ensure smooth and scalable digital solutions. Explore my projects below or get in touch at  {" "}
           <a
             href="alexandermaiso99@gmail.com"
             className="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black"
           >
             alexandermaiso99@gmail.com
           </a>{" "}
-       to discuss how I can support your technical and business needs.{" "}
+      to discuss potential collaborations or technical needs.{" "}
         </p>
         <Tilt className="xs:w-[350px] xs:h-[350px] w-full h-full m-auto max-[1000px]:my-14">
           <div

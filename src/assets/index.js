@@ -87,7 +87,9 @@ import matrixai from "./matrixai.png";
 import beeclone from "./beeclone.png";
 import notable from "./notable.png";
 import zapflow from "./zapflow.png";
-
+import learneducolor2 from "./learneducolor2.png";
+import createlabz from "./createlabz.png";
+import educolorworld from "./educolorworld.png";
 
 
 export {
@@ -148,6 +150,9 @@ export {
   tiktok,
   ig,
   linktree,
+  learneducolor2,
+  createlabz,
+  educolorworld,
 
 
   smartrep,
