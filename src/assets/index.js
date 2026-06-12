@@ -90,6 +90,7 @@ import zapflow from "./zapflow.png";
 import learneducolor2 from "./learneducolor2.png";
 import createlabz from "./createlabz.png";
 import educolorworld from "./educolorworld.png";
+import mobileapp from "./mobileapp.jpeg";
 
 
 export {
@@ -153,6 +154,7 @@ export {
   learneducolor2,
   createlabz,
   educolorworld,
+  mobileapp,
 
 
   smartrep,

@@ -59,6 +59,7 @@ import {
   learneducolor2,
   createlabz,
   educolorworld,
+  mobileapp,
 
   smartrep,
   pautang,
@@ -547,6 +548,44 @@ const projects = [
     source_code_link: "https://www.healthdirect.gov.au/",
     liveUrl: "https://www.healthdirect.gov.au/",
   },
+
+
+
+ {
+    name: "PawLitrax™",
+    description:
+      "An AI-powered smart pet care system that monitors cat litter levels using computer vision and an advanced automated waste management machine. Built as a Computer Engineering capstone project, the platform combines mobile application development, embedded systems, IoT, and real-time monitoring to help pet owners maintain a cleaner, healthier, and more efficient litter management experience. ",
+    tags: [
+      {
+        name: "Flutter",
+        color: "green-text-gradient",
+      },
+      {
+        name: "PHP",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "MySql",
+        color: "pink-text-gradient",
+      },
+      // {
+      //   name: "Python",
+      //   color: "green-text-gradient",
+      // },
+      // {
+      //   name: "Dart",
+      //   color: "blue-text-gradient",
+      // },
+    ],
+    image: mobileapp,
+    source_code_link: "https://github.com/alex143061/cat-litter-mobile-app-thesis.git",
+    liveUrl: "https://github.com/alex143061/cat-litter-mobile-app-thesis.git",
+  },
+
+
+
+
+
 
   {
     name: "Alexander Maiso E-commerce App",
