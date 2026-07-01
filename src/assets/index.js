@@ -91,6 +91,7 @@ import learneducolor2 from "./learneducolor2.png";
 import createlabz from "./createlabz.png";
 import educolorworld from "./educolorworld.png";
 import mobileapp from "./mobileapp.jpeg";
+import IKF from "./IKF.png";
 
 
 export {
@@ -155,6 +156,7 @@ export {
   createlabz,
   educolorworld,
   mobileapp,
+  IKF,
 
 
   smartrep,

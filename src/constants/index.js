@@ -60,6 +60,7 @@ import {
   createlabz,
   educolorworld,
   mobileapp,
+  IKF,
 
   smartrep,
   pautang,
@@ -790,6 +791,37 @@ const projects = [
   },
 
 
+
+
+
+     {
+    name: "Impossible Kids Website",
+    description:
+      "Client Website: impossiblekids.ca — I built the Impossible Kids Foundation website from the ground up by setting up the WordPress hosting environment on GoDaddy and developing the entire website from scratch based on the client's provided website mockups. The platform was strategically developed to establish a professional online presence for the organization while effectively showcasing its mission, programs, events, sponsorship opportunities, and donation initiatives. The project involved designing and developing approximately 15 custom pages using WordPress, Elementor Pro, and custom front-end development techniques to create a modern, engaging, and user-friendly nonprofit website. I implemented extensive customizations using JavaScript and CSS to accurately match the provided mockups while enhancing the overall UI/UX, responsiveness, navigation flow, branding consistency, and website structure. In addition, I optimized the platform across desktop, tablet, and mobile devices to ensure smooth performance and a seamless browsing experience. The final outcome was a professional, scalable, and visually engaging nonprofit website that strengthens the organization's online presence while providing visitors with an intuitive and accessible experience across all devices. ",
+    tags: [
+      {
+       name: "Wordpress",
+        color: "blue-text-gradient",
+      },
+      {
+        
+         name: "Elementor Pro",
+        color: "green-text-gradient",
+      },
+      {
+       
+         name: "Advanced Custom Code",
+        color: "green-text-gradient",
+      },
+          {
+        name: "Hosting",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: IKF,
+    source_code_link: "https://impossiblekids.ca/",
+    liveUrl: "https://impossiblekids.ca/",
+  },
 
 
 
