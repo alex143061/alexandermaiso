@@ -2,23 +2,114 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./src/assets/logo_alex.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Alexander Maiso" />
-    <meta name="description" content="The official 3D portfolio of Alexander Maiso, showcasing creative projects and skills in modern web technologies." />
-    <title>Alexander Maiso | Portfolio</title>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGYJ9HG0M1"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
+    <title>Alexander Maiso | Full-Stack Developer & Computer Engineer</title>
+
+    <meta
+      name="description"
+      content="Alexander Maiso is a Computer Engineer and Full-Stack Developer specializing in web development, software development, IoT, and AI."
+    />
+
+    <meta name="author" content="Alexander Maiso" />
+
+    <meta
+      name="keywords"
+      content="Alexander Maiso, Alexander Maiso portfolio, Alexander Maiso developer, Alexander Maiso Computer Engineer, Full-Stack Developer, Web Developer, Software Developer, IoT Developer"
+    />
+
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical URL -->
+    <link
+      rel="canonical"
+      href="https://alexandermaiso.vercel.app/"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/logo.svg"
+    />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta
+      property="og:title"
+      content="Alexander Maiso | Full-Stack Developer & Computer Engineer"
+    />
+
+    <meta
+      property="og:description"
+      content="Portfolio of Alexander Maiso, a Computer Engineer and Full-Stack Developer specializing in web development, software development, IoT, and AI."
+    />
+
+    <meta
+      property="og:url"
+      content="https://alexandermaiso.vercel.app/"
+    />
+
+    <meta
+      property="og:type"
+      content="website"
+    />
+
+    <meta
+      property="og:site_name"
+      content="Alexander Maiso Portfolio"
+    />
+
+    <!-- Twitter / X -->
+    <meta
+      name="twitter:card"
+      content="summary"
+    />
+
+    <meta
+      name="twitter:title"
+      content="Alexander Maiso | Full-Stack Developer & Computer Engineer"
+    />
+
+    <meta
+      name="twitter:description"
+      content="Portfolio of Alexander Maiso, a Computer Engineer and Full-Stack Developer."
+    />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Alexander Maiso",
+        "url": "https://alexandermaiso.vercel.app/",
+        "jobTitle": "Full-Stack Developer",
+        "description": "Computer Engineer and Full-Stack Developer specializing in web development, software development, IoT, and AI."
+      }
+    </script>
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-TGYJ9HG0M1"
+    ></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-TGYJ9HG0M1');
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag("js", new Date());
+      gtag("config", "G-TGYJ9HG0M1");
     </script>
   </head>
+
   <body>
     <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
