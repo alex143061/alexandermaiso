@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 
@@ -10,6 +10,14 @@ import { fadeIn, textVariant } from "../utils/motion";
 import livelink from "../assets/liveLink.png";
 
 const ImageModal = ({ project, isOpen, onClose }) => {
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [onClose]);
+
   if (!isOpen) return null;
 
   return (
@@ -115,7 +123,7 @@ const ProjectCard = ({
 
       <div className="mt-5">
         <h3 className="text-white font-bold text-[24px]">{name}</h3>
-        <p className="mt-2 text-secondary text-[14px] h-[8rem] overflow-y-scroll">
+        <p className="mt-2 text-secondary text-[14px] line-clamp-3">
           {description}
         </p>
       </div>
