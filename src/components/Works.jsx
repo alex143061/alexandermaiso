@@ -27,7 +27,7 @@ const ImageModal = ({ project, isOpen, onClose }) => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
       onClick={onClose}
-      className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8"
+      className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8"
     >
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
