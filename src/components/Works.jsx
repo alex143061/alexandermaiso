@@ -6,7 +6,7 @@ import { styles } from "../styles";
 import { github, close } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
-import { fadeIn, textVariant, zoomIn } from "../utils/motion";
+import { fadeIn, textVariant } from "../utils/motion";
 import livelink from "../assets/liveLink.png";
 
 const ImageModal = ({ project, isOpen, onClose }) => {
@@ -59,121 +59,121 @@ const ProjectCard = ({
   image,
   source_code_link,
   liveUrl,
-  // height, // add this
-  // width
+  onImageClick,
 }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  return (
+    <Tilt
+      options={{
+        max: 45,
+        scale: 1,
+        speed: 450,
+      }}
+      className="bg-tertiary p-5 rounded-2xl w-full cursor-pointer hover:scale-[1.02] transition-transform"
+      onClick={onImageClick}
+    >
+      <div className="relative w-full h-[230px] overflow-hidden rounded-3xl group">
+        <img
+          src={image}
+          alt="project_image"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
 
-  return (<>
-      // <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <Tilt
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full cursor-pointer hover:scale-[1.02] transition-transform"
-        onClick={() => setIsModalOpen(true)}
-      >
-        <div className="relative w-full h-[230px] overflow-hidden rounded-3xl group">
-          <img
-            src={image}
-            alt="project_image"
-            // style={{ height: `${height}px`, width: width ? `${width}px` : "100%" }}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-
-          <div className="absolute inset-0 flex gap-2 justify-end m-3 card-img_hover">
-            <div
-              onClick={(e) => {
-                e.stopPropagation();
-                window.open(source_code_link, "_blank");
-              }}
-              className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer"
-            >
-              <img
-                src={github}
-                alt="source code"
-                className="w-2/3 h-2/3 object-contain"
-              />
-            </div>
-            <div
-              onClick={(e) => {
-                e.stopPropagation();
-                window.open(liveUrl, "_blank");
-              }}
-              className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer"
-            >
-              <img
-                src={livelink}
-                alt="live url"
-                className="w-2/3 h-2/3 object-contain"
-              />
-            </div>
+        <div className="absolute inset-0 flex gap-2 justify-end m-3">
+          <div
+            onClick={(e) => {
+              e.stopPropagation();
+              window.open(source_code_link, "_blank");
+            }}
+            className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer"
+          >
+            <img
+              src={github}
+              alt="source code"
+              className="w-2/3 h-2/3 object-contain"
+            />
           </div>
-
-          <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur px-3 py-1.5 rounded-full text-xs font-medium text-white border border-white/20">
-            Click to view
+          <div
+            onClick={(e) => {
+              e.stopPropagation();
+              window.open(liveUrl, "_blank");
+            }}
+            className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer"
+          >
+            <img
+              src={livelink}
+              alt="live url"
+              className="w-2/3 h-2/3 object-contain"
+            />
           </div>
         </div>
 
-        <div className="mt-5">
-          <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-secondary text-[14px] h-[8rem] overflow-y-scroll">
-            {description}
+        <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur px-3 py-1.5 rounded-full text-xs font-medium text-white border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity">
+          Click to view
+        </div>
+      </div>
+
+      <div className="mt-5">
+        <h3 className="text-white font-bold text-[24px]">{name}</h3>
+        <p className="mt-2 text-secondary text-[14px] h-[8rem] overflow-y-scroll">
+          {description}
+        </p>
+      </div>
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <p
+            key={`${name}-${tag.name}`}
+            className={`text-[14px] ${tag.color}`}
+          >
+            #{tag.name}
           </p>
-        </div>
-
-        <div className="mt-4 flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <p
-              key={`${name}-${tag.name}`}
-              className={`text-[14px] ${tag.color}`}
-            >
-              #{tag.name}
-            </p>
-          ))}
-        </div>
-      </Tilt>
-    // </motion.div>
-    <ImageModal
-      project={{ name, description, image }}
-      isOpen={isModalOpen}
-      onClose={() => setIsModalOpen(false)}
-    />
-    </>
+        ))}
+      </div>
+    </Tilt>
   );
 };
 
 const Works = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
     <>
-      {/* <motion.div variants={textVariant()}> */}
-        <p className={`${styles.sectionSubText} `}>My work</p>
-        <h2
-          className={`${styles.sectionHeadText} animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black`}
-        >
-          Projects.
-        </h2>
-      {/* </motion.div> */}
+      <p className={`${styles.sectionSubText} `}>My work</p>
+      <h2
+        className={`${styles.sectionHeadText} animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black`}
+      >
+        Projects.
+      </h2>
 
       <div className="w-full flex">
         <p
           variants={fadeIn("", "", 1, 1)}
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-          These projects reflect my skills and experience, offering real-world examples of my work. Each project is briefly described with links to the code repositories, showcasing my ability to tackle challenges, learn new technologies, and manage tasks effectively. I also have several other projects that I haven’t included here yet, including my Computer Vision project and a mobile app, which was my thesis, but I hope to share them if I have the time.
+          These projects reflect my skills and experience, offering real-world examples of my work. Each project is briefly described with links to the code repositories, showcasing my ability to tackle challenges, learn new technologies, and manage tasks effectively. I also have several other projects that I haven't included here yet, including my Computer Vision project and a mobile app, which was my thesis, but I hope to share them if I have the time.
         </p>
       </div>
 
-      <div className="mt-20 flex flex-wrap gap-7">
+      <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
         {projects.map((project, index) => (
-          <ProjectCard key={`project-${index}`} index={index} {...project} />
+          <ProjectCard
+            key={`project-${index}`}
+            index={index}
+            {...project}
+            onImageClick={() => setSelectedProject(project)}
+          />
         ))}
       </div>
+
+      {selectedProject && (
+        <ImageModal
+          project={selectedProject}
+          isOpen={true}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </>
   );
 };
 
 export default SectionWrapper(Works, "");
-
