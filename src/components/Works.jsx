@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 
@@ -14,13 +15,32 @@ const ImageModal = ({ project, isOpen, onClose }) => {
     const handleEsc = (e) => {
       if (e.key === "Escape") onClose();
     };
+
+    // Lock body scroll when modal opens
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    }
+
     window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [onClose]);
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+      // Restore body scroll when modal closes or unmounts
+      document.body.style.overflow = "";
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
-  return (
+  // Create portal root if it doesn't exist
+  let portalRoot = document.getElementById("modal-portal");
+  if (!portalRoot) {
+    portalRoot = document.createElement("div");
+    portalRoot.id = "modal-portal";
+    document.body.appendChild(portalRoot);
+  }
+
+  return createPortal(
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -55,7 +75,8 @@ const ImageModal = ({ project, isOpen, onClose }) => {
           </p>
         </div>
       </motion.div>
-    </motion.div>
+    </motion.div>,
+    portalRoot
   );
 };
 
