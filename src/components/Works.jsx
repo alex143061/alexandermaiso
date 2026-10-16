@@ -1,3 +1,4 @@
+export default SectionWrapper(Works, "");
 import React, { useState, useEffect } from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
