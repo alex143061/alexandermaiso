@@ -69,21 +69,13 @@ const ProjectCard = ({
         speed: 450,
       }}
       className="bg-tertiary p-5 rounded-2xl w-full cursor-pointer hover:scale-[1.02] transition-transform"
+      onClick={onImageClick}
     >
       <div className="relative w-full h-[230px] overflow-hidden rounded-3xl group">
         <img
           src={image}
           alt="project_image"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-
-        {/* Clickable overlay over the whole image to open lightbox */}
-        <div
-          onClick={(e) => {
-            e.stopPropagation();
-            onImageClick();
-          }}
-          className="absolute inset-0 z-10 cursor-pointer"
         />
 
         <div className="absolute inset-0 flex gap-2 justify-end m-3 z-20">
