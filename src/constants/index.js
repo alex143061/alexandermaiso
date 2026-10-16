@@ -964,46 +964,58 @@ const projects = [
   {
     name: "Lex Karaoke",
     description:
-      "A karaoke web application built with WordPress, featuring a song library, user playback controls, and a responsive interface for an engaging karaoke experience. The site allows users to browse and play karaoke tracks seamlessly across devices.",
+      "A karaoke web application built with Next.js, React, TypeScript, and Tailwind CSS. Features a song library, user playback controls, QR code guest joining, and Supabase-backed queue management with YouTube search integration. Live at https://lex-karaoke.vercel.app/.",
     tags: [
       {
-        name: "WordPress",
-        color: "green-text-gradient",
-      },
-      {
-        name: "JavaScript",
+        name: "Next.js",
         color: "blue-text-gradient",
       },
       {
-        name: "Web Development",
+        name: "React",
+        color: "green-text-gradient",
+      },
+      {
+        name: "TypeScript",
         color: "pink-text-gradient",
+      },
+      {
+        name: "Supabase",
+        color: "blue-text-gradient",
       },
     ],
     image: lexKaraoke,
     source_code_link: "https://github.com/alex143061",
-    liveUrl: "",
+    liveUrl: "https://lex-karaoke.vercel.app/",
   },
   {
     name: "WP Leads",
     description:
-      "A WordPress-based lead generation website designed to capture and manage customer leads. Built with custom WordPress development, featuring lead capture forms, contact management, and a responsive layout to help businesses grow their customer base.",
+      "A lead generation dashboard built with Next.js, React, and TypeScript. Captures and manages WordPress job leads stored in Google Sheets, with lead collection handled by Google Apps Script polling RSS feeds and custom session-based authentication. Live at https://alex-wp-leads.vercel.app/.",
     tags: [
       {
-        name: "WordPress",
-        color: "green-text-gradient",
-      },
-      {
-        name: "PHP",
+        name: "Next.js",
         color: "blue-text-gradient",
       },
       {
-        name: "Lead Generation",
+        name: "React",
+        color: "green-text-gradient",
+      },
+      {
+        name: "TypeScript",
         color: "pink-text-gradient",
+      },
+      {
+        name: "Google Sheets",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Google Apps Script",
+        color: "blue-text-gradient",
       },
     ],
     image: wpLeads,
     source_code_link: "https://github.com/alex143061",
-    liveUrl: "",
+    liveUrl: "https://alex-wp-leads.vercel.app/",
   },
 ];
 
