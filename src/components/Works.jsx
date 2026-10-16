@@ -68,10 +68,15 @@ const ProjectCard = ({
         scale: 1,
         speed: 450,
       }}
-      className="bg-tertiary p-5 rounded-2xl w-full cursor-pointer hover:scale-[1.02] transition-transform"
-      onClick={onImageClick}
+      className="bg-tertiary p-5 rounded-2xl w-full cursor-pointer hover:scale-[1.02] transition-transform active:scale-95"
     >
-      <div className="relative w-full h-[230px] overflow-hidden rounded-3xl group">
+      <div
+        className="relative w-full h-[230px] overflow-hidden rounded-3xl group cursor-pointer"
+        onClick={(e) => {
+          e.stopPropagation();
+          onImageClick();
+        }}
+      >
         <img
           src={image}
           alt="project_image"
