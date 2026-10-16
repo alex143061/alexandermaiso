@@ -50,7 +50,7 @@ const ImageModal = ({ project, isOpen, onClose }) => {
         />
         <div className="mt-6 text-center">
           <h3 className="text-2xl font-bold text-white">{project.name}</h3>
-          <p className="mt-2 text-gray-400 text-sm sm:text-base max-w-md mx-auto leading-relaxed">
+          <p className="mt-2 text-gray-400 text-sm sm:text-base max-w-md mx-auto leading-relaxed line-clamp-6 overflow-hidden">
             {project.description}
           </p>
         </div>
@@ -123,7 +123,7 @@ const ProjectCard = ({
 
       <div className="mt-5">
         <h3 className="text-white font-bold text-[24px]">{name}</h3>
-        <p className="mt-2 text-secondary text-[14px] line-clamp-3">
+        <p className="mt-2 text-secondary text-[14px] line-clamp-3 overflow-hidden">
           {description}
         </p>
       </div>
