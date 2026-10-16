@@ -92,6 +92,8 @@ import createlabz from "./createlabz.png";
 import educolorworld from "./educolorworld.png";
 import mobileapp from "./mobileapp.jpeg";
 import IKF from "./IKF.png";
+import lexKaraoke from "./lex-karaoke.png";
+import wpLeads from "./wp-leads.png";
 
 
 export {
@@ -157,6 +159,8 @@ export {
   educolorworld,
   mobileapp,
   IKF,
+  lexKaraoke,
+  wpLeads,
 
 
   smartrep,

@@ -61,6 +61,8 @@ import {
   educolorworld,
   mobileapp,
   IKF,
+  lexKaraoke,
+  wpLeads,
 
   smartrep,
   pautang,
@@ -959,6 +961,50 @@ const projects = [
   //   source_code_link: "https://github.com/jeffjiang13/youtube-clone",
   //   liveUrl: "https://jj-youtube-clone.netlify.app/",
   // },
+  {
+    name: "Lex Karaoke",
+    description:
+      "A karaoke web application built with WordPress, featuring a song library, user playback controls, and a responsive interface for an engaging karaoke experience. The site allows users to browse and play karaoke tracks seamlessly across devices.",
+    tags: [
+      {
+        name: "WordPress",
+        color: "green-text-gradient",
+      },
+      {
+        name: "JavaScript",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Web Development",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: lexKaraoke,
+    source_code_link: "https://github.com/alex143061",
+    liveUrl: "",
+  },
+  {
+    name: "WP Leads",
+    description:
+      "A WordPress-based lead generation website designed to capture and manage customer leads. Built with custom WordPress development, featuring lead capture forms, contact management, and a responsive layout to help businesses grow their customer base.",
+    tags: [
+      {
+        name: "WordPress",
+        color: "green-text-gradient",
+      },
+      {
+        name: "PHP",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Lead Generation",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: wpLeads,
+    source_code_link: "https://github.com/alex143061",
+    liveUrl: "",
+  },
 ];
 
 export {
