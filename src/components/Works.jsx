@@ -94,6 +94,14 @@ const ProjectCard = ({
   onImageClick,
 }) => {
   return (
+    <div
+      className="cursor-pointer"
+      onClick={(e) => {
+        const selection = window.getSelection();
+        if (selection && selection.toString().length > 0) return;
+        onImageClick();
+      }}
+    >
     <Tilt
       options={{
         max: 45,
@@ -163,6 +171,7 @@ const ProjectCard = ({
         ))}
       </div>
     </Tilt>
+    </div>
   );
 };
 
