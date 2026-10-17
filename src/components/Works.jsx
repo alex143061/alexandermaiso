@@ -95,7 +95,7 @@ const ProjectCard = ({
 }) => {
   return (
     <div
-      className="cursor-pointer"
+      className="cursor-pointer h-full flex flex-col"
       onClick={(e) => {
         const selection = window.getSelection();
         if (selection && selection.toString().length > 0) return;
@@ -108,10 +108,10 @@ const ProjectCard = ({
         scale: 1,
         speed: 450,
       }}
-      className="bg-tertiary p-5 rounded-2xl w-full cursor-pointer hover:scale-[1.02] transition-transform active:scale-95"
+      className="bg-tertiary p-5 rounded-2xl w-full flex-1 flex flex-col cursor-pointer hover:scale-[1.02] transition-transform active:scale-95"
     >
       <div
-        className="relative w-full h-[230px] overflow-hidden rounded-3xl group cursor-pointer"
+        className="relative w-full h-[230px] shrink-0 overflow-hidden rounded-3xl group cursor-pointer"
         onClick={(e) => {
           e.stopPropagation();
           onImageClick();
@@ -153,14 +153,14 @@ const ProjectCard = ({
         </div>
       </div>
 
-      <div className="mt-5">
-        <h3 className="text-white font-bold text-[24px]">{name}</h3>
+      <div className="mt-5 shrink-0 h-[136px] overflow-hidden">
+        <h3 className="text-white font-bold text-[24px] line-clamp-2">{name}</h3>
         <p className="mt-2 text-secondary text-[14px] line-clamp-3 overflow-hidden">
           {description}
         </p>
       </div>
 
-      <div className="mt-4 flex flex-wrap gap-2">
+      <div className="mt-auto pt-4 h-[72px] shrink-0 overflow-hidden flex flex-wrap content-start items-start gap-2">
         {tags.map((tag) => (
           <p
             key={`${name}-${tag.name}`}
