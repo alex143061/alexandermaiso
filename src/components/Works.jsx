@@ -192,7 +192,7 @@ const Works = () => {
           variants={fadeIn("", "", 1, 1)}
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-          These projects reflect my skills and experience, offering real-world examples of my work. Each project is briefly described with links to the code repositories, showcasing my ability to tackle challenges, learn new technologies, and manage tasks effectively. I also have several other projects that I haven't included here yet, including my Computer Vision project and a mobile app, which was my thesis, but I hope to share them if I have the time.
+          These projects reflect my <span className="pink-text-gradient font-semibold">skills and experience</span>, offering <span className="bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-semibold">real-world examples</span> of my work. Each project is briefly described with links to the code repositories, showcasing my ability to <span className="pink-text-gradient font-semibold">tackle challenges</span>, <span className="bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-semibold">learn new technologies</span>, and manage tasks effectively. I also have several other projects that I haven't included here yet, including my <span className="pink-text-gradient font-semibold">Computer Vision project</span> and a <span className="bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-semibold">mobile app</span>, which was my thesis, but I hope to share them if I have the time.
         </p>
       </div>
 
