@@ -153,8 +153,8 @@ const ProjectCard = ({
         </div>
       </div>
 
-      <div className="mt-5 shrink-0 h-[136px] overflow-hidden">
-        <h3 className="text-white font-bold text-[24px] line-clamp-2">{name}</h3>
+      <div className="mt-5 shrink-0 h-[188px] overflow-hidden">
+        <h3 className="text-white font-bold text-[24px] line-clamp-3">{name}</h3>
         <p className="mt-2 text-secondary text-[14px] line-clamp-3 overflow-hidden">
           {description}
         </p>
