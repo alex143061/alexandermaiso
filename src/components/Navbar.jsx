@@ -26,7 +26,7 @@ const GradientButton = ({ onClick, iconPath, label, downloadLink }) => {
   return downloadLink ? (
     <a href={downloadLink} download>
       <button
-        className="abhishek-btn font-medium cursor-pointer border-[1px] animate-[pulseGlow_2.5s_ease-in-out_infinite]"
+        className="abhishek-btn font-medium cursor-pointer border-[1px]"
         onClick={onClick}
       >
         {buttonContent}
@@ -35,7 +35,7 @@ const GradientButton = ({ onClick, iconPath, label, downloadLink }) => {
   ) : (
     <button
       onClick={onClick}
-      className="abhishek-btn font-medium cursor-pointer border-[1px] animate-[pulseGlow_2.5s_ease-in-out_infinite]"
+      className="abhishek-btn font-medium cursor-pointer border-[1px]"
     >
       {buttonContent}
     </button>
@@ -183,28 +183,23 @@ const MobileMenu = ({ open, onClose, active, setActive }) => {
 
               {/* Actions — highlighted CTAs */}
               <div className="mt-auto border-t border-white/10 pt-5">
-                <p className="pb-3 text-center text-[11px] font-bold uppercase tracking-[0.3em] text-secondary">
-                  Hire me &amp; explore
-                </p>
-
-                {/* Resume CTA — glowing gradient pill */}
+                {/* Resume CTA — clean, modern */}
                 <a href={resume} download onClick={() => setActive("")} className="group block">
-                  <div className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 px-4 py-3.5 text-white shadow-lg transition-transform duration-300 group-hover:scale-[1.02] animate-[pulseGlow_2.5s_ease-in-out_infinite]">
-                    <svg
-                      className="h-4 w-4 fill-white"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-                    </svg>
-                    <span className="font-bold tracking-wide">View My Resume</span>
-                    <span className="rounded bg-white/25 px-1.5 py-0.5 text-[10px] font-bold">
+                  <div className="flex w-full items-center justify-between gap-3 rounded-2xl bg-white px-5 py-4 text-[#0f172a] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:shadow-[0_16px_32px_-12px_rgba(255,255,255,0.3)] active:translate-y-0">
+                    <span className="flex items-center gap-2.5">
+                      <svg
+                        className="h-4 w-4 fill-current"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+                      </svg>
+                      <span className="text-sm font-bold tracking-wide">View My Resume</span>
+                    </span>
+                    <span className="rounded-lg bg-slate-100 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-500">
                       PDF
                     </span>
                   </div>
-                  <p className="pt-1.5 text-center text-[11px] text-secondary">
-                    See my experience, skills &amp; achievements
-                  </p>
                 </a>
 
                 {/* CRUD demo + Blog */}
