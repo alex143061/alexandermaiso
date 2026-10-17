@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -63,7 +63,7 @@ const MenuButton = ({ open, onClick }) => (
     aria-label={open ? "Close menu" : "Open menu"}
     aria-expanded={open}
     onClick={onClick}
-    className="relative flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 hover:border-white/25 hover:bg-white/10 active:scale-95"
+    className="relative flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-xl border border-white/10 bg-white/5 transition-all duration-300 hover:border-white/25 hover:bg-white/10 active:scale-95 touch-manipulation"
   >
     <span className="h-[2px] w-5 rounded-full bg-white" />
     <span className="h-[2px] w-5 rounded-full bg-white" />
@@ -96,10 +96,11 @@ const MobileMenu = ({ open, onClose, active, setActive }) => {
           <motion.div
             key="nav-backdrop"
             className="fixed inset-0 z-[9990] bg-black/75"
+            style={{ pointerEvents: open ? "auto" : "none", touchAction: "none" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: 0.2 }}
             onClick={onClose}
           />
         )}
@@ -109,11 +110,15 @@ const MobileMenu = ({ open, onClose, active, setActive }) => {
         {open && (
           <motion.aside
             key="nav-drawer"
-            className="fixed right-0 top-0 z-[9991] flex h-screen w-[86%] max-w-sm flex-col overflow-hidden border-l border-white/10 bg-gradient-to-b from-[#111827]/95 via-[#0b1220]/95 to-[#0f172a]/95 shadow-2xl"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menu"
+            className="fixed right-0 top-0 z-[9991] flex h-screen w-[86%] max-w-sm flex-col overflow-hidden border-l border-white/10 bg-gradient-to-b from-[#111827] via-[#0b1220] to-[#0f172a]"
+            style={{ pointerEvents: open ? "auto" : "none", willChange: "transform" }}
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
           >
             {/* Gradient accent edge */}
             <span className="pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-gradient-to-b from-teal-500 via-purple-500 to-orange-500" />
@@ -130,7 +135,7 @@ const MobileMenu = ({ open, onClose, active, setActive }) => {
                 type="button"
                 aria-label="Close menu"
                 onClick={onClose}
-                className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 bg-white/5 transition-all duration-300 hover:rotate-90 hover:border-teal-400/60 hover:bg-white/10 hover:shadow-[0_0_20px_rgba(45,212,191,0.25)] active:scale-90"
+                className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 bg-white/5 transition-all duration-300 hover:rotate-90 hover:border-teal-400/60 hover:bg-white/10 active:scale-90 touch-manipulation"
               >
                 <span className="absolute h-[2px] w-5 rounded-full bg-white rotate-45" />
                 <span className="absolute h-[2px] w-5 rounded-full bg-white -rotate-45" />
@@ -138,7 +143,7 @@ const MobileMenu = ({ open, onClose, active, setActive }) => {
             </div>
 
             {/* Links */}
-            <nav className="flex-1 overflow-y-auto px-4 py-5 flex flex-col">
+            <nav className="flex-1 overflow-y-auto overscroll-contain px-4 py-5 flex flex-col">
               <p className="px-3 pb-3 text-[11px] font-bold uppercase tracking-[0.3em] text-secondary">
                 Menu
               </p>
@@ -146,9 +151,9 @@ const MobileMenu = ({ open, onClose, active, setActive }) => {
                 {navLinks.map((nav, index) => (
                   <motion.li
                     key={nav.id}
-                    initial={{ opacity: 0, x: 16 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 + index * 0.04, duration: 0.25 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.04 + index * 0.03, duration: 0.18 }}
                     onClick={() => {
                       setActive(nav.title);
                       onClose();
@@ -232,6 +237,8 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const closeMenu = useCallback(() => setToggle(false), []);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -245,7 +252,7 @@ const Navbar = () => {
     <>
       <nav
         className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 ${
-          scrolled ? "backdrop-blur-sm" : "bg-transparent"
+          scrolled && !toggle ? "backdrop-blur-sm" : "bg-transparent"
         }`}
       >
         <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
@@ -297,7 +304,7 @@ const Navbar = () => {
 
       <MobileMenu
         open={toggle}
-        onClose={() => setToggle(false)}
+        onClose={closeMenu}
         active={active}
         setActive={setActive}
       />
