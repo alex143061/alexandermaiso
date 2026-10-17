@@ -46,7 +46,7 @@ const About = () => {
       <div className="flex items-center min-[1000px]:flex-row flex-col-reverse">
         <p
           variants={fadeIn("", "", 0.1, 1)}
-          className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
+          className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px] text-left sm:text-justify hyphens-auto"
         >
         I am a web developer with a strong foundation in building applications from scratch using Laravel, a PHP framework similar in architecture to WordPress in terms of running on PHP, which gives me deep understanding of backend systems, database design, and scalable application structure. I specialize in developing high-performance WordPress websites and modern web solutions using Elementor, WooCommerce, and custom code to extend functionality and improve user experience. My background in Laravel allows me to approach WordPress development with an engineering mindset, focusing on clean architecture, efficient workflows, API integrations, and system optimization. I also prioritize responsive UI/UX design, performance tuning, and reliable troubleshooting to ensure smooth and scalable digital solutions. Explore my projects below or get in touch at  {" "}
           <a
