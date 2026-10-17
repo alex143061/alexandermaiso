@@ -25,12 +25,18 @@ const GradientButton = ({ onClick, iconPath, label, downloadLink }) => {
 
   return downloadLink ? (
     <a href={downloadLink} download>
-      <button className="abhishek-btn font-medium cursor-pointer border-[1px]" onClick={onClick}>
+      <button
+        className="abhishek-btn font-medium cursor-pointer border-[1px] animate-[pulseGlow_2.5s_ease-in-out_infinite]"
+        onClick={onClick}
+      >
         {buttonContent}
       </button>
     </a>
   ) : (
-    <button onClick={onClick} className="abhishek-btn font-medium cursor-pointer border-[1px]">
+    <button
+      onClick={onClick}
+      className="abhishek-btn font-medium cursor-pointer border-[1px] animate-[pulseGlow_2.5s_ease-in-out_infinite]"
+    >
       {buttonContent}
     </button>
   );
@@ -69,13 +75,16 @@ const MenuButton = ({ open, onClick }) => (
 const MobileMenu = ({ open, onClose, active, setActive }) => {
   useEffect(() => {
     if (!open) return;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     document.body.style.overflow = "hidden";
+    if (scrollbarWidth > 0) document.body.style.paddingRight = `${scrollbarWidth}px`;
     const handleKey = (e) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", handleKey);
     return () => {
       document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
       window.removeEventListener("keydown", handleKey);
     };
   }, [open, onClose]);
@@ -86,7 +95,7 @@ const MobileMenu = ({ open, onClose, active, setActive }) => {
         {open && (
           <motion.div
             key="nav-backdrop"
-            className="fixed inset-0 z-[9990] bg-black/70 backdrop-blur-sm"
+            className="fixed inset-0 z-[9990] bg-black/75"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -100,11 +109,11 @@ const MobileMenu = ({ open, onClose, active, setActive }) => {
         {open && (
           <motion.aside
             key="nav-drawer"
-            className="fixed right-0 top-0 z-[9991] flex h-screen w-[86%] max-w-sm flex-col overflow-hidden border-l border-white/10 bg-gradient-to-b from-[#111827]/95 via-[#0b1220]/95 to-[#0f172a]/95 backdrop-blur-xl shadow-2xl"
+            className="fixed right-0 top-0 z-[9991] flex h-screen w-[86%] max-w-sm flex-col overflow-hidden border-l border-white/10 bg-gradient-to-b from-[#111827]/95 via-[#0b1220]/95 to-[#0f172a]/95 shadow-2xl"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ type: "spring", damping: 30, stiffness: 260 }}
+            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
           >
             {/* Gradient accent edge */}
             <span className="pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-gradient-to-b from-teal-500 via-purple-500 to-orange-500" />
@@ -129,17 +138,17 @@ const MobileMenu = ({ open, onClose, active, setActive }) => {
             </div>
 
             {/* Links */}
-            <nav className="flex-1 overflow-y-auto px-4 py-5">
+            <nav className="flex-1 overflow-y-auto px-4 py-5 flex flex-col">
               <p className="px-3 pb-3 text-[11px] font-bold uppercase tracking-[0.3em] text-secondary">
                 Menu
               </p>
-              <ul className="flex flex-col gap-1">
+              <ul className="flex flex-col gap-1 pb-6">
                 {navLinks.map((nav, index) => (
                   <motion.li
                     key={nav.id}
-                    initial={{ opacity: 0, x: 24 }}
+                    initial={{ opacity: 0, x: 16 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.08 + index * 0.06, duration: 0.3 }}
+                    transition={{ delay: 0.05 + index * 0.04, duration: 0.25 }}
                     onClick={() => {
                       setActive(nav.title);
                       onClose();
@@ -172,20 +181,46 @@ const MobileMenu = ({ open, onClose, active, setActive }) => {
                 ))}
               </ul>
 
-              {/* Actions */}
-              <div className="mt-6 flex flex-col items-center gap-4 border-t border-white/10 pt-6">
-                <GradientButton
-                  downloadLink={resume}
-                  iconPath="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"
-                  label="Resume.pdf"
-                  onClick={() => {
-                    setActive("");
-                    onClose();
-                  }}
-                />
-                <div className="flex items-center gap-3">
-                  <CrudButton onClick={onClose} />
-                  <BlogsButton onClick={onClose} />
+              {/* Actions — highlighted CTAs */}
+              <div className="mt-auto border-t border-white/10 pt-5">
+                <p className="pb-3 text-center text-[11px] font-bold uppercase tracking-[0.3em] text-secondary">
+                  Hire me &amp; explore
+                </p>
+
+                {/* Resume CTA — glowing gradient pill */}
+                <a href={resume} download onClick={() => setActive("")} className="group block">
+                  <div className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 px-4 py-3.5 text-white shadow-lg transition-transform duration-300 group-hover:scale-[1.02] animate-[pulseGlow_2.5s_ease-in-out_infinite]">
+                    <svg
+                      className="h-4 w-4 fill-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+                    </svg>
+                    <span className="font-bold tracking-wide">View My Resume</span>
+                    <span className="rounded bg-white/25 px-1.5 py-0.5 text-[10px] font-bold">
+                      PDF
+                    </span>
+                  </div>
+                  <p className="pt-1.5 text-center text-[11px] text-secondary">
+                    See my experience, skills &amp; achievements
+                  </p>
+                </a>
+
+                {/* CRUD demo + Blog */}
+                <div className="mt-4 grid grid-cols-2 gap-3">
+                  <div className="flex flex-col items-center gap-2 rounded-xl border border-white/10 bg-white/5 p-3 transition-colors hover:border-white/25">
+                    <CrudButton onClick={onClose} />
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-secondary">
+                      Live demo
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 rounded-xl border border-white/10 bg-white/5 p-3 transition-colors hover:border-white/25">
+                    <BlogsButton onClick={onClose} />
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-secondary">
+                      Insights
+                    </span>
+                  </div>
                 </div>
               </div>
             </nav>
@@ -238,7 +273,7 @@ const Navbar = () => {
             <GradientButton
               downloadLink={resume}
               iconPath="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"
-              label="Resume.pdf"
+              label="View My Resume"
               onClick={() => setActive("")}
             />
 
