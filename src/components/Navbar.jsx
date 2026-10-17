@@ -142,18 +142,60 @@ const MobileMenu = ({ open, onClose, active, setActive }) => {
               </button>
             </div>
 
-            {/* Links */}
+            {/* Drawer content */}
             <nav className="flex-1 overflow-y-auto overscroll-contain px-4 py-5 flex flex-col">
-              <p className="px-3 pb-3 text-[11px] font-bold uppercase tracking-[0.3em] text-secondary">
+              {/* Showcase CTAs — top of menu so they're visible immediately */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.05, duration: 0.2 }}
+              >
+                <a href={resume} download onClick={() => setActive("")} className="group block">
+                  <div className="flex w-full items-center justify-between gap-3 rounded-2xl bg-white px-5 py-4 text-[#0f172a] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:shadow-[0_16px_32px_-12px_rgba(255,255,255,0.3)] active:translate-y-0">
+                    <span className="flex items-center gap-2.5">
+                      <svg
+                        className="h-4 w-4 fill-current"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+                      </svg>
+                      <span className="text-sm font-bold tracking-wide">View My Resume</span>
+                    </span>
+                    <span className="rounded-lg bg-slate-100 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                      PDF
+                    </span>
+                  </div>
+                </a>
+
+                {/* CRUD demo + Blog */}
+                <div className="mt-3 grid grid-cols-2 gap-3">
+                  <div className="flex flex-col items-center gap-2 rounded-xl border border-white/10 bg-white/5 p-3 transition-colors hover:border-white/25">
+                    <CrudButton onClick={onClose} />
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-secondary">
+                      Live demo
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 rounded-xl border border-white/10 bg-white/5 p-3 transition-colors hover:border-white/25">
+                    <BlogsButton onClick={onClose} />
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-secondary">
+                      Insights
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Links */}
+              <p className="px-3 pb-3 pt-6 text-[11px] font-bold uppercase tracking-[0.3em] text-secondary">
                 Menu
               </p>
-              <ul className="flex flex-col gap-1 pb-6">
+              <ul className="flex flex-col gap-1 pb-4">
                 {navLinks.map((nav, index) => (
                   <motion.li
                     key={nav.id}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.04 + index * 0.03, duration: 0.18 }}
+                    transition={{ delay: 0.15 + index * 0.04, duration: 0.18 }}
                     onClick={() => {
                       setActive(nav.title);
                       onClose();
@@ -186,43 +228,6 @@ const MobileMenu = ({ open, onClose, active, setActive }) => {
                 ))}
               </ul>
 
-              {/* Actions — highlighted CTAs */}
-              <div className="mt-auto border-t border-white/10 pt-5">
-                {/* Resume CTA — clean, modern */}
-                <a href={resume} download onClick={() => setActive("")} className="group block">
-                  <div className="flex w-full items-center justify-between gap-3 rounded-2xl bg-white px-5 py-4 text-[#0f172a] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:shadow-[0_16px_32px_-12px_rgba(255,255,255,0.3)] active:translate-y-0">
-                    <span className="flex items-center gap-2.5">
-                      <svg
-                        className="h-4 w-4 fill-current"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-                      </svg>
-                      <span className="text-sm font-bold tracking-wide">View My Resume</span>
-                    </span>
-                    <span className="rounded-lg bg-slate-100 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-500">
-                      PDF
-                    </span>
-                  </div>
-                </a>
-
-                {/* CRUD demo + Blog */}
-                <div className="mt-4 grid grid-cols-2 gap-3">
-                  <div className="flex flex-col items-center gap-2 rounded-xl border border-white/10 bg-white/5 p-3 transition-colors hover:border-white/25">
-                    <CrudButton onClick={onClose} />
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-secondary">
-                      Live demo
-                    </span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 rounded-xl border border-white/10 bg-white/5 p-3 transition-colors hover:border-white/25">
-                    <BlogsButton onClick={onClose} />
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-secondary">
-                      Insights
-                    </span>
-                  </div>
-                </div>
-              </div>
             </nav>
           </motion.aside>
         )}
