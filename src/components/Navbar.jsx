@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -72,7 +72,7 @@ const MenuButton = ({ open, onClick }) => (
 );
 
 // Modern slide-in drawer menu (portal avoids backdrop-filter containing-block issues)
-const MobileMenu = ({ open, onClose, active, setActive }) => {
+const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
   useEffect(() => {
     if (!open) return;
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -196,10 +196,7 @@ const MobileMenu = ({ open, onClose, active, setActive }) => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.15 + index * 0.04, duration: 0.18 }}
-                    onClick={() => {
-                      setActive(nav.title);
-                      onClose();
-                    }}
+                    onClick={() => onNavClick(nav)}
                     className={`group flex cursor-pointer items-center gap-3 rounded-xl px-3 py-3 transition-colors duration-200 hover:bg-white/5 ${
                       active === nav.title ? "bg-white/10" : ""
                     }`}
@@ -213,6 +210,7 @@ const MobileMenu = ({ open, onClose, active, setActive }) => {
                     </span>
                     <a
                       href={`#${nav.id}`}
+                      onClick={(e) => e.preventDefault()}
                       className={`text-[16px] font-medium transition-all duration-200 group-hover:translate-x-1 ${
                         active === nav.title
                           ? "text-white"
@@ -243,6 +241,24 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const closeMenu = useCallback(() => setToggle(false), []);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Nav links must work from any route: on home we smooth-scroll,
+  // from other pages (CRUD / Blog) we return home first, then scroll.
+  const goToSection = (nav) => {
+    setActive(nav.title);
+    closeMenu();
+    if (location.pathname === "/") {
+      document.getElementById(nav.id)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById(nav.id)?.scrollIntoView({ behavior: "smooth" });
+      }, 150);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -290,9 +306,14 @@ const Navbar = () => {
                 className={`${
                   active === nav.title ? "text-white" : "text-secondary"
                 } hover:text-white text-[18px] font-medium cursor-pointer`}
-                onClick={() => setActive(nav.title)}
+                onClick={() => goToSection(nav)}
               >
-                <a href={`#${nav.id}`}>{nav.title}</a>
+                <a
+                  href={`#${nav.id}`}
+                  onClick={(e) => e.preventDefault()}
+                >
+                  {nav.title}
+                </a>
               </li>
             ))}
 
@@ -312,6 +333,7 @@ const Navbar = () => {
         onClose={closeMenu}
         active={active}
         setActive={setActive}
+        onNavClick={goToSection}
       />
     </>
   );
