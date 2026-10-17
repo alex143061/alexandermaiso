@@ -55,25 +55,28 @@ const ImageModal = ({ project, isOpen, onClose }) => {
         exit={{ scale: 0.9, opacity: 0 }}
         transition={{ duration: 0.2 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative max-w-4xl max-h-[85vh] bg-white/5 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/10 shadow-2xl"
+        className="relative w-full max-w-4xl max-h-[85vh] flex flex-col bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-2xl"
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center transition-colors"
+          className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center transition-colors"
         >
           <img src={close} alt="close" className="w-5 h-5" />
         </button>
+        <div className="overflow-y-auto min-h-0 p-5 sm:p-6">
         <img
           src={project.image}
           alt={project.name}
-          className="max-w-full max-h-[60vh] object-contain rounded-xl shadow-xl border border-white/10"
+          className="w-full max-h-[55vh] object-contain rounded-xl shadow-xl border border-white/10"
         />
-        <div className="mt-6 text-center">
+        <div className="mt-6 text-left">
           <h3 className="text-2xl font-bold text-white">{project.name}</h3>
-          <p className="mt-2 text-gray-400 text-sm sm:text-base max-w-md mx-auto leading-relaxed line-clamp-6 overflow-hidden">
+          <p className="mt-3 text-gray-300 text-[15px] sm:text-[16px] leading-[26px] sm:leading-[28px]">
             {project.description}
           </p>
         </div>
+        </div>
+
       </motion.div>
     </motion.div>,
     portalRoot
