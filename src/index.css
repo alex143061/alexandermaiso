@@ -579,7 +579,7 @@
   transition: all 0.3s ease-in-out;
   text-shadow: 0 0 6px white, 0 0 10px #ffcc00;
   cursor: pointer;
-  /* 👇 removed border */
+  /* ðŸ‘‡ removed border */
   border: none;
 }
 
@@ -620,5 +620,5 @@ nav {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
-/* Mobile touch: let 3D canvases scroll vertically instead of eating all gestures */ .contact-canvas, .portfolio-canvas { touch-action: pan-y; }
-/* Mobile touch: let 3D canvases scroll vertically instead of eating all gestures */ .contact-canvas, .portfolio-canvas { touch-action: pan-y; }
+
+/* Mobile touch: OrbitControls forces touch-action:none on canvases which blocks page scrolling on phones. Allow vertical panning; !important beats inline styles. */ canvas { touch-action: pan-y !important; }
