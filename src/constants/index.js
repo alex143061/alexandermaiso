@@ -245,6 +245,54 @@ const technologies = [
 
 const experiences = [
   {
+    title: "CMS Developer (Remote)",
+    company_name: "Educolor Press (educolorpress.com) | CA",
+    icon: educolorworld,
+    iconBg: "#E6DEDD",
+    date: "July 2026 - Present",
+    points: [
+      "Developed a WordPress/WooCommerce e-commerce site selling digital educational books, supporting product variations, subscriptions, and digital downloads.",
+      "Built custom page sections using HTML/CSS/JS within Elementor Containers instead of default widgets, for greater design control and easier maintenance.",
+      "Created a custom PHP-based product description system (via WPCode) to override WooCommerce's default template and give each product a unique layout.",
+      "Configured secure checkout and recurring billing (WooCommerce Subscriptions, WooPayments, Authorize.Net gateway) and implemented on-page SEO with Rank Math (meta tags, schema markup).",
+    ],
+  },
+  {
+    title: "CMS Developer (Remote)",
+    company_name: "Impossible Kids Foundation (impossiblekids.ca) | CA",
+    icon: IKF,
+    iconBg: "#383E56",
+    date: "May 2026 - July 2026",
+    points: [
+      "Designed and developed a fully responsive nonprofit website from concept to launch using WordPress and Elementor Pro.",
+      "Configured on-page SEO with Rank Math — meta titles/descriptions, Open Graph & Twitter Card tags, canonical URLs, and robots directives to maximize organic search performance.",
+      "Integrated Zeffy donation platform and mailto-based CTA funnels for sponsorship/partnership inquiries.",
+    ],
+  },
+  {
+    title: "CMS Developer (Remote)",
+    company_name: "LearnEduColor (learneducolor.com) | CA",
+    icon: learneducolor2,
+    iconBg: "#E6DEDD",
+    date: "March 2026 - May 2026",
+    points: [
+      "Developed an online learning platform for children using WordPress and Tutor LMS Pro, featuring courses, lessons, quizzes, and student progress tracking across 4 themed Learning Zones.",
+      "Built custom page sections using HTML/CSS/JS within Elementor Containers instead of default widgets, for a modular, easy-to-maintain UI across the Home, Dashboard, and Student Portal pages.",
+      "Configured subscription plans and billing cycles through Tutor LMS, integrated Stripe for secure payment processing, and implemented on-page SEO with Rank Math (focus keywords, meta descriptions, structured URLs) across courses and pages.",
+    ],
+  },
+  {
+    title: "IoT / STEM Engineer Associate",
+    company_name: "Cloudline Technologies Inc (createlabz.io) | Philippines",
+    icon: createlabz,
+    iconBg: "#383E56",
+    date: "Oct 2025 - June 2026",
+    points: [
+      "Assisted in deploying scalable IoT solutions that connected edge devices to cloud platforms, enabling real-time data analytics and enhanced operational visibility.",
+      "Developed and maintained the createlabz.io B2B website using WordPress (Elementor), WooCommerce, Oitech theme, and custom code (HTML, CSS, PHP), delivering a responsive, conversion-focused platform for business-to-business operations and client engagement.",
+    ],
+  },
+  {
     title: "Full-Stack Developer (Desktop Application & Web Application)",
     company_name: "Personal Projects",
     icon: code1,
