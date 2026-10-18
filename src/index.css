@@ -622,3 +622,14 @@ nav {
 }
 
 /* Mobile touch: OrbitControls forces touch-action:none on canvases which blocks page scrolling on phones. Allow vertical panning; !important beats inline styles. */ canvas { touch-action: pan-y !important; }
+
+/* Mobile/tablet touch scroll: because html/body/#root are height:100% with overflow-x:hidden,
+   #root is the element that actually scrolls the whole site. OrbitControls (connected via
+   Canvas eventSource=#root) stamps an inline touch-action:none on #root — and on the canvas
+   wrapper div — telling the browser "no touch gestures here", which killed touch scrolling
+   on phones/tablets. Allow vertical panning + pinch zoom; !important beats inline styles.
+   The #root div rule covers the canvas wrapper div, which gets the same inline stamp. */
+#root,
+#root div {
+  touch-action: pan-y pinch-zoom !important;
+}

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 import { styles } from "../styles";
+import { textVariant, fadeIn } from "../utils/motion";
 import { TicofabCanvas } from "./canvas";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 
@@ -45,17 +46,27 @@ const Hero = () => {
         </div>
 
         <div>
-          <h1 className={`${styles.heroHeadText} text-white`}>
+          <motion.h1
+            variants={textVariant()}
+            initial="hidden"
+            animate="show"
+            className={`${styles.heroHeadText} text-white`}
+          >
             Hi, I'm{" "}
             <span className="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black">
               Alex <span className="hidden sm:inline"></span>
             </span>
-          </h1>
+          </motion.h1>
 
-          <p className={`${styles.heroSubText} mt-2 sm:-mb-10 text-white-100 max-w-lg`}>
+          <motion.p
+            variants={fadeIn("up", "spring", 0.4, 1)}
+            initial="hidden"
+            animate="show"
+            className={`${styles.heroSubText} mt-2 sm:-mb-10 text-white-100 max-w-lg`}
+          >
             {text}
             <Cursor cursorColor="#915eff" />
-          </p>
+          </motion.p>
         </div>
       </div>
       <TicofabCanvas />
