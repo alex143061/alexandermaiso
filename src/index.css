@@ -620,3 +620,5 @@ nav {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
+/* Mobile touch: let 3D canvases scroll vertically instead of eating all gestures */ .contact-canvas, .portfolio-canvas { touch-action: pan-y; }
+/* Mobile touch: let 3D canvases scroll vertically instead of eating all gestures */ .contact-canvas, .portfolio-canvas { touch-action: pan-y; }
