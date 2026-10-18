@@ -36,18 +36,41 @@ const HIGHLIGHT_WORDS = [
   "Vercel",
   "React",
   "Arduino",
-  "TutorLMS",
+  "Tutor LMS Pro",
   "Custom Code",
   "QR code",
   "ACF",
   "PHP",
   "API",
   "C++",
+  "computer vision",
+  "IoT",
+  "embedded systems",
+  "real-time monitoring",
+  "mobile application",
+  "Bluehost",
+  "custom plugins",
+  "SEO best practices",
+  "SEO",
+  "OiTech Theme",
+  "JavaScript",
+  "CSS",
+  "UI/UX",
+  "GUI",
+  "GoDaddy",
+  "headless",
+  "backend CMS",
+  "Arduino Uno",
+  "Arduino IDE",
+  "L298N",
+  "IR sensors",
+  "RSS feeds",
+  "motor control",
 ];
 
 const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const HIGHLIGHT_PATTERN = new RegExp(
-  `(${HIGHLIGHT_WORDS.map(escapeRegExp).join("|")})`,
+  `(${[...HIGHLIGHT_WORDS].sort((a, b) => b.length - a.length).map(escapeRegExp).join("|")})`,
   "gi"
 );
 
@@ -59,11 +82,17 @@ const HIGHLIGHT_STYLES = [
 // Wraps brand keywords with color, alternating between the two styles
 const highlightKeywords = (text) => {
   let keywordIndex = 0;
-  return String(text || "").split(HIGHLIGHT_PATTERN).map((part, index) => {
+  return String(text || "")
+    .split(HIGHLIGHT_PATTERN)
+    .map((part, index, parts) => {
     const isKeyword = HIGHLIGHT_WORDS.some(
       (word) => word.toLowerCase() === part.toLowerCase()
     );
     if (!isKeyword) return part;
+    // Skip matches glued inside other words (e.g. "CSS" must not light up inside "access")
+    const beforeChar = (parts[index - 1] || "").slice(-1);
+    const afterChar = (parts[index + 1] || "").charAt(0);
+    if (/[\w]/.test(beforeChar) || /[\w]/.test(afterChar)) return part;
     const className = HIGHLIGHT_STYLES[keywordIndex % HIGHLIGHT_STYLES.length];
     keywordIndex += 1;
     return (
