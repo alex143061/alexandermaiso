@@ -506,7 +506,7 @@ const projects = [
   {
     name: "Pautang Gadget System",
     description:
-      "The Pautang Gadget System is a desktop-based lending management application developed using Visual Basic .NET. It was created as a final project for our Software Design course, in collaboration with a real client. The system integrates a MySQL database to manage and store gadget loan data securely. Users can register, log in, and use a user-friendly interface to view the status of their loan applications. Administrators have access to a dedicated dashboard to manage users, monitor loan records, and process approvals or rejections. The application is designed to streamline loan-related processes and improve transparency for users. This project successfully met both academic goals and the practical needs of the client.",
+      "A desktop lending management application built with Visual Basic .NET and MySQL for a real client. Features user registration, real-time loan status tracking, and an admin dashboard for managing borrowers, monitoring loan records, and processing approvals.",
     tags: [
       {
         name: "VB.net",
@@ -528,7 +528,7 @@ const projects = [
   {
     name: "Line Follower Robot",
     description:
-      "I developed a Line Follower Robot as part of my robotics learning experience using the Arduino platform. The robot is designed to follow a black line on a white surface autonomously using infrared (IR) sensors for path detection. I used an Arduino Uno as the main microcontroller and programmed it using the Arduino IDE. To control the motors, I implemented the L298N motor driver module, which provided reliable dual-motor direction and speed control. The IR sensors detect the contrast between the line and the background, sending signals to the Arduino to adjust the robot’s direction accordingly. The robot reacts in real time to stay on track, demonstrating basic automation and feedback control. This project strengthened my understanding of embedded systems, sensor integration, and motor control in robotics.",
+      "An autonomous line-following robot built with an Arduino Uno and programmed in C++ using the Arduino IDE. Uses IR sensors for real-time path detection and an L298N driver for dual-motor control, showcasing embedded systems automation.",
     tags: [
       {
         name: "Arduino",
@@ -550,7 +550,7 @@ const projects = [
   {
     name: "Lost & Found System @UM Matina",
     description:
-      "The Lost and Found System – UM Matina is a desktop application developed as my final project for the Data Structures and Algorithms course in Computer Engineering at the University of Mindanao, Matina Campus. It was built using C++ as the backend language, showcasing algorithmic thinking and structured data handling. The system features a clean, intuitive GUI that allows users to report, search for, and claim lost or found items on campus. It includes a secure login system and an admin panel for managing item records and user activity. The logic behind the system was carefully designed to ensure efficient processing, tracking, and retrieval of data. Developing this project strengthened my understanding of C++ programming and software design principles. Overall, it demonstrates how core computer science concepts can be applied to create a practical solution for real-world campus needs.",
+      "A campus desktop application built with C++ and MySQL for the University of Mindanao, Matina Campus. Features an intuitive GUI, secure authentication, and an admin panel enabling students and staff to report, search, and claim lost items efficiently.",
     tags: [
       {
         name: "C++",
@@ -605,7 +605,7 @@ const projects = [
  {
     name: "PawLitrax™",
     description:
-      "An AI-powered smart pet care system that monitors cat litter levels using computer vision and an advanced automated waste management machine. Built as a Computer Engineering capstone project, the platform combines mobile application development, embedded systems, IoT, and real-time monitoring to help pet owners maintain a cleaner, healthier, and more efficient litter management experience. ",
+      "An AI-powered smart pet care capstone project that monitors cat litter levels using computer vision and an automated waste management machine. Combines a Flutter mobile application, PHP, MySQL, IoT, and embedded systems for real-time monitoring.",
     tags: [
       {
         name: "Flutter",
@@ -754,7 +754,7 @@ const projects = [
  {
     name: "LearnEduColor LMS Website",
     description:
-      "Client Website: learneducolor.com — As a WordPress developer for LearnEduColor, I design and develop a fully responsive and user-friendly e-learning platform using Elementor Pro and Tutor LMS Pro, ensuring seamless functionality across desktop, tablet, and mobile devices. My responsibilities include developing modern UI/UX layouts, customizing LMS functionalities, managing course and student experiences, implementing responsive designs, optimizing website performance, and creating dynamic user dashboards to deliver an engaging and professional online learning environment.",
+      "Client Website: learneducolor.com — A responsive e-learning platform built with WordPress, Elementor Pro, and Tutor LMS Pro. Features modern UI/UX layouts, customized LMS workflows, dynamic student dashboards, and optimized performance across desktop, tablet, and mobile devices.",
     tags: [
       {
         name: "WordPress",
@@ -784,7 +784,7 @@ const projects = [
  {
     name: "Createlabz.io IoT based Website",
     description:
-      "Client Website: createlabz.io — I developed this IoT-inspired e-commerce website using WordPress with the OiTech Theme, Elementor, and WooCommerce to create a modern, responsive, and visually engaging online store showcasing IoT-related products. The project involved extensive customization using custom PHP, JavaScript, and CSS, implementation of custom design elements, configuration of code snippets, and enhancement of UI/UX for a smooth shopping experience. I also ensured full responsiveness across desktop, tablet, and mobile devices, optimized performance, and refined the overall layout to deliver a professional, scalable, and conversion-focused e-commerce platform.",
+      "Client Website: createlabz.io — A conversion-focused IoT e-commerce store built with WordPress, WooCommerce, Elementor, and the OiTech Theme. Customized with PHP, JavaScript, and CSS to deliver refined UI/UX, fast performance, and full responsiveness across all devices.",
     tags: [
       {
         name: "WordPress",
@@ -816,7 +816,7 @@ const projects = [
    {
     name: "Educolorworld Website",
     description:
-      "Client Website: educolorworld.com — I redesigned and modernized the existing educolorworld.com website by fully implementing their provided website mockups into a fully functional, responsive, and visually polished funnel website. The platform was strategically developed to serve as the primary gateway directing users toward its connected platforms, learneducolor.com and educolorpress.com. The project involved designing and developing approximately 11 custom pages using WordPress, Elementor Pro, and custom front-end development techniques to create a modern, conversion-focused, and user-friendly experience. I implemented extensive customizations using PHP, JavaScript, and CSS to accurately match the provided mockups while enhancing the overall UI/UX, responsiveness, navigation flow, branding consistency, and website structure. In addition, I optimized the platform across desktop, tablet, and mobile devices to ensure smooth performance and a seamless browsing experience. The final outcome was a professional, scalable, and visually engaging funnel website that strengthens the company’s online presence while effectively guiding users throughout its educational and publishing ecosystem.",
+      "Client Website: educolorworld.com — A modernized 11-page funnel website built from client mockups using WordPress, Elementor Pro, PHP, JavaScript, and CSS. Serves as the primary gateway to learneducolor.com and educolorpress.com with polished UI/UX and responsive performance.",
     tags: [
       {
         name: "WordPress",
@@ -847,7 +847,7 @@ const projects = [
      {
     name: "Impossible Kids Website",
     description:
-      "Client Website: impossiblekids.ca — I built the Impossible Kids Foundation website from the ground up by setting up the WordPress hosting environment on GoDaddy and developing the entire website from scratch based on the client's provided website mockups. The platform was strategically developed to establish a professional online presence for the organization while effectively showcasing its mission, programs, events, sponsorship opportunities, and donation initiatives. The project involved designing and developing approximately 15 custom pages using WordPress, Elementor Pro, and custom front-end development techniques to create a modern, engaging, and user-friendly nonprofit website. I implemented extensive customizations using JavaScript and CSS to accurately match the provided mockups while enhancing the overall UI/UX, responsiveness, navigation flow, branding consistency, and website structure. In addition, I optimized the platform across desktop, tablet, and mobile devices to ensure smooth performance and a seamless browsing experience. The final outcome was a professional, scalable, and visually engaging nonprofit website that strengthens the organization's online presence while providing visitors with an intuitive and accessible experience across all devices. ",
+      "Client Website: impossiblekids.ca — A 15-page nonprofit website built from scratch from client mockups on GoDaddy with WordPress, Elementor Pro, JavaScript, and CSS. Showcases programs, events, sponsorships, and donations with polished UI/UX and full responsiveness across devices.",
     tags: [
       {
        name: "Wordpress",
