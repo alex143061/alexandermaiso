@@ -43,7 +43,7 @@ const TechCard = ({ index, icon }) => {
         <div
           options={{ max: 45, scale: 1, speed: 450 }}
           className="bg-tertiary rounded-full py-5 flex justify-evenly items-center flex-col">
-          <img src={icon} className="w-16 h-16 object-contain" />
+          <img src={icon} className="w-16 h-16 object-contain" loading="lazy" decoding="async" />
         </div>
       </div>
     </Tilt>

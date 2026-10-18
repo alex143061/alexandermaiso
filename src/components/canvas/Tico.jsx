@@ -57,9 +57,10 @@ const TicofabCanvas = () => {
     <Canvas
       frameloop='demand'
       shadows
-      dpr={[1, 2]}
+      dpr={isMobile ? [1, 1.5] : [1, 2]}
       camera={{ position: [18, 5, 5], fov: 25 }}
-      gl={{ preserveDrawingBuffer: true }}
+      gl={{ preserveDrawingBuffer: true, antialias: false, powerPreference: "high-performance" }}
+      eventSource={typeof document !== "undefined" ? document.getElementById("root") : undefined}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls

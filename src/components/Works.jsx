@@ -160,7 +160,7 @@ const ImageModal = ({ project, isOpen, onClose }) => {
         <img
           src={project.image}
           alt={project.name}
-          className="w-full max-h-[55vh] object-contain rounded-xl shadow-xl border border-white/10"
+          className="w-full max-h-[55vh] object-contain rounded-xl shadow-xl border border-white/10" loading="lazy" decoding="async"
         />
         <div className="mt-6 text-left">
           <h3 className="text-2xl font-bold text-white">{project.name}</h3>
@@ -213,7 +213,7 @@ const ProjectCard = ({
         <img
           src={image}
           alt="project_image"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async"
         />
 
         <div className="absolute inset-0 flex gap-2 justify-end m-3 z-20">

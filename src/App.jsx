@@ -30,30 +30,25 @@ const App = () => {
           path="/"
           element={
             <div className="relative z-0 bg-primary">
+              <StarsCanvas fixed />
               <div className="relative z-10 bg-no-repeat bg-center">
                 <Hero />
-                <StarsCanvas />
               </div>
               <div className="relative z-10">
                 <About />
-                <StarsCanvas />
               </div>
               <div className="relative z-10">
                 <Experience />
-                <StarsCanvas />
               </div>
               <div className="relative z-10">
                 <Tech />
                 <Works />
-                <StarsCanvas />
               </div>
               <div className="relative z-10">
                 <Feedbacks />
-                <StarsCanvas />
               </div>
               <div className="relative z-10">
                 <Contact />
-                <StarsCanvas />
               </div>
               <Footer />
             </div>

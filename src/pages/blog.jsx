@@ -55,7 +55,7 @@ const Blog = () => {
             <img
               src={post.image}
               alt={post.title}
-              className="w-full h-64 object-cover rounded-xl mb-6"
+              className="w-full h-64 object-cover rounded-xl mb-6" loading="lazy" decoding="async"
             />
             <h2 className="text-2xl font-semibold text-teal-400 mb-2">{post.title}</h2>
             <p className="text-sm text-gray-400 mb-4">{post.date}</p>
