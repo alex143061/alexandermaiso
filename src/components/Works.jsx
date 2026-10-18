@@ -10,6 +10,70 @@ import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 import livelink from "../assets/liveLink.png";
 
+// Important tech words worth highlighting inside project descriptions
+const HIGHLIGHT_WORDS = [
+  "Google Apps Script",
+  "Advanced Custom Fields",
+  "Visual Basic .NET",
+  "Google Authentication",
+  "Google Sheets",
+  "MySQL Workbench",
+  "Elementor Pro",
+  "Tailwind CSS",
+  "Wamp Server",
+  "Next.js",
+  "WordPress",
+  "WooCommerce",
+  "WPGraphQL",
+  "TypeScript",
+  "Supabase",
+  "YouTube",
+  "Laravel",
+  "MySQL",
+  "Elementor",
+  "Flutter",
+  "MongoDB",
+  "Vercel",
+  "React",
+  "Arduino",
+  "TutorLMS",
+  "Custom Code",
+  "QR code",
+  "ACF",
+  "PHP",
+  "API",
+  "C++",
+];
+
+const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const HIGHLIGHT_PATTERN = new RegExp(
+  `(${HIGHLIGHT_WORDS.map(escapeRegExp).join("|")})`,
+  "gi"
+);
+
+const HIGHLIGHT_STYLES = [
+  "pink-text-gradient font-semibold",
+  "bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-semibold",
+];
+
+// Wraps brand keywords with color, alternating between the two styles
+const highlightKeywords = (text) => {
+  let keywordIndex = 0;
+  return String(text || "").split(HIGHLIGHT_PATTERN).map((part, index) => {
+    const isKeyword = HIGHLIGHT_WORDS.some(
+      (word) => word.toLowerCase() === part.toLowerCase()
+    );
+    if (!isKeyword) return part;
+    const className = HIGHLIGHT_STYLES[keywordIndex % HIGHLIGHT_STYLES.length];
+    keywordIndex += 1;
+    return (
+      <span key={index} className={className}>
+        {part}
+      </span>
+    );
+  });
+};
+
 const ImageModal = ({ project, isOpen, onClose }) => {
   useEffect(() => {
     const handleEsc = (e) => {
@@ -72,7 +136,7 @@ const ImageModal = ({ project, isOpen, onClose }) => {
         <div className="mt-6 text-left">
           <h3 className="text-2xl font-bold text-white">{project.name}</h3>
           <p className="mt-3 text-gray-300 text-[15px] sm:text-[16px] leading-[26px] sm:leading-[28px]">
-            {project.description}
+            {highlightKeywords(project.description)}
           </p>
         </div>
         </div>
@@ -156,7 +220,7 @@ const ProjectCard = ({
       <div className="mt-5 shrink-0 h-[188px] overflow-hidden">
         <h3 className="text-white font-bold text-[24px] line-clamp-3">{name}</h3>
         <p className="mt-2 text-secondary text-[14px] line-clamp-3 overflow-hidden">
-          {description}
+          {highlightKeywords(description)}
         </p>
       </div>
 
