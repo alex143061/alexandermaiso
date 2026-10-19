@@ -6,6 +6,7 @@ import { styles } from "../styles";
 import { textVariant, fadeIn } from "../utils/motion";
 
 import { Cursor, useTypewriter } from "react-simple-typewriter";
+import { TicofabCanvas } from "./canvas";
 
 import {
   BsTwitter,
@@ -69,50 +70,7 @@ const Hero = () => {
           </motion.p>
         </div>
       </div>
-      <div className="sketchfab-embed-wrapper w-full h-[500px] mx-auto mt-10 relative">
-        <iframe
-          title="Real-time Ground Shadow Example"
-          frameBorder="0"
-          allowFullScreen
-          mozAllowFullScreen
-          webkitAllowFullScreen
-          allow="autoplay; fullscreen; xr-spatial-tracking"
-          xrSpatialTracking
-          executionWhileOutOfViewport
-          executionWhileNotRendered
-          webShare
-          src="https://sketchfab.com/models/e3d22b4bdb2a4c60baef71ba0edad8e4/embed"
-          className="absolute inset-0 w-full h-full"
-        />
-        <p className="text-xs font-normal mt-2 text-gray-500 text-center">
-          <a
-            href="https://sketchfab.com/3d-models/real-time-ground-shadow-example-e3d22b4bdb2a4c60baef71ba0edad8e4"
-            target="_blank"
-            rel="nofollow"
-            className="font-bold text-blue-500"
-          >
-            Real-time Ground Shadow Example
-          </a>{" "}
-          by{" "}
-          <a
-            href="https://sketchfab.com/Sketchfab"
-            target="_blank"
-            rel="nofollow"
-            className="font-bold text-blue-500"
-          >
-            Sketchfab
-          </a>{" "}
-          on{" "}
-          <a
-            href="https://sketchfab.com"
-            target="_blank"
-            rel="nofollow"
-            className="font-bold text-blue-500"
-          >
-            Sketchfab
-          </a>
-        </p>
-      </div>
+      <TicofabCanvas />
 
 
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
