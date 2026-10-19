@@ -38,12 +38,14 @@ const Stars = (props) => {
 const StarsCanvas = ({ fixed = false }) => {
   return (
     <div
-      className={`w-full h-auto inset-0 z-[-1] ${
+      className={`w-full h-full inset-0 z-[-1] ${
         fixed ? "fixed pointer-events-none" : "absolute"
       }`}
       aria-hidden="true"
+      style={{ width: "100%", height: "100%" }}
     >
       <Canvas
+        className="w-full h-full"
         camera={{ position: [0, 0, 1] }}
         dpr={[1, 1.5]}
         frameloop="always"

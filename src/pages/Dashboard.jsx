@@ -1,128 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
+import { StarsCanvas } from "../components/canvas";
 
 const Dashboard = () => {
-  const [users, setUsers] = useState([]);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [editingIndex, setEditingIndex] = useState(null);
-
-  const handleAddUser = (e) => {
-    e.preventDefault();
-
-    if (!name || !email) {
-      alert("Please enter both name and email.");
-      return;
-    }
-
-    if (editingIndex !== null) {
-      const updatedUsers = [...users];
-      updatedUsers[editingIndex] = { id: editingIndex + 1, name, email };
-      setUsers(updatedUsers);
-      setEditingIndex(null);
-    } else {
-      const newUser = {
-        id: users.length + 1,
-        name,
-        email,
-      };
-      setUsers([...users, newUser]);
-    }
-
-    setName("");
-    setEmail("");
-  };
-
-  const handleEdit = (index) => {
-    const user = users[index];
-    setName(user.name);
-    setEmail(user.email);
-    setEditingIndex(index);
-  };
-
-  const handleDelete = (index) => {
-    const updatedUsers = users.filter((_, i) => i !== index);
-    setUsers(updatedUsers);
-  };
-
   return (
-    <div className="w-full min-h-screen bg-primary text-white p-4 sm:p-8">
-      <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center">
-        User Dashboard
-      </h1>
-
-      {/* Form */}
-      <form
-        onSubmit={handleAddUser}
-        className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
-      >
-        <input
-          type="text"
-          placeholder="Name"
-          className="p-2 rounded bg-gray-800 text-white placeholder-gray-400 w-full sm:w-64"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          className="p-2 rounded bg-gray-800 text-white placeholder-gray-400 w-full sm:w-64"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <button
-          type="submit"
-          className="bg-teal-600 hover:bg-teal-700 px-4 py-2 rounded font-bold w-full sm:w-auto"
-        >
-          {editingIndex !== null ? "Update" : "Add"}
-        </button>
-      </form>
-
-      {/* Table */}
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-          <thead>
-            <tr className="bg-gray-800 text-left text-sm sm:text-base">
-              <th className="p-3">ID</th>
-              <th className="p-3">Name</th>
-              <th className="p-3">Email</th>
-              <th className="p-3">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.length === 0 ? (
-              <tr>
-                <td colSpan="4" className="p-4 text-center text-gray-400">
-                  No users yet. Add one above.
-                </td>
-              </tr>
-            ) : (
-              users.map((user, index) => (
-                <tr
-                  key={user.id}
-                  className="border-t border-gray-700 hover:bg-gray-800 transition"
-                >
-                  <td className="p-3">{user.id}</td>
-                  <td className="p-3">{user.name}</td>
-                  <td className="p-3">{user.email}</td>
-                  <td className="p-3 flex gap-2">
-                    <button
-                      onClick={() => handleEdit(index)}
-                      className="bg-yellow-500 hover:bg-yellow-600 px-2 py-1 rounded text-sm"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => handleDelete(index)}
-                      className="bg-red-600 hover:bg-red-700 px-2 py-1 rounded text-sm"
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+    <div className="relative w-full min-h-screen bg-primary text-white p-4 sm:p-8">
+      <h1>My Dashboard</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="p-4 bg-white/5 rounded-xl border border-white/10">
+          <h3 className="text-lg font-semibold text-teal-400">User Management</h3>
+          <p className="text-sm text-gray-400 mt-1">Manage users and their roles</p>
+          <button className="mt-3 px-4 py-2 bg-teal-500 hover:bg-teal-400 text-white rounded-lg text-sm font-medium transition-colors">
+            Manage Users
+          </button>
+        </div>
+        <div className="p-4 bg-white/5 rounded-xl border border-white/10">
+          <h3 className="text-lg font-semibold text-purple-400">Leads</h3>
+          <p className="text-sm text-gray-400 mt-1">View and manage leads</p>
+          <button className="mt-3 px-4 py-2 bg-purple-500 hover:bg-purple-400 text-white rounded-lg text-sm font-medium transition-colors">
+            View Leads
+          </button>
+        </div>
+        <div className="p-4 bg-white/5 rounded-xl border border-white/10">
+          <h3 className="text-lg font-semibold text-orange-400">CRM</h3>
+          <p className="text-sm text-gray-400 mt-1">Customer relationship management</p>
+          <button className="mt-3 px-4 py-2 bg-orange-500 hover:bg-orange-400 text-white rounded-lg text-sm font-medium transition-colors">
+            Open CRM
+          </button>
+        </div>
       </div>
     </div>
   );
