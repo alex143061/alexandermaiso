@@ -645,6 +645,18 @@ canvas {
   background: transparent;
 }
 
+/* Deep-space galaxy nebula layered behind the animated star canvas.
+   Pure CSS, so the galaxy backdrop still renders if WebGL/3D is unavailable. */
+.galaxy-nebula {
+  background-color: #050816;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 20% 8%, rgba(124, 58, 237, 0.38), transparent 60%),
+    radial-gradient(ellipse 70% 55% at 85% 22%, rgba(20, 184, 166, 0.24), transparent 58%),
+    radial-gradient(ellipse 65% 60% at 55% 92%, rgba(244, 114, 182, 0.22), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 75% 65%, rgba(145, 94, 255, 0.20), transparent 55%),
+    radial-gradient(ellipse 45% 40% at 12% 78%, rgba(56, 189, 248, 0.16), transparent 55%);
+}
+
 .blog-wrapper {
   position: relative;
   z-index: 1;

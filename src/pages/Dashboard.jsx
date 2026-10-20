@@ -106,8 +106,9 @@ const Dashboard = () => {
   const inProgressCount = projects.filter((p) => p.status === "In Progress").length;
 
   return (
-    <div className="relative w-full min-h-screen bg-primary/70 text-white">
-      <div className="fixed inset-0 z-[-1] w-full h-full">
+    <div className="relative w-full min-h-screen text-white">
+      {/* Galaxy background: CSS nebula + animated star field */}
+      <div className="fixed inset-0 z-[-1] w-full h-full galaxy-nebula">
         <StarsCanvas fixed />
       </div>
 

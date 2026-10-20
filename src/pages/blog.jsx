@@ -211,9 +211,9 @@ const Blog = () => {
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen bg-primary/70 text-white p-4 sm:p-8">
-      {/* Galaxy Stars Background */}
-      <div className="fixed inset-0 z-[-1] w-full h-full">
+    <div className="relative w-full min-h-screen text-white p-4 sm:p-8">
+      {/* Galaxy Stars Background: CSS nebula + animated star field */}
+      <div className="fixed inset-0 z-[-1] w-full h-full galaxy-nebula">
         <StarsCanvas fixed />
       </div>
 
