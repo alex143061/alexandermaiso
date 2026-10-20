@@ -61,7 +61,7 @@ const Register = () => {
 
   return (
     <div className="relative w-full min-h-screen text-white p-4 sm:p-8 flex items-center justify-center overflow-hidden">
-      <div className="fixed inset-0 z-[-1] w-full h-full">
+      <div className="fixed inset-0 z-[-1] w-full h-full galaxy-nebula">
         <StarsCanvas fixed />
       </div>
 
