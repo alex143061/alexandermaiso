@@ -8,10 +8,18 @@ import { StarsCanvas } from "../components/canvas";
 
 const initialProjects = [
   { id: 1, name: "ROADWATCH", category: "IoT", status: "Completed", date: "2026-10-18" },
-  { id: 2, name: "E-Commerce App", category: "Web Dev", status: "In Progress", date: "2026-09-12" },
-  { id: 3, name: "Lost & Found System", category: "Software", status: "Completed", date: "2026-08-05" },
-  { id: 4, name: "Pautang Gadget System", category: "Web Dev", status: "Completed", date: "2026-07-20" },
-  { id: 5, name: "Cat Litter Mobile App", category: "Mobile", status: "In Progress", date: "2026-06-15" },
+  { id: 2, name: "Alexander Maiso E-commerce App", category: "Web Dev", status: "Completed", date: "2026-09-12" },
+  { id: 3, name: "Lex Karaoke", category: "Web Dev", status: "Completed", date: "2026-08-20" },
+  { id: 4, name: "WP Leads", category: "Web Dev", status: "Completed", date: "2026-08-10" },
+  { id: 5, name: "LearnEduColor LMS Website", category: "Web Dev", status: "Completed", date: "2026-07-15" },
+  { id: 6, name: "Createlabz.io IoT Store", category: "Web Dev", status: "Completed", date: "2026-07-01" },
+  { id: 7, name: "Educolorworld Website", category: "Web Dev", status: "Completed", date: "2026-06-20" },
+  { id: 8, name: "Impossible Kids Website", category: "Web Dev", status: "Completed", date: "2026-06-01" },
+  { id: 9, name: "C & L Physiotherapy", category: "Web Dev", status: "Completed", date: "2026-05-10" },
+  { id: 10, name: "PawLitrax™", category: "Mobile", status: "In Progress", date: "2026-04-15" },
+  { id: 11, name: "Lost & Found System @UM Matina", category: "Software", status: "Completed", date: "2026-03-20" },
+  { id: 12, name: "Pautang Gadget System", category: "Software", status: "Completed", date: "2026-02-10" },
+  { id: 13, name: "Line Follower Robot", category: "IoT", status: "Completed", date: "2026-01-15" },
 ];
 
 const statusColors = {
@@ -120,7 +128,7 @@ const Dashboard = () => {
             Project Dashboard
           </h1>
           <p className="text-gray-400 text-sm sm:text-base">
-            Manage your projects with full CRUD operations.
+            A live CRUD demonstration. Go ahead, <span className="text-teal-400 font-medium">create</span>, <span className="text-purple-400 font-medium">edit</span>, and <span className="text-rose-400 font-medium">delete</span> projects to explore how it works. Nothing is saved, so refresh anytime to start fresh!
           </p>
         </motion.div>
 
