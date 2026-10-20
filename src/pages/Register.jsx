@@ -55,13 +55,13 @@ const Register = () => {
         <StarsCanvas fixed />
       </div>
 
-      <div className="relative z-10">
-        {toast && (
+      {/* Toast (outside z-10 container so it renders above the navbar) */}
+      {toast && (
         <motion.div
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -20, opacity: 0 }}
-          className={`fixed top-6 right-6 z-50 px-6 py-4 rounded-2xl shadow-2xl backdrop-blur-md border ${
+          className={`fixed top-6 right-6 z-[9999] px-6 py-4 rounded-2xl shadow-2xl backdrop-blur-md border ${
             toast.type === "success"
               ? "bg-emerald-500/90 text-white border-emerald-300"
               : "bg-rose-500/90 text-white border-rose-300"
@@ -76,6 +76,7 @@ const Register = () => {
         </motion.div>
       )}
 
+      <div className="relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
