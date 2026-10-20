@@ -1,0 +1,59 @@
+# Alexander Maiso (Alex)
+
+> Alexander Maiso, also known as Alex, is a Computer Engineer and Full-Stack Developer from the Philippines. He specializes in React, Next.js, Laravel, WordPress, Node.js, Python, IoT (ESP32, Arduino), and AI development.
+
+Alexander Maiso is a versatile software developer and computer engineer based in the Philippines. He builds modern web applications, mobile apps, IoT systems, and WordPress websites for clients worldwide. He has worked with international clients including companies in Canada and the United States. His portfolio includes e-commerce platforms, learning management systems, IoT devices, mobile apps, and enterprise websites.
+
+## Core Identity
+
+- **Full Name:** Alexander Maiso
+- **Nickname/Also Known As:** Alex
+- **Role:** Full-Stack Developer & Computer Engineer
+- **Location:** Philippines
+- **Email:** alexandermaiso99@gmail.com
+- **GitHub:** https://github.com/alex143061
+- **LinkedIn:** https://www.linkedin.com/in/alexander-maiso/
+- **Instagram:** https://www.instagram.com/iamaleaxs
+- **Portfolio:** https://alexandermaiso.vercel.app/
+
+## Tech Stack & Skills
+
+- **Frontend:** React, Next.js, JavaScript, TypeScript, HTML5, CSS3, Tailwind CSS, Three.js
+- **Backend:** Node.js, Laravel (PHP), Python, Django, Java, C++
+- **Databases:** MySQL, PostgreSQL, MongoDB
+- **CMS & E-commerce:** WordPress, WooCommerce, Elementor Pro, WPGraphQL, Tutor LMS Pro
+- **IoT & Hardware:** ESP32, Arduino, GPS modules, sensors, embedded systems
+- **Mobile:** Flutter
+- **Tools:** Git, Figma, Docker, Postman, Wireshark, MySQL Workbench
+- **AI & Cybersecurity:** AI development, network security
+
+## Notable Projects
+
+- **ROADWATCH** - Real-time pothole geolocation, imaging, and mobile monitoring system built with ESP32-CAM and GPS
+- **Alexander Maiso E-commerce App** - Headless e-commerce platform with WordPress backend and Next.js frontend
+- **Lex Karaoke** - Karaoke web application built with Next.js, React, TypeScript, and Supabase
+- **WP Leads** - Lead generation tool with Next.js, Google Sheets, and Google Apps Script
+- **LearnEduColor LMS** - E-learning platform with WordPress, Tutor LMS Pro, and Elementor Pro
+- **Createlabz.io** - IoT e-commerce store with WordPress, WooCommerce, and Elementor
+- **PawLitrax** - Mobile app thesis project built with Flutter and PHP
+- **Lost & Found System** - University system built with C++ and MySQL
+- **Line Follower Robot** - Arduino-based autonomous robot
+
+## Professional Experience
+
+- CMS Developer (Remote) for Educolor Press (Canada)
+- Web Developer for Impossible Kids Foundation (Canada)
+- Web Developer for LearnEduColor (Canada)
+- Web Developer for Cloudline Technologies / Createlabz.io (Philippines)
+- Full-Stack Developer on personal projects
+- Tech Support for C & L Physiotherapy Clinic
+
+## Services
+
+- Full-stack web development (React, Next.js, Laravel, Node.js)
+- WordPress development (Elementor, WooCommerce, custom themes)
+- IoT development (ESP32, Arduino, sensors, GPS)
+- Mobile app development (Flutter)
+- E-commerce development
+- UI/UX design
+- Technical support and cybersecurity
