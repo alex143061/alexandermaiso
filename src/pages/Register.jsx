@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiUser, FiMail, FiLock, FiAlertCircle, FiCheckCircle } from "react-icons/fi";
 import { StarsCanvas } from "../components/canvas";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -10,6 +11,15 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [toast, setToast] = useState(null);
+
+  usePageMeta({
+    title: "Create an account | Alexander Maiso (Alex)",
+    description:
+      "Create an account for the Alexander Maiso portfolio demo area and try the CRUD project tracker.",
+    path: "/register",
+    noIndex: true,
+  });
+
 
   const showToast = (type, message) => {
     setToast({ type, message });

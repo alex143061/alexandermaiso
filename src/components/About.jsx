@@ -24,8 +24,12 @@ const ServiceCard = ({ index, title, icon }) => (
       >
         <img
           src={icon}
-          alt="web-development"
+          alt={`${title} icon`}
           className="w-16 h-16 object-contain"
+          loading="lazy"
+          decoding="async"
+          width="64"
+          height="64"
         />
 
         <h3 className="text-white text-[20px] font-bold text-center">
@@ -50,7 +54,7 @@ const About = () => {
         >
         I am a <span className="pink-text-gradient font-semibold">web developer</span> with a strong foundation in building applications from scratch using <span className="pink-text-gradient font-semibold">Laravel</span>, a PHP framework similar in architecture to WordPress in terms of running on PHP, which gives me deep understanding of <span className="bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-semibold">backend systems</span>, database design, and scalable application structure. I specialize in developing high-performance <span className="pink-text-gradient font-semibold">WordPress websites</span> and modern web solutions using Elementor, WooCommerce, and custom code to extend functionality and improve user experience. My background in Laravel allows me to approach WordPress development with an <span className="bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-semibold">engineering mindset</span>, focusing on clean architecture, efficient workflows, API integrations, and system optimization. I also prioritize <span className="pink-text-gradient font-semibold">responsive UI/UX design</span>, performance tuning, and reliable troubleshooting to ensure smooth and scalable digital solutions. Explore my projects below or get in touch at  {" "}
           <a
-            href="alexandermaiso99@gmail.com"
+            href="mailto:alexandermaiso99@gmail.com"
             className="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black"
           >
             alexandermaiso99@gmail.com
@@ -68,8 +72,12 @@ const About = () => {
             >
               <img
                 src={alexa}
-                alt="alexa"
-              className="w-full h-full object-contain"
+                alt="Portrait of Alexander Maiso, Computer Engineer and Full-Stack Developer"
+                className="w-full h-full object-contain"
+                loading="lazy"
+                decoding="async"
+                width="350"
+                height="390"
               />
             </div>
           </div>

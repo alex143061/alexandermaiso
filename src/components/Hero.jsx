@@ -1,12 +1,10 @@
-import React from "react";
+﻿import React, { Suspense, lazy } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
 import { styles } from "../styles";
 import { textVariant, fadeIn } from "../utils/motion";
 
 import { Cursor, useTypewriter } from "react-simple-typewriter";
-import { TicofabCanvas } from "./canvas";
 
 import {
   BsTwitter,
@@ -16,6 +14,9 @@ import {
   BsLinkedin,
   BsFacebook,
 } from "react-icons/bs";
+
+// three.js is heavy - load the hero canvas as a separate chunk.
+const TicofabCanvas = lazy(() => import("./canvas/Tico"));
 
 const Hero = () => {
   const [text, count] = useTypewriter({
@@ -70,11 +71,17 @@ const Hero = () => {
           </motion.p>
         </div>
       </div>
-      <TicofabCanvas />
+      <Suspense fallback={null}>
+        <TicofabCanvas />
+      </Suspense>
 
 
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
-        <a href="#about">
+        <a
+          href="#about"
+          aria-label="Scroll down to the About section"
+          className="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
+        >
           <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
             <motion.div
               animate={{ y: [0, 24, 0] }}
@@ -90,46 +97,89 @@ const Hero = () => {
       </div>
 
       <div className="absolute right-5 top-1/2 -translate-y-1/2 flex flex-col gap-5 items-center md:mt-10 mt-5 md:gap-12">
-        <Link target="_blank" to="https://www.linkedin.com/in/alexander-maiso/">
+        <a
+          href="https://www.linkedin.com/in/alexander-maiso/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn profile (opens in a new tab)"
+          className="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
+        >
           <BsLinkedin
             size={30}
+            aria-hidden="true"
             className="icon hover:text-[#0e76a8] hover:translate-y-[-2px] hover:cursor-pointer transition-all ease-in duration-100"
           />
-        </Link>
+        </a>
 
-        <Link target="_blank" to="https://github.com/alex143061">
+        <a
+          href="https://github.com/alex143061"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub profile (opens in a new tab)"
+          className="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
+        >
           <BsGithub
             size={30}
+            aria-hidden="true"
             className="icon hover:text-[#494646] hover:translate-y-[-2px] hover:cursor-pointer transition-all ease-in duration-100"
           />
-        </Link>
+        </a>
 
-        <Link target="_blank" to="https://x.com/IamAlex84766006?t=PeIeLtyPl3165oaxz90XqA&s=07">
+        <a
+          href="https://x.com/IamAlex84766006"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="X (Twitter) profile (opens in a new tab)"
+          className="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
+        >
           <BsTwitter
             size={30}
+            aria-hidden="true"
             className="icon hover:text-[#1DA1F2] hover:translate-y-[-2px] hover:cursor-pointer transition-all ease-in duration-100"
           />
-        </Link>
+        </a>
 
-        <Link target="_blank" to="https://discord.com/channels/@dffs221">
+        <a
+          href="https://discord.com/channels/@dffs221"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Discord server (opens in a new tab)"
+          className="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
+        >
           <BsDiscord
             size={30}
+            aria-hidden="true"
             className="icon hover:text-[#5865F2] hover:translate-y-[-2px] hover:cursor-pointer transition-all ease-in duration-100"
           />
-        </Link>
+        </a>
 
-        <Link target="_blank" to="https://www.instagram.com/iamaleaxs">
+        <a
+          href="https://www.instagram.com/iamaleaxs"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram profile (opens in a new tab)"
+          className="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
+        >
           <BsInstagram
             size={30}
+            aria-hidden="true"
             className="icon hover:text-[#E1306C] hover:translate-y-[-2px] hover:cursor-pointer transition-all ease-in duration-100"
           />
-        </Link>
-        <Link target="_blank" to="https://www.facebook.com/alexander.beltran.713950">
+        </a>
+
+        <a
+          href="https://www.facebook.com/alexander.beltran.713950"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook profile (opens in a new tab)"
+          className="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
+        >
           <BsFacebook
             size={30}
+            aria-hidden="true"
             className="icon hover:text-[#1877F2] hover:translate-y-[-2px] hover:cursor-pointer transition-all ease-in duration-100"
           />
-        </Link>
+        </a>
       </div>
     </section>
   );

@@ -3,13 +3,14 @@ import { motion } from "framer-motion";
 import { createPortal } from "react-dom";
 import { FiArrowRight, FiCalendar, FiX } from "react-icons/fi";
 import { StarsCanvas } from "../components/canvas";
+import { usePageMeta } from "../hooks/usePageMeta";
 
-import iotImg from "../blogimages/iot.jpg";
-import wraithKingImg from "../blogimages/wraith-king.jpeg";
-import dota2Img from "../blogimages/dota2.jpg";
-import cybersecurityImg from "../blogimages/cybersecurity.jpg";
-import roboticsImg from "../blogimages/robotics.jpg";
-import gpsImg from "../blogimages/gps.jpg";
+import iotImg from "../blogimages/iot.webp";
+import wraithKingImg from "../blogimages/wraith-king.webp";
+import dota2Img from "../blogimages/dota2.webp";
+import cybersecurityImg from "../blogimages/cybersecurity.webp";
+import roboticsImg from "../blogimages/robotics.webp";
+import gpsImg from "../blogimages/gps.webp";
 
 const blogPosts = [
   {
@@ -117,6 +118,9 @@ const PostModal = ({ post, isOpen, onClose }) => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={post.title}
       className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8"
     >
       <motion.div
@@ -129,21 +133,23 @@ const PostModal = ({ post, isOpen, onClose }) => {
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center transition-colors"
+          type="button"
+          aria-label="Close article"
+          className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
         >
-          <FiX size={20} className="text-white" />
+          <FiX size={20} className="text-white" aria-hidden="true" />
         </button>
         <div className="overflow-y-auto min-h-0 p-5 sm:p-6">
           <img
             src={post.image}
-            alt={post.title}
+            alt={`Cover image for ${post.title}`}
             className="w-full max-h-[45vh] object-cover rounded-xl shadow-xl border border-white/10"
             loading="lazy"
             decoding="async"
           />
           <div className="mt-6 text-left">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full bg-white/5 border border-white/10 text-teal-300 mb-3">
-              <FiCalendar size={12} />
+              <FiCalendar size={12} aria-hidden="true" />
               {post.date}
             </span>
             <h3 className="text-2xl font-bold text-white">{post.title}</h3>
@@ -160,6 +166,49 @@ const PostModal = ({ post, isOpen, onClose }) => {
 
 const Blog = () => {
   const [selectedPost, setSelectedPost] = useState(null);
+
+  usePageMeta({
+    title: "Blog | Alexander Maiso (Alex) — IoT, Cybersecurity, Robotics & Gaming",
+    description:
+      "Technical articles by Alexander Maiso on the Internet of Things, cybersecurity, robotics, GPS systems, and gaming. Practical notes from a full-stack developer and computer engineer.",
+    path: "/blog",
+  });
+
+  // Structured data so search engines and AI answer engines can parse the
+  // article list. Injected once the component mounts.
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.setAttribute("data-blog-schema", "true");
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      name: "Alexander Maiso (Alex) — Blog",
+      url: "https://alexandermaiso.vercel.app/blog",
+      description:
+        "Technical articles by Alexander Maiso on the Internet of Things, cybersecurity, robotics, GPS systems, and gaming.",
+      author: {
+        "@type": "Person",
+        name: "Alexander Maiso",
+        url: "https://alexandermaiso.vercel.app/",
+      },
+      blogPost: blogPosts.map((post) => ({
+        "@type": "BlogPosting",
+        headline: post.title,
+        datePublished: new Date(post.date).toISOString(),
+        description: post.summary,
+        author: { "@type": "Person", name: "Alexander Maiso" },
+        publisher: { "@type": "Person", name: "Alexander Maiso" },
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": "https://alexandermaiso.vercel.app/blog",
+        },
+      })),
+    });
+    document.head.appendChild(script);
+
+    return () => script.remove();
+  }, []);
 
   return (
     <div className="relative w-full min-h-screen bg-primary/70 text-white p-4 sm:p-8">
@@ -194,21 +243,22 @@ const Blog = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.15, duration: 0.5 }}
               whileHover={{ y: -8 }}
-              onClick={() => setSelectedPost(post)}
-              className="group relative flex flex-col bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 overflow-hidden shadow-2xl hover:border-teal-500/40 transition-colors duration-300 cursor-pointer"
+              className="group relative flex flex-col bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 overflow-hidden shadow-2xl hover:border-teal-500/40 transition-colors duration-300"
             >
               {/* Post Image */}
               <div className="relative h-48 sm:h-52 overflow-hidden">
                 <img
                   src={post.image}
-                  alt={post.title}
+                  alt={`Cover image for ${post.title}`}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
                   decoding="async"
+                  width="600"
+                  height="208"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/20 to-transparent" />
                 <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-teal-300">
-                  <FiCalendar size={12} />
+                  <FiCalendar size={12} aria-hidden="true" />
                   {post.date}
                 </span>
               </div>
@@ -216,20 +266,32 @@ const Blog = () => {
               {/* Post Content */}
               <div className="flex flex-col flex-1 p-6">
                 <h2 className="text-lg sm:text-xl font-bold text-white mb-3 leading-snug group-hover:text-teal-400 transition-colors duration-300">
-                  {post.title}
+                  <button
+                    type="button"
+                    onClick={() => setSelectedPost(post)}
+                    aria-label={`Read the article: ${post.title}`}
+                    className="text-left rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
+                  >
+                    {post.title}
+                  </button>
                 </h2>
                 <p className="text-sm text-gray-400 leading-relaxed mb-5 flex-1">
                   {post.summary}
                 </p>
 
                 {/* Read More Indicator */}
-                <div className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-teal-400 group-hover:text-teal-300 transition-colors self-start">
+                <button
+                  type="button"
+                  onClick={() => setSelectedPost(post)}
+                  className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-teal-400 group-hover:text-teal-300 transition-colors self-start rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
+                >
                   Read More
                   <FiArrowRight
                     size={16}
+                    aria-hidden="true"
                     className="transition-transform duration-300 group-hover:translate-x-1"
                   />
-                </div>
+                </button>
               </div>
             </motion.article>
           ))}

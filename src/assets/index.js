@@ -1,106 +1,100 @@
-import logo from "./logo3.png";
-import logo_alex from "./logo_alex.png";
-import backend from "./backend.png";
-import creator from "./creator.png";
-import mobile from "./mobile.png";
-import web from "./web.png";
-import github from "./github.png";
-import menu from "./menu.svg";
+import backend from "./backend.webp";
+import creator from "./creator.webp";
+import mobile from "./mobile.webp";
+import web from "./web.webp";
+import github from "./github.webp";
 import close from "./close.svg";
-import code1 from "./code1.png";
-import cplusplus from "./tech/cplusplus.png";
-import wampserver from "./tech/wampserver.png";
-import xampp from "./tech/xampp.png";
-import mysqlworkbench from "./tech/mysqlworkbench.png";
-import postman from "./tech/postman.png";
-import capcut from "./tech/capcut.png";
-import arduino from "./tech/arduino.png";
-import wireshark from "./tech/wireshark.png";
-import laravel from "./tech/laravel.png";
-import java from "./tech/java.png";
-import wordpress from "./tech/wordpress.png";
+import code1 from "./code1.webp";
+import cplusplus from "./tech/cplusplus.webp";
+import wampserver from "./tech/wampserver.webp";
+import xampp from "./tech/xampp.webp";
+import mysqlworkbench from "./tech/mysqlworkbench.webp";
+import postman from "./tech/postman.webp";
+import capcut from "./tech/capcut.webp";
+import arduino from "./tech/arduino.webp";
+import wireshark from "./tech/wireshark.webp";
+import laravel from "./tech/laravel.webp";
+import java from "./tech/java.webp";
+import wordpress from "./tech/wordpress.webp";
 
-import css from "./tech/css.png";
-import docker from "./tech/docker.png";
-import figma from "./tech/figma.png";
-import git from "./tech/git.png";
-import html from "./tech/html.png";
-import javascript from "./tech/javascript.png";
-import mongodb from "./tech/mongodb.png";
-import nodejs from "./tech/nodejs.png";
-import reactjs from "./tech/reactjs.png";
-import redux from "./tech/redux.png";
-import tailwind from "./tech/tailwind.png";
-import typescript from "./tech/typescript.png";
-import threejs from "./tech/threejs.png";
-import python from "./tech/python.png";
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
-import django from "./tech/django.png";
-import postgres from "./tech/postgres.png";
+import css from "./tech/css.webp";
+import docker from "./tech/docker.webp";
+import figma from "./tech/figma.webp";
+import git from "./tech/git.webp";
+import html from "./tech/html.webp";
+import javascript from "./tech/javascript.webp";
+import mongodb from "./tech/mongodb.webp";
+import nodejs from "./tech/nodejs.webp";
+import reactjs from "./tech/reactjs.webp";
+import redux from "./tech/redux.webp";
+import tailwind from "./tech/tailwind.webp";
+import typescript from "./tech/typescript.webp";
+import threejs from "./tech/threejs.webp";
+import python from "./tech/python.webp";
+import meta from "./company/meta.webp";
+import shopify from "./company/shopify.webp";
+import starbucks from "./company/starbucks.webp";
+import tesla from "./company/tesla.webp";
+import django from "./tech/django.webp";
+import postgres from "./tech/postgres.webp";
 import sql from "./tech/sql.svg";
-import next from "./tech/next.png";
+import next from "./tech/next.webp";
 import vue from "./tech/vue.svg"
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
-import movie from "./movie.png"
-import shop from "./shop.png"
-import youtube from "./youtube.png"
-import jeff from "./jeff.jpg"
-import alexa from "./alexa.jpg"
+import carrent from "./carrent.webp";
+import jobit from "./jobit.webp";
+import tripguide from "./tripguide.webp";
+import movie from "./movie.webp"
+import shop from "./shop.webp"
+import youtube from "./youtube.webp"
+import jeff from "./jeff.webp"
+import alexa from "./alexa.webp"
 
-import liveLink from "./liveLink.png"
+import liveLink from "./liveLink.webp"
 
-import networking from "./networking.png"
-import customersupport from "./customersupport.png"
-import mysqlpic from "./mysqlpic.png"
-import cyberpic from "./cyberpic.png"
-import crmhub from "./crmhub.png"
-import googleworkspace from "./googleworkspace.png"
-import cybercert from "./cybercert.png"
-import laravel_alex from "./laravel_alex.png"
-import ml_alex from "./ml_alex.png"
-
-
-
-import portfolio15 from "./portfolio15.png"
-import portfolio16 from "./portfolio16.png"
-import portfolio17 from "./portfolio17.png"
-import LOGO2 from "./LOGO2.webp";
-import logo_white from "./logo_white.png";
-import tiktok from "./tiktok.png";
-import ig from "./ig.png";
-import linktree from "./linktree.png";
+import networking from "./networking.webp"
+import customersupport from "./customersupport.webp"
+import mysqlpic from "./mysqlpic.webp"
+import cyberpic from "./cyberpic.webp"
+import crmhub from "./crmhub.webp"
+import googleworkspace from "./googleworkspace.webp"
+import cybercert from "./cybercert.webp"
+import laravel_alex from "./laravel_alex.webp"
+import ml_alex from "./ml_alex.webp"
 
 
-import smartrep from "./smartrep.png";
-import pautang from "./pautang.png";
-import line_follower from "./line_follower.jpg";
-import lost_found from "./lost_found.png";
-import clinic from "./clinic.png";
+
+import portfolio15 from "./portfolio15.webp"
+import portfolio16 from "./portfolio16.webp"
+import portfolio17 from "./portfolio17.webp"
+import logo_white from "./logo_white.webp";
+import tiktok from "./tiktok.webp";
+import ig from "./ig.webp";
+import linktree from "./linktree.webp";
 
 
-import matrixai from "./matrixai.png";
-import beeclone from "./beeclone.png";
-import notable from "./notable.png";
-import zapflow from "./zapflow.png";
-import learneducolor2 from "./learneducolor2.png";
-import createlabz from "./createlabz.png";
-import educolorworld from "./educolorworld.png";
-import mobileapp from "./mobileapp.jpeg";
-import IKF from "./IKF.png";
-import lexKaraoke from "./lex-karaoke.png";
-import wpLeads from "./wp-leads.png";
+import smartrep from "./smartrep.webp";
+import pautang from "./pautang.webp";
+import line_follower from "./line_follower.webp";
+import lost_found from "./lost_found.webp";
+import clinic from "./clinic.webp";
+
+
+import matrixai from "./matrixai.webp";
+import beeclone from "./beeclone.webp";
+import notable from "./notable.webp";
+import zapflow from "./zapflow.webp";
+import learneducolor2 from "./learneducolor2.webp";
+import createlabz from "./createlabz.webp";
+import educolorworld from "./educolorworld.webp";
+import mobileapp from "./mobileapp.webp";
+import IKF from "./IKF.webp";
+import lexKaraoke from "./lex-karaoke.webp";
+import wpLeads from "./wp-leads.webp";
 
 
 export {
   alexa,
-  logo_alex,
 
-  logo,
   java,
   wordpress,
   laravel,
@@ -112,7 +106,6 @@ export {
   wampserver,
   cplusplus,
   github,
-  menu,
   close,
   css,
   docker,
@@ -149,7 +142,6 @@ export {
   portfolio15,
   portfolio16,
   portfolio17,
-  LOGO2,
   logo_white,
   tiktok,
   ig,

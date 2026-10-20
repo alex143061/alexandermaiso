@@ -3,12 +3,21 @@ import { useNavigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiUser, FiLock, FiMail, FiAlertCircle, FiCheckCircle } from "react-icons/fi";
 import { StarsCanvas } from "../components/canvas";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [toast, setToast] = useState(null);
+
+  usePageMeta({
+    title: "Log in | Alexander Maiso (Alex)",
+    description:
+      "Sign in to the Alexander Maiso portfolio demo area. Access the CRUD project tracker and other developer tools.",
+    path: "/login",
+    noIndex: true,
+  });
 
   const showToast = (type, message) => {
     setToast({ type, message });

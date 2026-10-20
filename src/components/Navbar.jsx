@@ -126,7 +126,14 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
             {/* Header + aesthetic close button */}
             <div className="relative flex items-center justify-between border-b border-white/10 px-5 py-4">
               <div className="flex items-center gap-2">
-                <img src={logo_white} alt="logo" className="h-10 w-10 object-contain" />
+                <img
+                  src={logo_white}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-10 w-10 object-contain"
+                  width="40"
+                  height="40"
+                />
                 <span className="text-sm font-bold tracking-wide text-white">
                   Alexander Maiso
                 </span>
@@ -211,6 +218,7 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
                     <a
                       href={`#${nav.id}`}
                       onClick={(e) => e.preventDefault()}
+                      aria-current={active === nav.title ? "true" : undefined}
                       className={`text-[16px] font-medium transition-all duration-200 group-hover:translate-x-1 ${
                         active === nav.title
                           ? "text-white"
@@ -284,8 +292,16 @@ const Navbar = () => {
               setActive("");
               window.scrollTo(0, 0);
             }}
+            aria-label="Alexander Maiso — home"
           >
-            <img src={logo_white} alt="logo" className="w-24 h-24 object-contain" />
+            <img
+              src={logo_white}
+              alt=""
+              aria-hidden="true"
+              className="w-24 h-24 object-contain"
+              width="96"
+              height="96"
+            />
             <p className="text-white text-[18px] font-bold cursor-pointer flex">
               Alexander Maiso
             </p>
@@ -311,6 +327,8 @@ const Navbar = () => {
                 <a
                   href={`#${nav.id}`}
                   onClick={(e) => e.preventDefault()}
+                  aria-current={active === nav.title ? "true" : undefined}
+                  className="rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
                 >
                   {nav.title}
                 </a>

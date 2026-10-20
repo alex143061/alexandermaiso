@@ -8,7 +8,7 @@ import { github, close } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
-import livelink from "../assets/liveLink.png";
+import livelink from "../assets/liveLink.webp";
 
 // Important tech words worth highlighting inside project descriptions
 const HIGHLIGHT_WORDS = [
@@ -140,6 +140,9 @@ const ImageModal = ({ project, isOpen, onClose }) => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${project.name} project preview`}
       className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8"
     >
       <motion.div
@@ -152,15 +155,19 @@ const ImageModal = ({ project, isOpen, onClose }) => {
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center transition-colors"
+          type="button"
+          aria-label="Close project preview"
+          className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
         >
-          <img src={close} alt="close" className="w-5 h-5" />
+          <img src={close} alt="" aria-hidden="true" className="w-5 h-5" width="20" height="20" />
         </button>
         <div className="overflow-y-auto min-h-0 p-5 sm:p-6">
         <img
           src={project.image}
-          alt={project.name}
-          className="w-full max-h-[55vh] object-contain rounded-xl shadow-xl border border-white/10" loading="lazy" decoding="async"
+          alt={`Screenshot of the ${project.name} project`}
+          className="w-full max-h-[55vh] object-contain rounded-xl shadow-xl border border-white/10"
+          loading="lazy"
+          decoding="async"
         />
         <div className="mt-6 text-left">
           <h3 className="text-2xl font-bold text-white">{project.name}</h3>
@@ -205,44 +212,62 @@ const ProjectCard = ({
     >
       <div
         className="relative w-full h-[230px] shrink-0 overflow-hidden rounded-3xl group cursor-pointer"
-        onClick={(e) => {
-          e.stopPropagation();
-          onImageClick();
-        }}
       >
-        <img
-          src={image}
-          alt="project_image"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async"
-        />
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            onImageClick();
+          }}
+          aria-label={`Open a larger preview of the ${name} project`}
+          className="block w-full h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-teal-400"
+        >
+          <img
+            src={image}
+            alt={`Screenshot of the ${name} project`}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+            decoding="async"
+            width="600"
+            height="230"
+          />
+        </button>
 
         <div className="absolute inset-0 flex gap-2 justify-end m-3 z-20">
-          <div
-            onClick={(e) => {
-              e.stopPropagation();
-              window.open(source_code_link, "_blank");
-            }}
-            className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer"
+          <a
+            href={source_code_link}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            aria-label={`View the source code for ${name} (opens in a new tab)`}
+            className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
           >
             <img
               src={github}
-              alt="source code"
+              alt=""
+              aria-hidden="true"
               className="w-2/3 h-2/3 object-contain"
+              width="21"
+              height="21"
             />
-          </div>
-          <div
-            onClick={(e) => {
-              e.stopPropagation();
-              window.open(liveUrl, "_blank");
-            }}
-            className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer"
+          </a>
+          <a
+            href={liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            aria-label={`Visit the live site for ${name} (opens in a new tab)`}
+            className="black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
           >
             <img
               src={livelink}
-              alt="live url"
+              alt=""
+              aria-hidden="true"
               className="w-2/3 h-2/3 object-contain"
+              width="21"
+              height="21"
             />
-          </div>
+          </a>
         </div>
       </div>
 

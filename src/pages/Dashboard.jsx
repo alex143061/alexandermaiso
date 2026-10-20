@@ -5,6 +5,7 @@ import {
   FiCheckCircle, FiAlertCircle, FiFolder, FiClock, FiLayers,
 } from "react-icons/fi";
 import { StarsCanvas } from "../components/canvas";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 const initialProjects = [
   { id: 1, name: "ROADWATCH", category: "IoT", status: "Completed", date: "2026-10-18" },
@@ -52,6 +53,14 @@ const Dashboard = () => {
     const timer = setTimeout(() => setToast(null), 3000);
     return () => clearTimeout(timer);
   }, [toast]);
+
+  usePageMeta({
+    title: "Project Dashboard | Alexander Maiso (Alex)",
+    description:
+      "A CRUD demo by Alexander Maiso for tracking software projects, built with React. View, create, edit, search, and delete project records.",
+    path: "/dashboard",
+    noIndex: true,
+  });
 
   const showToast = (type, message) => setToast({ type, message });
 

@@ -43,7 +43,15 @@ const Footer = () => {
           {/* Column 1: Brand */}
           <div className="lg:col-span-1">
             <Link to="/" onClick={scrollToTop} className="inline-block mb-5">
-              <img src={logo_white} alt="Alexander Maiso Logo" className="w-16 h-16 object-contain" />
+              <img
+                src={logo_white}
+                alt="Alexander Maiso logo"
+                className="w-16 h-16 object-contain"
+                loading="lazy"
+                decoding="async"
+                width="64"
+                height="64"
+              />
             </Link>
             <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 mb-3">
               Alexander Maiso
@@ -98,17 +106,25 @@ const Footer = () => {
                 <div key={index} className="rounded-xl border border-white/10 bg-white/5 overflow-hidden">
                   <button
                     onClick={() => toggleFaq(index)}
-                    className="w-full flex items-center justify-between px-4 py-3 text-left text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-all"
+                    type="button"
+                    aria-expanded={activeFaq === index}
+                    aria-controls={`faq-panel-${index}`}
+                    id={`faq-button-${index}`}
+                    className="w-full flex items-center justify-between px-4 py-3 text-left text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-teal-400"
                   >
                     <span>{faq.q}</span>
                     <FiChevronDown
                       size={16}
+                      aria-hidden="true"
                       className={`text-gray-500 transition-transform duration-300 flex-shrink-0 ml-3 ${activeFaq === index ? "rotate-180 text-teal-400" : ""}`}
                     />
                   </button>
                   <AnimatePresence>
                     {activeFaq === index && (
                       <motion.div
+                        id={`faq-panel-${index}`}
+                        role="region"
+                        aria-labelledby={`faq-button-${index}`}
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}

@@ -1,11 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, Suspense, lazy } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
-import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+
+// three.js is heavy — load the globe as a separate chunk.
+const EarthCanvas = lazy(() => import("./canvas/Earth"));
 
 const Contact = () => {
   const formRef = useRef();
@@ -94,6 +96,7 @@ const Contact = () => {
           ref={formRef}
           onSubmit={handleSubmit}
           className="mt-12 flex flex-col gap-8"
+          aria-label="Contact form"
         >
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Name</span>
@@ -103,7 +106,9 @@ const Contact = () => {
               value={form.name}
               onChange={handleChange}
               placeholder="What's your name?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              autoComplete="name"
+              required
+              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium focus-visible:ring-2 focus-visible:ring-teal-400"
             />
           </label>
           <label className="flex flex-col">
@@ -114,7 +119,9 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               placeholder="What's your email address?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              autoComplete="email"
+              required
+              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium focus-visible:ring-2 focus-visible:ring-teal-400"
             />
           </label>
           <label className="flex flex-col">
@@ -125,13 +132,16 @@ const Contact = () => {
               value={form.message}
               onChange={handleChange}
               placeholder="What's your message?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              required
+              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium focus-visible:ring-2 focus-visible:ring-teal-400"
             />
           </label>
 
           <button
             type="submit"
-            className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
+            disabled={loading}
+            aria-busy={loading}
+            className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary disabled:opacity-60 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-teal-400"
           >
             {loading ? "Sending..." : "Send"}
           </button>
@@ -142,7 +152,9 @@ const Contact = () => {
         variants={slideIn("right", "tween", 0.2, 1)}
         className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
       >
-        <EarthCanvas />
+        <Suspense fallback={null}>
+          <EarthCanvas />
+        </Suspense>
       </motion.div>
     </div>
   );

@@ -66,11 +66,17 @@ const ImageCarousel = () => {
       >
         Preview.
       </h2>
-      <Slider {...settings}>
+      <Slider {...settings} aria-label="My certifications">
         {imageProjects.map((project) => (
           <div key={project.id} className="carousel-slide">
             <a href={project.url} target="_blank" rel="noopener noreferrer">
-            <img className="" src={project.image} alt={project.title} />
+              <img
+                className=""
+                src={project.image}
+                alt={`${project.title} certificate`}
+                loading="lazy"
+                decoding="async"
+              />
             </a>
             <h3 className="text-center mt-5 font-bold text-lg">
               {project.title}
