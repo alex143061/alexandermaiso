@@ -33,7 +33,14 @@ const Footer = () => {
   const [activeFaq, setActiveFaq] = useState(null);
 
   const toggleFaq = (index) => setActiveFaq(activeFaq === index ? null : index);
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const scrollToTop = () => {
+    const root = document.getElementById("root");
+    if (root) {
+      root.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <footer className="relative mt-20 border-t border-white/10 bg-black/40 backdrop-blur-xl">
