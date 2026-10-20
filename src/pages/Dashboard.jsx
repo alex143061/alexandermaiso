@@ -144,7 +144,7 @@ const Dashboard = () => {
 
         {/* Stats Cards */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-          <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-5 flex items-center gap-4">
+          <div className="bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl p-5 flex items-center gap-4 transition-colors duration-300">
             <div className="w-12 h-12 rounded-xl bg-teal-500/20 flex items-center justify-center">
               <FiLayers size={24} className="text-teal-400" />
             </div>
@@ -153,7 +153,7 @@ const Dashboard = () => {
               <p className="text-xs text-gray-400">Total Projects</p>
             </div>
           </div>
-          <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-5 flex items-center gap-4">
+          <div className="bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl p-5 flex items-center gap-4 transition-colors duration-300">
             <div className="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center">
               <FiCheckCircle size={24} className="text-emerald-400" />
             </div>
@@ -162,7 +162,7 @@ const Dashboard = () => {
               <p className="text-xs text-gray-400">Completed</p>
             </div>
           </div>
-          <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-5 flex items-center gap-4">
+          <div className="bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl p-5 flex items-center gap-4 transition-colors duration-300">
             <div className="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center">
               <FiClock size={24} className="text-amber-400" />
             </div>
@@ -195,7 +195,7 @@ const Dashboard = () => {
         </motion.div>
 
         {/* Table */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl overflow-hidden hover:border-teal-500/40 transition-colors duration-300">
           <div className="hidden sm:block overflow-x-auto">
             <table className="w-full text-left">
               <thead>
@@ -290,7 +290,7 @@ const Dashboard = () => {
       <AnimatePresence>
         {modalOpen && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setModalOpen(false)} className="fixed inset-0 z-[9998] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-            <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} onClick={(e) => e.stopPropagation()} className="w-full max-w-md bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl p-6 sm:p-8">
+            <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} onClick={(e) => e.stopPropagation()} className="w-full max-w-md bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl p-6 sm:p-8">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-white">{editingProject ? "Edit Project" : "New Project"}</h2>
                 <button onClick={() => setModalOpen(false)} className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-all">
@@ -338,7 +338,7 @@ const Dashboard = () => {
       <AnimatePresence>
         {deleteConfirm && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setDeleteConfirm(null)} className="fixed inset-0 z-[9998] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-            <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} onClick={(e) => e.stopPropagation()} className="w-full max-w-sm bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl p-6 sm:p-8 text-center">
+            <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} onClick={(e) => e.stopPropagation()} className="w-full max-w-sm bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl p-6 sm:p-8 text-center">
               <div className="w-14 h-14 rounded-full bg-rose-500/20 flex items-center justify-center mx-auto mb-4">
                 <FiTrash2 size={24} className="text-rose-400" />
               </div>
