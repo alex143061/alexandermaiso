@@ -212,13 +212,14 @@ const Blog = () => {
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen text-white p-4 sm:p-8">
+    <div className="relative w-full min-h-screen text-white">
       {/* Galaxy Stars Background: CSS nebula + animated star field */}
       <div className="fixed inset-0 z-[-1] w-full h-full galaxy-nebula">
         <StarsCanvas fixed />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto">
+      <div className="p-4 sm:p-8">
+        <div className="relative z-10 max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -297,6 +298,7 @@ const Blog = () => {
             </motion.article>
           ))}
         </div>
+      </div>
       </div>
 
       {selectedPost && (
