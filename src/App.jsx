@@ -87,7 +87,7 @@ const App = () => {
           <Route
             path="/login"
             element={
-              <div className="bg-primary min-h-screen pt-28">
+              <div className="galaxy-nebula min-h-screen pt-28">
                 <Login />
               </div>
             }
@@ -95,7 +95,7 @@ const App = () => {
           <Route
             path="/register"
             element={
-              <div className="bg-primary min-h-screen pt-28">
+              <div className="galaxy-nebula min-h-screen pt-28">
                 <Register />
               </div>
             }

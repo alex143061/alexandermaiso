@@ -63,7 +63,7 @@ const Login = () => {
   };
 
   return (
-    <div className="relative w-full min-h-screen bg-primary/70 text-white flex items-center justify-center overflow-hidden">
+    <div className="relative w-full min-h-screen text-white flex items-center justify-center overflow-hidden">
       <div className="fixed inset-0 z-[-1] w-full h-full">
         <StarsCanvas fixed />
       </div>
