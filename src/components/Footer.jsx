@@ -18,7 +18,6 @@ const faqs = [
 const quickLinks = [
   { name: "Home", path: "/" },
   { name: "Blog", path: "/blog" },
-  { name: "Dashboard", path: "/dashboard" },
   { name: "Login", path: "/login" },
   { name: "Register", path: "/register" },
 ];
