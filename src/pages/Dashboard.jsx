@@ -6,6 +6,7 @@ import {
 } from "react-icons/fi";
 import { StarsCanvas } from "../components/canvas";
 import { usePageMeta } from "../hooks/usePageMeta";
+import { Footer } from "../components";
 
 const initialProjects = [
   { id: 1, name: "ROADWATCH", category: "IoT", status: "Completed", date: "2026-10-18" },
@@ -358,6 +359,7 @@ const Dashboard = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      <Footer />
     </div>
   );
 };

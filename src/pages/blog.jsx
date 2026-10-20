@@ -4,6 +4,7 @@ import { createPortal } from "react-dom";
 import { FiArrowRight, FiCalendar, FiX } from "react-icons/fi";
 import { StarsCanvas } from "../components/canvas";
 import { usePageMeta } from "../hooks/usePageMeta";
+import { Footer } from "../components";
 
 import iotImg from "../blogimages/iot.webp";
 import wraithKingImg from "../blogimages/wraith-king.webp";
@@ -305,6 +306,7 @@ const Blog = () => {
           onClose={() => setSelectedPost(null)}
         />
       )}
+      <Footer />
     </div>
   );
 };
