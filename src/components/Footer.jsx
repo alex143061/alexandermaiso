@@ -144,20 +144,17 @@ const Footer = () => {
         <div className="h-px bg-white/10 my-8" />
 
         {/* Bottom Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-sm text-center sm:text-left">
+        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:justify-center">
+          <p className="text-gray-500 text-sm text-center">
             &copy; {new Date().getFullYear()} <span className="text-white font-semibold">Alexander Maiso</span>. All rights reserved. Built with <span className="text-rose-400">&#9829;</span> and lots of coffee.
           </p>
-          <div className="flex items-center gap-6">
-            <span className="text-gray-600 text-xs">React &middot; Vite &middot; Tailwind CSS &middot; Framer Motion</span>
-            <button
-              onClick={scrollToTop}
-              className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-teal-400 hover:border-teal-500/40 hover:bg-teal-500/10 hover:-translate-y-1 transition-all duration-300"
-              aria-label="Back to top"
-            >
-              <FiChevronDown size={18} className="rotate-180" />
-            </button>
-          </div>
+          <button
+            onClick={scrollToTop}
+            className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-teal-400 hover:border-teal-500/40 hover:bg-teal-500/10 hover:-translate-y-1 transition-all duration-300"
+            aria-label="Back to top"
+          >
+            <FiChevronDown size={18} className="rotate-180" />
+          </button>
         </div>
       </div>
     </footer>
