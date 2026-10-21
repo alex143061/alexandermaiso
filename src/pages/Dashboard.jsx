@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FiPlus, FiEdit2, FiTrash2, FiSearch, FiX,
-  FiCheckCircle, FiAlertCircle, FiFolder, FiClock, FiLayers,
+  FiFolder, FiClock, FiLayers, FiCheckCircle,
 } from "react-icons/fi";
 import { StarsCanvas } from "../components/canvas";
 import { usePageMeta } from "../hooks/usePageMeta";
-import { Footer } from "../components";
+import { useToast } from "../hooks/useToast";
+import { Footer, Toast, Modal } from "../components";
 
 const initialProjects = [
   { id: 1, name: "ROADWATCH", category: "IoT", status: "Completed", date: "2026-10-18" },
@@ -43,17 +44,11 @@ const Dashboard = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [editingProject, setEditingProject] = useState(null);
   const [deleteConfirm, setDeleteConfirm] = useState(null);
-  const [toast, setToast] = useState(null);
+  const { toast, showToast } = useToast(3000);
   const [formData, setFormData] = useState({
     name: "", category: "Web Dev", status: "Planned",
     date: new Date().toISOString().split("T")[0],
   });
-
-  useEffect(() => {
-    if (!toast) return;
-    const timer = setTimeout(() => setToast(null), 3000);
-    return () => clearTimeout(timer);
-  }, [toast]);
 
   usePageMeta({
     title: "Project Dashboard | Alexander Maiso (Alex)",
@@ -62,8 +57,6 @@ const Dashboard = () => {
     path: "/dashboard",
     noIndex: true,
   });
-
-  const showToast = (type, message) => setToast({ type, message });
 
   const filtered = projects.filter(
     (p) =>
@@ -113,24 +106,8 @@ const Dashboard = () => {
         <StarsCanvas fixed />
       </div>
 
-      {/* Toast */}
-      <AnimatePresence>
-        {toast && (
-          <motion.div
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -20, opacity: 0 }}
-            className={`fixed top-6 right-6 z-[9999] px-6 py-4 rounded-2xl shadow-2xl backdrop-blur-md border ${
-              toast.type === "success"
-                ? "bg-emerald-500/90 text-white border-emerald-300"
-                : "bg-rose-500/90 text-white border-rose-300"
-            } flex items-center gap-3`}
-          >
-            {toast.type === "success" ? <FiCheckCircle size={20} /> : <FiAlertCircle size={20} />}
-            <span className="font-medium text-sm">{toast.message}</span>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Toast is portalled to <body> so it renders above the navbar */}
+      <Toast toast={toast} position="top-right" />
 
       <div className="relative z-10 max-w-6xl mx-auto p-4 sm:p-8">
         {/* Header */}
@@ -287,78 +264,74 @@ const Dashboard = () => {
         </motion.div>
       </div>
 
-      {/* Create/Edit Modal */}
-      <AnimatePresence>
-        {modalOpen && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setModalOpen(false)} className="fixed inset-0 z-[9998] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-            <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} onClick={(e) => e.stopPropagation()} className="w-full max-w-md bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl p-6 sm:p-8">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-white">{editingProject ? "Edit Project" : "New Project"}</h2>
-                <button onClick={() => setModalOpen(false)} className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-all">
-                  <FiX size={18} />
-                </button>
-              </div>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Project Name</label>
-                  <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="Enter project name" className="w-full h-12 px-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/60 focus:bg-white/10 transition-all" autoFocus />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Category</label>
-                    <select value={formData.category} onChange={(e) => setFormData({ ...formData, category: e.target.value })} className="w-full h-12 px-4 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/60 focus:bg-white/10 transition-all appearance-none cursor-pointer">
-                      <option value="Web Dev" className="bg-gray-900">Web Dev</option>
-                      <option value="IoT" className="bg-gray-900">IoT</option>
-                      <option value="Software" className="bg-gray-900">Software</option>
-                      <option value="Mobile" className="bg-gray-900">Mobile</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Status</label>
-                    <select value={formData.status} onChange={(e) => setFormData({ ...formData, status: e.target.value })} className="w-full h-12 px-4 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/60 focus:bg-white/10 transition-all appearance-none cursor-pointer">
-                      <option value="Planned" className="bg-gray-900">Planned</option>
-                      <option value="In Progress" className="bg-gray-900">In Progress</option>
-                      <option value="Completed" className="bg-gray-900">Completed</option>
-                    </select>
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Date</label>
-                  <input type="date" value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value })} className="w-full h-12 px-4 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/60 focus:bg-white/10 transition-all" />
-                </div>
-                <button type="submit" className="w-full h-12 bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 hover:from-teal-400 hover:via-purple-400 hover:to-orange-400 rounded-xl font-bold text-white text-sm shadow-lg shadow-teal-500/25 transition-all duration-300 transform hover:-translate-y-0.5 mt-2">
-                  {editingProject ? "Update Project" : "Create Project"}
-                </button>
-              </form>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Create/Edit Modal — portalled so it renders above the navbar */}
+      <Modal open={modalOpen} onClose={() => setModalOpen(false)}>
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-xl font-bold text-white">{editingProject ? "Edit Project" : "New Project"}</h2>
+          <button onClick={() => setModalOpen(false)} className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-all">
+            <FiX size={18} />
+          </button>
+        </div>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Project Name</label>
+            <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="Enter project name" className="w-full h-12 px-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/60 focus:bg-white/10 transition-all" autoFocus />
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Category</label>
+              <select value={formData.category} onChange={(e) => setFormData({ ...formData, category: e.target.value })} className="w-full h-12 px-4 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/60 focus:bg-white/10 transition-all appearance-none cursor-pointer">
+                <option value="Web Dev" className="bg-gray-900">Web Dev</option>
+                <option value="IoT" className="bg-gray-900">IoT</option>
+                <option value="Software" className="bg-gray-900">Software</option>
+                <option value="Mobile" className="bg-gray-900">Mobile</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Status</label>
+              <select value={formData.status} onChange={(e) => setFormData({ ...formData, status: e.target.value })} className="w-full h-12 px-4 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/60 focus:bg-white/10 transition-all appearance-none cursor-pointer">
+                <option value="Planned" className="bg-gray-900">Planned</option>
+                <option value="In Progress" className="bg-gray-900">In Progress</option>
+                <option value="Completed" className="bg-gray-900">Completed</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Date</label>
+            <input type="date" value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value })} className="w-full h-12 px-4 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/60 focus:bg-white/10 transition-all" />
+          </div>
+          <button type="submit" className="w-full h-12 bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 hover:from-teal-400 hover:via-purple-400 hover:to-orange-400 rounded-xl font-bold text-white text-sm shadow-lg shadow-teal-500/25 transition-all duration-300 transform hover:-translate-y-0.5 mt-2">
+            {editingProject ? "Update Project" : "Create Project"}
+          </button>
+        </form>
+      </Modal>
 
-      {/* Delete Confirmation Modal */}
-      <AnimatePresence>
+      {/* Delete Confirmation Modal — portalled so it renders above the navbar */}
+      <Modal
+        open={!!deleteConfirm}
+        onClose={() => setDeleteConfirm(null)}
+        maxWidth="max-w-sm"
+      >
         {deleteConfirm && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setDeleteConfirm(null)} className="fixed inset-0 z-[9998] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-            <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} onClick={(e) => e.stopPropagation()} className="w-full max-w-sm bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl p-6 sm:p-8 text-center">
-              <div className="w-14 h-14 rounded-full bg-rose-500/20 flex items-center justify-center mx-auto mb-4">
-                <FiTrash2 size={24} className="text-rose-400" />
-              </div>
-              <h2 className="text-xl font-bold text-white mb-2">Delete Project?</h2>
-              <p className="text-gray-400 text-sm mb-6">
-                Are you sure you want to delete <span className="text-white font-semibold">"{deleteConfirm.name}"</span>? This action cannot be undone.
-              </p>
-              <div className="flex gap-3">
-                <button onClick={() => setDeleteConfirm(null)} className="flex-1 h-11 rounded-xl bg-white/5 border border-white/10 text-gray-300 font-semibold text-sm hover:bg-white/10 transition-all">
-                  Cancel
-                </button>
-                <button onClick={() => handleDelete(deleteConfirm)} className="flex-1 h-11 rounded-xl bg-rose-500 hover:bg-rose-400 text-white font-semibold text-sm transition-all">
-                  Delete
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
+          <>
+            <div className="w-14 h-14 rounded-full bg-rose-500/20 flex items-center justify-center mx-auto mb-4">
+              <FiTrash2 size={24} className="text-rose-400" />
+            </div>
+            <h2 className="text-xl font-bold text-white mb-2">Delete Project?</h2>
+            <p className="text-gray-400 text-sm mb-6">
+              Are you sure you want to delete <span className="text-white font-semibold">"{deleteConfirm.name}"</span>? This action cannot be undone.
+            </p>
+            <div className="flex gap-3">
+              <button onClick={() => setDeleteConfirm(null)} className="flex-1 h-11 rounded-xl bg-white/5 border border-white/10 text-gray-300 font-semibold text-sm hover:bg-white/10 transition-all">
+                Cancel
+              </button>
+              <button onClick={() => handleDelete(deleteConfirm)} className="flex-1 h-11 rounded-xl bg-rose-500 hover:bg-rose-400 text-white font-semibold text-sm transition-all">
+                Delete
+              </button>
+            </div>
+          </>
         )}
-      </AnimatePresence>
+      </Modal>
       <Footer />
     </div>
   );

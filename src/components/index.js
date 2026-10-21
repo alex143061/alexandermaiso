@@ -9,6 +9,8 @@ import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
 import CanvasLoader from "./Loader";
 import Footer from "./Footer";
+import Toast from "./Toast";
+import Modal from "./Modal";
 
 export {
   Hero,
@@ -22,4 +24,6 @@ export {
   CanvasLoader,
   StarsCanvas,
   Footer,
+  Toast,
+  Modal,
 };

@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FiUser, FiLock, FiMail, FiAlertCircle, FiCheckCircle } from "react-icons/fi";
+import { FiUser, FiLock } from "react-icons/fi";
 import { StarsCanvas } from "../components/canvas";
 import { usePageMeta } from "../hooks/usePageMeta";
-import { Footer } from "../components";
+import { useToast } from "../hooks/useToast";
+import { Footer, Toast } from "../components";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const [toast, setToast] = useState(null);
+  const { toast, showToast } = useToast();
 
   usePageMeta({
     title: "Log in | Alexander Maiso (Alex)",
@@ -19,18 +20,6 @@ const Login = () => {
     path: "/login",
     noIndex: true,
   });
-
-  const showToast = (type, message) => {
-    setToast({ type, message });
-    setTimeout(() => setToast(null), 3500);
-  };
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (toast) setToast(null);
-    }, 3500);
-    return () => clearTimeout(timer);
-  }, [toast]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -65,30 +54,13 @@ const Login = () => {
 
   return (
     <div className="relative w-full min-h-screen text-white overflow-hidden">
+      {/* Galaxy background: CSS nebula + animated star field */}
       <div className="fixed inset-0 z-[-1] w-full h-full galaxy-nebula">
         <StarsCanvas fixed />
       </div>
 
-      {/* Toast (outside z-10 container so it renders above the navbar) */}
-      {toast && (
-        <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -20, opacity: 0 }}
-          className={`fixed top-24 left-1/2 -translate-x-1/2 z-[10000] px-6 py-4 rounded-2xl shadow-2xl backdrop-blur-md border ${
-            toast.type === "success"
-              ? "bg-emerald-500/90 text-white border-emerald-300"
-              : "bg-rose-500/90 text-white border-rose-300"
-          } flex items-center gap-3`}
-        >
-          {toast.type === "success" ? (
-            <FiCheckCircle size={20} />
-          ) : (
-            <FiAlertCircle size={20} />
-          )}
-          <span className="font-medium text-sm">{toast.message}</span>
-        </motion.div>
-      )}
+      {/* Toast is portalled to <body> so it renders above the navbar */}
+      <Toast toast={toast} position="top-center" />
 
       <div className="flex items-center justify-center p-4 sm:p-8 min-h-[calc(100vh-120px)]">
         <div className="relative z-10 w-full max-w-[440px] mx-4">
@@ -164,9 +136,10 @@ const Login = () => {
           </Link>
         </motion.div>
       </div>
-      </div>
-      <Footer />
     </div>
+
+    <Footer />
+  </div>
   );
 };
 
