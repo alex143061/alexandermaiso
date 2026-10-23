@@ -37,8 +37,9 @@ const TicofabCanvas = () => {
       gl={{ preserveDrawingBuffer: true, antialias: false, powerPreference: "high-performance" }}
     >
       <Suspense fallback={<CanvasLoader />}>
-        <ambientLight intensity={1.5} />
+        <ambientLight intensity={3.0} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
+        <hemisphereLight intensity={1.5} groundColor='black' />
         <OrbitControls
           autoRotate
           autoRotateSpeed={0.5}
