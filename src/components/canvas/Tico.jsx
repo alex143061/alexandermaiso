@@ -59,7 +59,7 @@ const TicofabCanvas = () => {
       shadows
       dpr={isMobile ? [1, 1.5] : [1, 2]}
       camera={{ position: [18, 5, 5], fov: 25 }}
-      gl={{ preserveDrawingBuffer: true, antialias: false, powerPreference: "high-performance" }}
+      gl={{ preserveDrawingBuffer: true, antialias: false, powerPreference: "high-performance", toneMapping: 0 }}
       eventSource={typeof document !== "undefined" ? document.getElementById("root") : undefined}
     >
       <Suspense fallback={<CanvasLoader />}>
