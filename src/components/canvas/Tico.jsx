@@ -5,11 +5,11 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 
 const Ticofab = ({ isMobile }) => {
-  const tico = useGLTF("./astro/scene.gltf");
+  const tico = useGLTF("./ajf-12_dvergr/model.glb");
 
   return (
     <mesh>
-      <hemisphereLight intensity={0.15} groundColor='black' />
+      <hemisphereLight intensity={0.5} groundColor='black' />
       <spotLight
         position={[-30, 50, 10]}
         angle={0.12}
@@ -21,8 +21,8 @@ const Ticofab = ({ isMobile }) => {
       <pointLight intensity={1} />
       <primitive
         object={tico.scene}
-        scale={isMobile ? 1.2 : 1.65}
-        position={isMobile ? [0, -2.9, -0.2] : [0, -3.25, -1.5]}
+        scale={isMobile ? 3.0 : 4.0}
+        position={isMobile ? [0, -1.8, 0] : [0, -1.8, 0]}
         rotation={[-0.01, -0.5, -0.1]}
       />
     </mesh>
@@ -65,7 +65,7 @@ const TicofabCanvas = () => {
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           autoRotate
-          autoRotateSpeed={2}
+          autoRotateSpeed={0.5}
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
