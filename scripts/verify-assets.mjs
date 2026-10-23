@@ -68,7 +68,7 @@ let gltfChecked = 0;
 
 if (fs.existsSync(publicDir)) {
   const gltfFiles = walk(publicDir).filter(
-    (f) => f.endsWith('.gltf') || f.endsWith('.glb')
+    (f) => f.endsWith('.gltf')
   );
 
   for (const gltfPath of gltfFiles) {
