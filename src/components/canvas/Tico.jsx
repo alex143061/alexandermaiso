@@ -8,24 +8,25 @@ const Ticofab = ({ isMobile }) => {
   const tico = useGLTF("./ajf-12_dvergr/model.glb");
 
   return (
-    <mesh>
-      <hemisphereLight intensity={0.5} groundColor='black' />
-      <spotLight
-        position={[-30, 50, 10]}
-        angle={0.12}
-        penumbra={1}
-        intensity={1}
-        castShadow
-        shadow-mapSize={1024}
-      />
-      <pointLight intensity={1} />
-      <primitive
-        object={tico.scene}
-        scale={isMobile ? 3.0 : 4.0}
-        position={isMobile ? [0, -1.8, 0] : [0, -1.8, 0]}
-        rotation={[-0.01, -0.5, -0.1]}
-      />
-    </mesh>
+      <mesh>
+        <hemisphereLight intensity={1.0} groundColor='black' />
+        <ambientLight intensity={1.0} />
+        <spotLight
+          position={[-30, 50, 10]}
+          angle={0.12}
+          penumbra={1}
+          intensity={2.0}
+          castShadow
+          shadow-mapSize={1024}
+        />
+        <pointLight intensity={2.0} />
+        <primitive
+          object={tico.scene}
+          scale={isMobile ? 3.0 : 4.0}
+          position={isMobile ? [0, -1.8, 0] : [0, -1.8, 0]}
+          rotation={[-0.01, -0.5, -0.1]}
+        />
+      </mesh>
   );
 };
 
