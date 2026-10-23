@@ -125,7 +125,19 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
 
             {/* Header + aesthetic close button */}
             <div className="relative flex items-center justify-between border-b border-white/10 px-5 py-4">
-              <div className="flex items-center gap-2">
+              <div
+                className="flex items-center gap-2 cursor-pointer"
+                onClick={() => {
+                  navigate("/");
+                  const root = document.getElementById("root");
+                  if (root) {
+                    root.scrollTo({ top: 0, behavior: "smooth" });
+                  } else {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                }}
+                aria-label="Alexander Maiso — home"
+              >
                 <img
                   src={logo_white}
                   alt=""
@@ -285,12 +297,17 @@ const Navbar = () => {
         }`}
       >
         <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
-          <Link
-            to="/"
-            className="flex items-center"
+          <div
+            className="flex items-center cursor-pointer"
             onClick={() => {
               setActive("");
-              window.scrollTo(0, 0);
+              navigate("/");
+              const root = document.getElementById("root");
+              if (root) {
+                root.scrollTo({ top: 0, behavior: "smooth" });
+              } else {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
             }}
             aria-label="Alexander Maiso — home"
           >
@@ -302,10 +319,10 @@ const Navbar = () => {
               width="96"
               height="96"
             />
-            <p className="text-white text-[18px] font-bold cursor-pointer flex">
+            <p className="text-white text-[18px] font-bold flex">
               Alexander Maiso
             </p>
-          </Link>
+          </div>
 
           {/* Desktop Menu */}
           <ul className="list-none hidden lg:flex flex-row items-center gap-10">
