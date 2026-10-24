@@ -1,4 +1,4 @@
-import{r as c,R as ue}from"./three-fiber-fb421a93.js";/**
+import{r as c,R as ue}from"./three-fiber-5f0e5329.js";/**
  * @remix-run/router v1.23.2
  *
  * Copyright (c) Remix Software Inc.
