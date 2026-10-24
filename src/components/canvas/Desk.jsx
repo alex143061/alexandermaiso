@@ -10,8 +10,8 @@ const Desk = () => {
   return (
     <primitive
       object={desk.scene}
-      scale={0.5}
-      position={[0, -2, 0]}
+      scale={0.46}
+      position={[0, -1.6, 0]}
       rotation={[0, Math.PI, 0]}
     />
   );
