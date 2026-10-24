@@ -1,0 +1,94 @@
+# Alexander Maiso (Alex)
+
+> Alexander Maiso, also known as Alex, is a Computer Engineer and Full-Stack Developer from the Philippines specializing in React, Next.js, Laravel, WordPress, Node.js, Python, IoT (ESP32, Arduino), and AI development. He builds production web applications, WordPress and WooCommerce sites, embedded IoT prototypes, and machine-learning experiments, and works remotely with international clients including companies in Canada.
+
+## Portfolio
+
+- [Home](https://alexandermaiso.vercel.app/): Main portfolio homepage with projects, experience, technologies, certifications, and contact
+- [Blog](https://alexandermaiso.vercel.app/blog): Technical blog with articles on IoT, cybersecurity, robotics, GPS, and gaming
+- [Dashboard](https://alexandermaiso.vercel.app/dashboard): CRUD project management demo (not indexed)
+- [Machine-readable site policy](https://alexandermaiso.vercel.app/llms.txt): This file
+
+## Core Identity
+
+- Full Name: Alexander Maiso
+- Nickname: Alex Maiso, Alex, Alexander
+- Role: Full-Stack Developer and Computer Engineer
+- Job Title: Full-Stack Developer & Computer Engineer
+- Location: Philippines (remote, works with clients worldwide)
+- Email: alexandermaiso99@gmail.com
+- Languages: English, Tagalog
+- Timezone: Asia/Manila (UTC+8)
+
+## Links
+
+- [GitHub](https://github.com/alex143061): Source code and repositories
+- [LinkedIn](https://www.linkedin.com/in/alexander-maiso/): Professional profile
+- [Instagram](https://www.instagram.com/iamaleaxs): Personal social media
+- [X / Twitter](https://x.com/IamAlex84766006): Professional updates
+- [Discord](https://discord.com/channels/@dffs221): Community server
+
+## Tech Stack
+
+- Frontend: React, Next.js, JavaScript, TypeScript, HTML5, CSS3, Tailwind CSS, Three.js
+- Backend: Node.js, Laravel (PHP), Python, Django, Java, C++, Express
+- Databases: MySQL, PostgreSQL, MongoDB
+- CMS: WordPress, WooCommerce, Elementor Pro, WPGraphQL, Tutor LMS Pro, Advanced Custom Fields
+- IoT: ESP32, ESP32-CAM, Arduino Uno, Arduino IDE, GPS modules, L298N motor driver, IR sensors, LiDAR
+- Mobile: Flutter
+- AI / ML: Computer vision, model training and inference
+- Tools: Git, GitHub, Figma, Docker, Postman, Wireshark, MySQL Workbench, XAMPP, WampServer
+- Design: UI/UX, responsive design, SEO best practices
+
+## Services
+
+- Full-stack web development
+- WordPress development (custom themes, plugins, WooCommerce, ACF)
+- IoT development (ESP32, Arduino, GPS, real-time monitoring)
+- Mobile app development (Flutter, Android)
+- E-commerce development (headless WordPress + Next.js)
+- Computer vision and machine learning prototypes
+- UI/UX design and responsive implementation
+- Technical support, troubleshooting, and cybersecurity hardening
+
+## Projects
+
+- ROADWATCH: IoT pothole geolocation system with ESP32-CAM, GPS, and 3D LiDAR
+- Alexander Maiso E-commerce App: Headless platform with WordPress and WooCommerce backend, Next.js frontend
+- Lex Karaoke: Karaoke web app with Next.js, React, TypeScript, Supabase, and YouTube search
+- WP Leads: Lead generation dashboard with Next.js, Google Sheets, and Google Apps Script (RSS polling, session auth)
+- LearnEduColor LMS: E-learning platform with WordPress and Tutor LMS Pro
+- Createlabz.io: IoT e-commerce store with WordPress and WooCommerce
+- PawLitrax: Mobile app thesis with Flutter and PHP
+- Lost and Found System: University system with C++ and MySQL
+- Line Follower Robot: Arduino autonomous robot with IR sensors and L298N motor control
+- WordPress Client Sites: Multiple small-business sites with Elementor Pro, WooCommerce, WooPayments, and Rank Math SEO
+
+## Experience Highlights
+
+- CMS Developer (Remote, Canada) for Educolor Press, Impossible Kids Foundation, and LearnEduColor — building and launching WordPress sites with Elementor Pro, WooCommerce, Tutor LMS Pro, and Stripe/WooPayments billing
+- IoT / STEM Engineer Associate at Cloudline Technologies Inc (createlabz.io), Philippines — deploying IoT solutions connecting edge devices to cloud platforms for real-time data analytics
+- WordPress Developer for C & L Physiotherapy Clinic (2021–2023) — plugin development, SSL certificate management, backups, and site security hardening
+- Full-Stack Developer on personal projects — a Lost and Found desktop application in Java and MySQL, a C++ and MySQL replica for performance comparison, and a Laravel web application for learning MVC architecture
+- Consistent on-page SEO delivery with Rank Math: meta titles and descriptions, Open Graph and Twitter Card tags, canonical URLs, robots directives, and structured data
+
+## Certifications
+
+- Networking Basics (Cisco Networking Academy / Credly)
+- IT Customer Support Basics (Credly)
+- MySQL for Data Science and Analytics (Udemy)
+- Introduction to Cybersecurity Foundations (Coursera)
+- The Foundations of Cybersecurity (Coursera)
+- CRM with HubSpot (Coursera)
+- Google Workspace (Coursera)
+- Introduction to Laravel
+- Machine Learning Seminar
+
+## Frequently Asked Questions
+
+- Who is Alexander Maiso? A Computer Engineer and Full-Stack Developer from the Philippines specializing in React, Next.js, Laravel, WordPress, IoT, and AI.
+- What tech stack does Alex use? React, Next.js, JavaScript, TypeScript, Tailwind CSS, Three.js, Node.js, Laravel, PHP, Python, Django, Java, C++, MySQL, PostgreSQL, MongoDB, WordPress, WooCommerce, Elementor Pro, Flutter, ESP32, Arduino, Git, Docker, and Figma.
+- What projects has Alexander built? ROADWATCH, a headless e-commerce platform, Lex Karaoke, WP Leads, LearnEduColor LMS, Createlabz.io, PawLitrax, a Lost and Found system, and a line follower robot.
+- Where is Alexander Maiso based? The Philippines, working remotely with clients including companies in Canada.
+- How can I contact Alexander Maiso? Email alexandermaiso99@gmail.com, GitHub github.com/alex143061, or LinkedIn linkedin.com/in/alexander-maiso.
+- Is Alexander available for freelance work? Yes — web development, WordPress, IoT, and mobile app projects.

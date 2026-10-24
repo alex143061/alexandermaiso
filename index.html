@@ -2,16 +2,263 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/alexandermaiso/assets/logo_alex-463927f3.png" />
+
+    <!-- Favicon (white logo, large sizes for crisp browser display) -->
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="1024x1024" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050816" />
+
+    <!-- Preconnect to the font CDN so text renders without a layout shift -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+    <!-- Primary SEO -->
+    <title>Alexander Maiso (Alex) | Full-Stack Developer, Computer Engineer &amp; IoT Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Alexander Maiso, also known as Alex, is a Computer Engineer and Full-Stack Developer from the Philippines. Skilled in React, Next.js, Laravel, WordPress, Node.js, Python, IoT (ESP32, Arduino), and AI. Explore his portfolio, projects, blog, and technical skills."
+    />
+    <meta
+      name="keywords"
+      content="Alexander Maiso, Alex Maiso, Alexander Maiso portfolio, Alexander Maiso developer, Alexander Maiso Computer Engineer, Alexander Maiso Full-Stack Developer, Alexander Maiso Philippines, Alex developer Philippines, web developer, software developer, React developer, Next.js developer, Laravel developer, WordPress developer, Node.js developer, Python developer, IoT developer, ESP32, Arduino, AI developer, frontend developer, backend developer, full-stack engineer"
+    />
     <meta name="author" content="Alexander Maiso" />
-    <meta name="description" content="The official 3D portfolio of Alexander Maiso, showcasing creative projects and skills in modern web technologies." />
-    <title>Alexander Maiso | Portfolio</title>
-    <script type="module" crossorigin src="/alexandermaiso/assets/index-7d5dc993.js"></script>
-    <link rel="stylesheet" href="/alexandermaiso/assets/index-12e2127e.css">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="googlebot" content="index, follow" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://alexandermaiso.vercel.app/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://alexandermaiso.vercel.app/" />
+    <meta property="og:site_name" content="Alexander Maiso Portfolio" />
+    <meta
+      property="og:title"
+      content="Alexander Maiso (Alex) | Full-Stack Developer &amp; Computer Engineer"
+    />
+    <meta
+      property="og:description"
+      content="Portfolio of Alexander Maiso (Alex), a Computer Engineer and Full-Stack Developer specializing in React, Next.js, Laravel, WordPress, IoT, and AI."
+    />
+    <meta property="og:image" content="https://alexandermaiso.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Alexander Maiso Logo" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alexander Maiso (Alex) | Full-Stack Developer &amp; Computer Engineer" />
+    <meta
+      name="twitter:description"
+      content="Portfolio of Alexander Maiso (Alex), a Computer Engineer and Full-Stack Developer specializing in React, Next.js, Laravel, WordPress, IoT, and AI."
+    />
+    <meta name="twitter:image" content="https://alexandermaiso.vercel.app/og-image.png" />
+    <meta name="twitter:image:alt" content="Alexander Maiso Logo" />
+
+    <!-- Structured Data: Person -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Alexander Maiso",
+        "alternateName": ["Alex Maiso", "Alex", "Alexander"],
+        "url": "https://alexandermaiso.vercel.app/",
+        "image": "https://alexandermaiso.vercel.app/og-image.png",
+        "jobTitle": "Full-Stack Developer & Computer Engineer",
+        "email": "mailto:alexandermaiso99@gmail.com",
+        "description": "Alexander Maiso (Alex) is a Computer Engineer and Full-Stack Developer from the Philippines specializing in React, Next.js, Laravel, WordPress, Node.js, Python, IoT (ESP32, Arduino), and AI.",
+        "knowsAbout": [
+          "React",
+          "Next.js",
+          "JavaScript",
+          "TypeScript",
+          "HTML5",
+          "CSS3",
+          "Tailwind CSS",
+          "Redux",
+          "Three.js",
+          "Node.js",
+          "MongoDB",
+          "Laravel",
+          "PHP",
+          "WordPress",
+          "WooCommerce",
+          "Elementor",
+          "Python",
+          "Django",
+          "PostgreSQL",
+          "MySQL",
+          "Java",
+          "C++",
+          "Arduino",
+          "IoT",
+          "ESP32",
+          "Full-Stack Development",
+          "Web Development",
+          "Software Development",
+          "UI/UX Design",
+          "Figma",
+          "Docker",
+          "Git",
+          "Cybersecurity",
+          "AI",
+          "Mobile App Development"
+        ],
+        "sameAs": [
+          "https://github.com/alex143061",
+          "https://www.linkedin.com/in/alexander-maiso/",
+          "https://www.instagram.com/iamaleaxs",
+          "https://x.com/IamAlex84766006",
+          "https://discord.com/channels/@dffs221"
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Educolor Press"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "University of Mindanao"
+        }
+      }
+    </script>
+
+    <!-- Structured Data: WebSite -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Alexander Maiso Portfolio",
+        "alternateName": "Alex Maiso Portfolio",
+        "url": "https://alexandermaiso.vercel.app/",
+        "description": "Portfolio website of Alexander Maiso (Alex), a Computer Engineer and Full-Stack Developer specializing in React, Next.js, Laravel, WordPress, IoT, and AI.",
+        "publisher": {
+          "@type": "Person",
+          "name": "Alexander Maiso",
+          "alternateName": "Alex",
+          "url": "https://alexandermaiso.vercel.app/"
+        }
+      }
+    </script>
+
+    <!-- Structured Data: ProfilePage -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "name": "Alexander Maiso Portfolio",
+        "url": "https://alexandermaiso.vercel.app/",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Alexander Maiso",
+          "alternateName": "Alex",
+          "jobTitle": "Full-Stack Developer & Computer Engineer"
+        }
+      }
+    </script>
+
+    <!-- Structured Data: FAQ (for AI answer engines) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Who is Alexander Maiso?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Alexander Maiso, also known as Alex, is a Computer Engineer and Full-Stack Developer from the Philippines. He specializes in React, Next.js, Laravel, WordPress, Node.js, Python, IoT (ESP32, Arduino), and AI development. He has worked with international clients in Canada and the Philippines."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What tech stack does Alexander Maiso use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Alexander Maiso's tech stack includes React, Next.js, JavaScript, TypeScript, Tailwind CSS, Three.js, Node.js, Laravel, PHP, Python, Django, MySQL, PostgreSQL, MongoDB, WordPress, WooCommerce, Elementor Pro, Flutter, ESP32, Arduino, Git, Docker, and Figma."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What projects has Alexander Maiso built?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Alexander Maiso has built ROADWATCH (an IoT pothole detection system with ESP32-CAM and GPS), an e-commerce app with WordPress and Next.js, Lex Karaoke (a karaoke web app with Supabase), WP Leads, LearnEduColor LMS, Createlabz.io IoT store, PawLitrax mobile app, and multiple client websites."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where is Alexander Maiso based?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Alexander Maiso is based in the Philippines. He works remotely with international clients including companies in Canada."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I contact Alexander Maiso?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can contact Alexander Maiso via email at alexandermaiso99@gmail.com, through his GitHub at github.com/alex143061, or through his LinkedIn at linkedin.com/in/alexander-maiso."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- Structured Data: Knowledge Graph SameAs -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Alexander Maiso Portfolio",
+        "url": "https://alexandermaiso.vercel.app/",
+        "about": {
+          "@type": "Person",
+          "name": "Alexander Maiso",
+          "alternateName": "Alex Maiso",
+          "jobTitle": "Full-Stack Developer & Computer Engineer",
+          "knowsAbout": ["React", "Next.js", "Laravel", "WordPress", "Node.js", "Python", "IoT", "AI", "ESP32", "Arduino", "Flutter", "Cybersecurity"]
+        }
+      }
+    </script>
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-TGYJ9HG0M1"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag("js", new Date());
+      gtag("config", "G-TGYJ9HG0M1");
+    </script>
+    <script type="module" crossorigin src="/assets/index-d6a6bfdc.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/three-a8cda515.js">
+    <link rel="modulepreload" crossorigin href="/assets/three-fiber-8ccfbaee.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-f59ea20a.js">
+    <link rel="modulepreload" crossorigin href="/assets/motion-210e4cc1.js">
+    <link rel="stylesheet" href="/assets/index-18c65dd9.css">
   </head>
+
   <body>
     <div id="root"></div>
+
     
   </body>
 </html>
