@@ -32,7 +32,7 @@ const DeskCanvas = () => {
       frameloop="demand"
       shadows
       dpr={isMobile ? [1, 1.5] : [1, 2]}
-      camera={{ position: [5, 3.5, 5], fov: 40 }}
+      camera={{ position: [0, 2.5, 6], fov: 40 }}
       gl={{ preserveDrawingBuffer: true, antialias: false, powerPreference: "high-performance" }}
     >
       <Suspense fallback={<CanvasLoader />}>
