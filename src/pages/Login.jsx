@@ -2,7 +2,6 @@
 import { useNavigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiUser, FiLock } from "react-icons/fi";
-import React, { useState } from ""react"" import { useNavigate, Link } from ""react-router-dom"" import { motion } from ""framer-motion"" import { FiUser, FiLock } from ""react-icons/fi"" import { usePageMeta } from ""../hooks/usePageMeta"" import { useToast } from ""../hooks/useToast"" import { Footer, Toast } from ""../components""
 import { usePageMeta } from "../hooks/usePageMeta";
 import { useToast } from "../hooks/useToast";
 import { Footer, Toast } from "../components";
@@ -144,4 +143,3 @@ const Login = () => {
 };
 
 export default Login;
-import React, { useState } from "react" import { useNavigate, Link } from "react-router-dom" import { motion } from "framer-motion" import { FiUser, FiLock } from "react-icons/fi" import { usePageMeta } from "../hooks/usePageMeta" import { useToast } from "../hooks/useToast" import { Footer, Toast } from "../components"
