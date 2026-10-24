@@ -1,5 +1,2 @@
-import StarsCanvas from "./Stars";
-import AstroCanvas from "./Astro";
-import DeskCanvas from "./Desk";
-
-export { StarsCanvas, AstroCanvas, DeskCanvas };
+﻿// Hero canvas - desk model only.
+export { default as DeskCanvas } from '.\\Desk';
