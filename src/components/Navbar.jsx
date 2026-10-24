@@ -73,6 +73,7 @@ const MenuButton = ({ open, onClick }) => (
 
 // Modern slide-in drawer menu (portal avoids backdrop-filter containing-block issues)
 const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
+  const navigate = useNavigate();
   useEffect(() => {
     if (!open) return;
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -315,7 +316,7 @@ const Navbar = () => {
               src={logo_white}
               alt=""
               aria-hidden="true"
-              className="w-24 h-24 object-contain"
+              className="w-12 h-12 sm:w-24 sm:h-24 object-contain"
               width="96"
               height="96"
             />

@@ -16,7 +16,7 @@ import {
 } from "react-icons/bs";
 
 // three.js is heavy - load the hero canvas as a separate chunk.
-const TicofabCanvas = lazy(() => import("./canvas/Tico"));
+const DeskCanvas = lazy(() => import("./canvas/Desk"));
 
 const Hero = () => {
   const [text, count] = useTypewriter({
@@ -72,7 +72,9 @@ const Hero = () => {
         </div>
       </div>
       <Suspense fallback={null}>
-        <TicofabCanvas />
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <DeskCanvas />
+        </div>
       </Suspense>
 
 
@@ -96,7 +98,7 @@ const Hero = () => {
         </a>
       </div>
 
-      <div className="absolute right-5 top-1/2 -translate-y-1/2 flex flex-col gap-5 items-center md:mt-10 mt-5 md:gap-12">
+      <div className="absolute right-2 sm:right-5 top-1/2 -translate-y-1/2 flex flex-col gap-3 sm:gap-5 items-center md:mt-10 mt-5 md:gap-12">
         <a
           href="https://www.linkedin.com/in/alexander-maiso/"
           target="_blank"
