@@ -40,3 +40,4 @@ To get a local copy up and running, follow these simple steps:
 - npm
 ```sh
 npm install npm@latest -g
+\n_Pushed to trigger Vercel redeploy on Oct 24, 2026_
