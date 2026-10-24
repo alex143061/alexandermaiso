@@ -36,7 +36,7 @@
     "react-ts-typewriter": "^0.1.8-b",
     "react-vertical-timeline-component": "^3.6.0",
     "slick-carousel": "^1.8.1",
-    "three": "^0.159.0"
+    "three": "^0.150.1"
   },
   "devDependencies": {
     "@babel/parser": "^8.0.7",
