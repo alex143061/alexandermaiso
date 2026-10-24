@@ -2,6 +2,7 @@
 import { useNavigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiUser, FiLock } from "react-icons/fi";
+import { StarsCanvas } from "../components/canvas";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { useToast } from "../hooks/useToast";
 import { Footer, Toast } from "../components";
@@ -55,7 +56,7 @@ const Login = () => {
     <div className="relative w-full min-h-screen text-white overflow-hidden">
       {/* Galaxy background: CSS nebula + animated star field */}
       <div className="fixed inset-0 z-[-1] w-full h-full galaxy-nebula">
-
+        <StarsCanvas fixed />
       </div>
 
       {/* Toast is portalled to <body> so it renders above the navbar */}

@@ -87,7 +87,7 @@ const App = () => {
           <Route
             path="/login"
             element={
-              <div className="relative z-0 bg-primary min-h-screen pt-28">
+              <div className="relative z-0 min-h-screen pt-28">
                 <Login />
               </div>
             }
@@ -95,7 +95,7 @@ const App = () => {
           <Route
             path="/register"
             element={
-              <div className="relative z-0 bg-primary min-h-screen pt-28">
+              <div className="relative z-0 min-h-screen pt-28">
                 <Register />
               </div>
             }
@@ -105,7 +105,7 @@ const App = () => {
           <Route
             path="/dashboard"
             element={
-              <div className="relative z-0 bg-primary min-h-screen pt-28">
+              <div className="relative z-0 min-h-screen pt-28">
                 <Dashboard />
               </div>
             }
@@ -115,7 +115,7 @@ const App = () => {
           <Route
             path="/blog"
             element={
-              <div className="relative z-0 bg-primary min-h-screen pt-28">
+              <div className="relative z-0 min-h-screen pt-28">
                 <Blog />
               </div>
             }
