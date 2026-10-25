@@ -23,19 +23,19 @@ export const FX = {
   toggleKey: "KeyG",
 
   bloom: {
-    intensity: 0.35,
-    luminanceThreshold: 0.75,
-    luminanceSmoothing: 0.2,
+    intensity: 0.25,
+    luminanceThreshold: 0.85,
+    luminanceSmoothing: 0.1,
   },
   chromaticAberration: {
-    offset: [0.0012, 0.0012],
+    offset: [0.0006, 0.0006],
   },
   noise: {
-    opacity: 0.05,
+    opacity: 0.03,
   },
   vignette: {
     offset: 0.35,
-    darkness: 0.5,
+    darkness: 0.4,
   },
   depthOfField: {
     focusDistance: 0.02,
@@ -56,8 +56,8 @@ const LostProgrammer = ({ isMobile }) => {
   return (
     <primitive
       object={model.scene}
-      scale={isMobile ? 0.6 : 0.6}
-      position={[-0.83, -0.99, -0.81]}
+      scale={isMobile ? 0.25 : 0.35}
+      position={[0, isMobile ? -1.0 : -1.4, 0]}
       rotation={[0, Math.PI / 2, 0]}
     />
   );
@@ -141,7 +141,7 @@ const FloatingCode = () => {
 const Effects = ({ enabled }) => {
   if (!enabled) return null;
   return (
-    <EffectComposer multisampling={0}>
+    <EffectComposer multisampling={4}>
       <Bloom
         intensity={FX.bloom.intensity}
         luminanceThreshold={FX.bloom.luminanceThreshold}
@@ -202,7 +202,7 @@ const LostProgrammerCanvas = () => {
         position: isMobile ? [0, 1.5, 5] : isTablet ? [0, 2, 5] : [0, 2.5, 6],
         fov: isMobile ? 50 : isTablet ? 42 : 40,
       }}
-      gl={{ alpha: true, preserveDrawingBuffer: true, antialias: false, powerPreference: "high-performance" }}
+      gl={{ alpha: true, preserveDrawingBuffer: true, antialias: true, powerPreference: "high-performance" }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <ambientLight intensity={0.7} />
