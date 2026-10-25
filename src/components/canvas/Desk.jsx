@@ -4,14 +4,14 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
-const Desk = () => {
+const Desk = ({ isMobile }) => {
   const desk = useGLTF("./programmer_desk_setup__stylized_3d_room/scene.gltf");
 
   return (
     <primitive
       object={desk.scene}
-      scale={0.46}
-      position={[0, -1.6, 0]}
+      scale={isMobile ? 0.32 : 0.46}
+      position={[0, isMobile ? -1.2 : -1.6, 0]}
       rotation={[0, Math.PI, 0]}
     />
   );
@@ -47,8 +47,8 @@ const DeskCanvas = () => {
       shadows
       dpr={isMobile ? [1, 1.5] : [1, 2]}
       camera={{
-        position: isMobile ? [0, 1.5, 4] : isTablet ? [0, 2, 5] : [0, 2.5, 6],
-        fov: isMobile ? 45 : isTablet ? 42 : 40,
+        position: isMobile ? [0, 1.5, 5] : isTablet ? [0, 2, 5] : [0, 2.5, 6],
+        fov: isMobile ? 50 : isTablet ? 42 : 40,
       }}
       gl={{ preserveDrawingBuffer: true, antialias: false, powerPreference: "high-performance" }}
     >
@@ -60,11 +60,11 @@ const DeskCanvas = () => {
         <OrbitControls
           autoRotate
           autoRotateSpeed={0.5}
-          enableZoom={false}
+          enableZoom={isMobile ? true : false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 3}
         />
-        <Desk />
+        <Desk isMobile={isMobile} />
       </Suspense>
       <Preload all />
     </Canvas>

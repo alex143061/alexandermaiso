@@ -10,7 +10,7 @@ const Ticofab = ({ isMobile }) => {
   return (
     <primitive
       object={tico.scene}
-      scale={isMobile ? 3.0 : 4.0}
+      scale={isMobile ? 2.5 : 4.0}
       position={isMobile ? [0, -1.8, 0] : [0, -1.8, 0]}
       rotation={[-0.01, -0.5, -0.1]}
     />
@@ -47,8 +47,8 @@ const TicofabCanvas = () => {
       shadows
       dpr={isMobile ? [1, 1.5] : [1, 2]}
       camera={{
-        position: isMobile ? [10, 4, 4] : isTablet ? [14, 5, 5] : [18, 5, 5],
-        fov: isMobile ? 35 : isTablet ? 30 : 25,
+        position: isMobile ? [10, 4, 5] : isTablet ? [14, 5, 5] : [18, 5, 5],
+        fov: isMobile ? 40 : isTablet ? 30 : 25,
       }}
       gl={{ preserveDrawingBuffer: true, antialias: false, powerPreference: "high-performance" }}
     >
@@ -59,7 +59,7 @@ const TicofabCanvas = () => {
         <OrbitControls
           autoRotate
           autoRotateSpeed={0.5}
-          enableZoom={false}
+          enableZoom={isMobile ? true : false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
