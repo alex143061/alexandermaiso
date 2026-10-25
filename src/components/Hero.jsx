@@ -72,7 +72,7 @@ const Hero = () => {
         </div>
       </div>
       <Suspense fallback={null}>
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden md:overflow-visible" style={{ height: "55vh", maxHeight: "400px" }}>
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <DeskCanvas />
         </div>
       </Suspense>
