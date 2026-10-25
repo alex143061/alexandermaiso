@@ -45,7 +45,7 @@ const Home = () => {
         <Suspense fallback={null}>
           <StarsCanvas fixed />
         </Suspense>
-        <div className="relative z-10 bg-no-repeat bg-center">
+        <div className="relative z-50 bg-no-repeat bg-center">
           <Hero />
         </div>
         <div className="relative z-10">
