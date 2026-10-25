@@ -7,9 +7,7 @@ const enableSourceMaps = process.env.VITE_ENABLE_SOURCEMAP === 'true'
 
 export default defineConfig({
   plugins: [react()],
-  base: process.env.NODE_ENV === 'production'
-    ? '/alexandermaiso/'
-    : '/',
+  base: '/',
   build: {
     sourcemap: enableSourceMaps,
     // Keep three.js in its own chunk so the app code can be cached and
