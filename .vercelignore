@@ -1,11 +1,5 @@
 # Vercel ignore file
-# This ensures Vercel builds correctly from source
-
-# Ignore source files that will be built
-src/
-*.jsx
-*.css
-*.cjs
+# Only exclude files that are NOT needed for building
 
 # Ignore non-essential files
 .git
@@ -21,3 +15,8 @@ dist/
 !postcss.config.cjs
 !index.html
 !public/
+!src/
+!*.jsx
+!*.js
+!*.css
+!*.cjs
