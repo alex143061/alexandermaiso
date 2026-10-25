@@ -632,7 +632,7 @@ body,
 #root {
   height: 100%;
   margin: 0;
-  background: #1f2937; /* Tailwind slate-800 */
+  /* Removed hardcoded background so Tailwind classes (bg-primary, etc.) can control backgrounds */
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow-x: hidden;

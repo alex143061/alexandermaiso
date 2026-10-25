@@ -1,0 +1,16 @@
+# Vercel ignore file
+# This ensures Vercel uses the built dist/ folder instead of the source code
+
+# Ignore source files
+src/
+*.jsx
+*.js
+*.css
+*.cjs
+*.json
+.git
+node_modules/
+dist/
+
+# But keep the dist folder (Vercel will use it as output)
+!dist/
