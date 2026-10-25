@@ -1,52 +1,13 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
-import {
-  EffectComposer,
-  Bloom,
-  ChromaticAberration,
-  Noise,
-  Vignette,
-} from "@react-three/postprocessing";
-import { BlendFunction } from "postprocessing";
 import * as THREE from "three";
 
 import CanvasLoader from "../Loader";
 
-/* ------------------------------------------------------------------ *
- *  All effect strengths live here. Tweak these numbers to taste.       *
- *  Press the toggle key (default "G") to turn the whole stack on/off. *
- * ------------------------------------------------------------------ */
 export const FX = {
-  enabled: true,
+  enabled: false,
   toggleKey: "KeyG",
-
-  bloom: {
-    intensity: 0.25,
-    luminanceThreshold: 0.85,
-    luminanceSmoothing: 0.1,
-  },
-  chromaticAberration: {
-    offset: [0.0006, 0.0006],
-  },
-  noise: {
-    opacity: 0.03,
-  },
-  vignette: {
-    offset: 0.35,
-    darkness: 0.4,
-  },
-  depthOfField: {
-    focusDistance: 0.02,
-    focalLength: 0.04,
-    bokehScale: 1.6,
-  },
-  matrix: {
-    count: 26,
-    speed: 0.45,
-    size: 0.16,
-    opacity: 0.8,
-  },
 };
 
 const LostProgrammer = ({ isMobile }) => {
@@ -57,40 +18,14 @@ const LostProgrammer = ({ isMobile }) => {
       object={model.scene}
       scale={isMobile ? 0.45 : 0.6}
       position={[0, isMobile ? -1.0 : -1.4, 0]}
-      rotation={[0, Math.PI / 2, 0]}
+      rotation={[-Math.PI / 2, 0, 0]}
     />
   );
 };
 
-/* ------------------------------------------------------------------ *
- *  Post-processing stack.                                             *
- * ------------------------------------------------------------------ */
-const Effects = ({ enabled }) => {
-  if (!enabled) return null;
-  return (
-    <EffectComposer multisampling={4}>
-      <Bloom
-        intensity={FX.bloom.intensity}
-        luminanceThreshold={FX.bloom.luminanceThreshold}
-        luminanceSmoothing={FX.bloom.luminanceSmoothing}
-      />
-      <ChromaticAberration
-        offset={new THREE.Vector2(
-          FX.chromaticAberration.offset[0],
-          FX.chromaticAberration.offset[1]
-        )}
-      />
-      <Noise opacity={FX.noise.opacity} blendFunction={BlendFunction.OVERLAY} />
-      <Vignette offset={FX.vignette.offset} darkness={FX.vignette.darkness} />
-    </EffectComposer>
-  );
-};
-
-
 const LostProgrammerCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
-  const [effectsOn, setEffectsOn] = useState(FX.enabled);
 
   useEffect(() => {
     const mobileQuery = window.matchMedia("(max-width: 768px)");
@@ -111,25 +46,16 @@ const LostProgrammerCanvas = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const handler = (e) => {
-      if (e.code === FX.toggleKey) setEffectsOn((v) => !v);
-    };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, []);
-
   return (
     <Canvas
       className="w-full h-full"
       frameloop="demand"
-      shadows
-      dpr={isMobile ? [1, 1.5] : [1, 2]}
+      dpr={1}
       camera={{
         position: isMobile ? [0, 1.5, 5] : isTablet ? [0, 2, 5] : [0, 2.5, 6],
         fov: isMobile ? 50 : isTablet ? 42 : 40,
       }}
-      gl={{ alpha: true, preserveDrawingBuffer: true, antialias: true, powerPreference: "high-performance" }}
+      gl={{ alpha: true, antialias: false, powerPreference: "high-performance" }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <ambientLight intensity={0.7} />
@@ -145,7 +71,6 @@ const LostProgrammerCanvas = () => {
         />
         <LostProgrammer isMobile={isMobile} />
       </Suspense>
-      <Effects enabled={effectsOn} />
       <Preload all />
     </Canvas>
   );
