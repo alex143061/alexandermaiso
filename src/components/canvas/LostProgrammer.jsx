@@ -15,7 +15,7 @@ const LostProgrammer = ({ isMobile }) => {
     <primitive
       object={model.scene}
       scale={isMobile ? 0.45 : 0.6}
-      position={[0, isMobile ? -1.0 : -1.4, 0]}
+      position={[0, isMobile ? 0 : -0.4, 0]}
       rotation={[-Math.PI / 2, 0, 0]}
     />
   );
