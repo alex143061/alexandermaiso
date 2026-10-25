@@ -19,21 +19,37 @@ const Desk = () => {
 
 const DeskCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
-    setIsMobile(mediaQuery.matches);
-    const handleMediaQueryChange = (event) => setIsMobile(event.matches);
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-    return () => mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    const mobileQuery = window.matchMedia("(max-width: 768px)");
+    const tabletQuery = window.matchMedia("(min-width: 769px) and (max-width: 1024px)");
+
+    setIsMobile(mobileQuery.matches);
+    setIsTablet(tabletQuery.matches);
+
+    const handleMobileChange = (event) => setIsMobile(event.matches);
+    const handleTabletChange = (event) => setIsTablet(event.matches);
+
+    mobileQuery.addEventListener("change", handleMobileChange);
+    tabletQuery.addEventListener("change", handleTabletChange);
+
+    return () => {
+      mobileQuery.removeEventListener("change", handleMobileChange);
+      tabletQuery.removeEventListener("change", handleTabletChange);
+    };
   }, []);
 
   return (
     <Canvas
+      className="w-full h-full"
       frameloop="demand"
       shadows
       dpr={isMobile ? [1, 1.5] : [1, 2]}
-      camera={{ position: [0, 2.5, 6], fov: 40 }}
+      camera={{
+        position: isMobile ? [0, 1.5, 4] : isTablet ? [0, 2, 5] : [0, 2.5, 6],
+        fov: isMobile ? 45 : isTablet ? 42 : 40,
+      }}
       gl={{ preserveDrawingBuffer: true, antialias: false, powerPreference: "high-performance" }}
     >
       <Suspense fallback={<CanvasLoader />}>

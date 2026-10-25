@@ -19,21 +19,37 @@ const Ticofab = ({ isMobile }) => {
 
 const TicofabCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
-    setIsMobile(mediaQuery.matches);
-    const handleMediaQueryChange = (event) => setIsMobile(event.matches);
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-    return () => mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    const mobileQuery = window.matchMedia("(max-width: 768px)");
+    const tabletQuery = window.matchMedia("(min-width: 769px) and (max-width: 1024px)");
+
+    setIsMobile(mobileQuery.matches);
+    setIsTablet(tabletQuery.matches);
+
+    const handleMobileChange = (event) => setIsMobile(event.matches);
+    const handleTabletChange = (event) => setIsTablet(event.matches);
+
+    mobileQuery.addEventListener("change", handleMobileChange);
+    tabletQuery.addEventListener("change", handleTabletChange);
+
+    return () => {
+      mobileQuery.removeEventListener("change", handleMobileChange);
+      tabletQuery.removeEventListener("change", handleTabletChange);
+    };
   }, []);
 
   return (
     <Canvas
+      className="w-full h-full"
       frameloop='demand'
       shadows
       dpr={isMobile ? [1, 1.5] : [1, 2]}
-      camera={{ position: [18, 5, 5], fov: 25 }}
+      camera={{
+        position: isMobile ? [10, 4, 4] : isTablet ? [14, 5, 5] : [18, 5, 5],
+        fov: isMobile ? 35 : isTablet ? 30 : 25,
+      }}
       gl={{ preserveDrawingBuffer: true, antialias: false, powerPreference: "high-performance" }}
     >
       <Suspense fallback={<CanvasLoader />}>
