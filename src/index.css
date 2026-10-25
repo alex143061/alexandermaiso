@@ -652,6 +652,7 @@ canvas {
   height: 100%;
   max-width: 100%;
   max-height: 100%;
+  display: block;
 }
 
 /* Mobile: prevent 3D canvas from overflowing the viewport */
@@ -659,17 +660,17 @@ canvas {
   .canvas-wrap,
   canvas {
     width: 100vw !important;
-    height: 100% !important;
     max-width: 100vw !important;
     overflow: hidden;
   }
 
-  /* Hero section canvas container */
+  /* Constrain canvas height on mobile so the 3D model doesn't dominate the screen */
   .hero canvas,
   [class*="Canvas"] canvas,
-  .r3f {
-    width: 100vw !important;
-    height: auto !important;
+  .r3f,
+  canvas[class*="w-full"] {
+    height: 55vh !important;
+    max-height: 400px !important;
   }
 }
 
@@ -678,7 +679,14 @@ canvas {
   .canvas-wrap,
   canvas {
     width: 100% !important;
-    max-height: 80vh !important;
+    max-height: 75vh !important;
+  }
+
+  .hero canvas,
+  [class*="Canvas"] canvas,
+  .r3f {
+    height: 70vh !important;
+    max-height: 500px !important;
   }
 }
 
