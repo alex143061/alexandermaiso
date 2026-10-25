@@ -1,16 +1,23 @@
 # Vercel ignore file
-# This ensures Vercel uses the built dist/ folder instead of the source code
+# This ensures Vercel builds correctly from source
 
-# Ignore source files
+# Ignore source files that will be built
 src/
 *.jsx
-*.js
 *.css
 *.cjs
-*.json
+
+# Ignore non-essential files
 .git
 node_modules/
 dist/
 
-# But keep the dist folder (Vercel will use it as output)
-!dist/
+# Do NOT ignore these essential files
+!package.json
+!package-lock.json
+!vercel.json
+!vite.config.js
+!tailwind.config.cjs
+!postcss.config.cjs
+!index.html
+!public/
