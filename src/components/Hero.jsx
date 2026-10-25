@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
@@ -16,7 +16,7 @@ import {
 } from "react-icons/bs";
 
 // three.js is heavy - load the hero canvas as a separate chunk.
-const DeskCanvas = lazy(() => import("./canvas/Desk"));
+const LostProgrammerCanvas = lazy(() => import("./canvas/LostProgrammer"));
 
 const Hero = () => {
   const [text, count] = useTypewriter({
@@ -36,9 +36,24 @@ const Hero = () => {
     loop: true,
     delaySpeed: 1000,
   });
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 2500);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section className="relative w-full h-screen mx-auto">
+      {isLoading && (
+        <div className="fixed inset-0 z-50 bg-[#050816] flex flex-col items-center justify-center transition-opacity duration-1000">
+          <div className="text-center">
+            <div className="w-16 h-16 rounded-full animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 mb-4 animate-[spin_3s_linear_infinite]"></div>
+            <h2 className="text-2xl font-bold text-white mb-2">Loading Portfolio</h2>
+            <p className="text-teal-400 font-mono text-sm">Preparing interactive 3D experience...</p>
+          </div>
+        </div>
+      )}
       <div
         className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
       >
@@ -73,7 +88,7 @@ const Hero = () => {
       </div>
       <Suspense fallback={null}>
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <DeskCanvas />
+          <LostProgrammerCanvas />
         </div>
       </Suspense>
 
