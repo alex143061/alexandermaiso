@@ -1,5 +1,5 @@
-import React, { Suspense, useEffect, useState, useRef, useMemo } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import React, { Suspense, useEffect, useState } from "react";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import {
   EffectComposer,
@@ -7,7 +7,6 @@ import {
   ChromaticAberration,
   Noise,
   Vignette,
-  DepthOfField,
 } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
 import * as THREE from "three";
@@ -56,83 +55,11 @@ const LostProgrammer = ({ isMobile }) => {
   return (
     <primitive
       object={model.scene}
-      scale={isMobile ? 0.25 : 0.35}
+      scale={isMobile ? 0.45 : 0.6}
       position={[0, isMobile ? -1.0 : -1.4, 0]}
       rotation={[0, Math.PI / 2, 0]}
     />
   );
-};
-
-/* ------------------------------------------------------------------ *
- *  Floating glowing 0s and 1s ("falling code").                       *
- * ------------------------------------------------------------------ */
-const FloatingCode = () => {
-  const group = useRef();
-  const sprites = useMemo(() => {
-    const arr = [];
-    for (let i = 0; i < FX.matrix.count; i++) {
-      const canvas = document.createElement("canvas");
-      canvas.width = 64;
-      canvas.height = 64;
-      const ctx = canvas.getContext("2d");
-      const char = Math.random() > 0.5 ? "0" : "1";
-      ctx.fillStyle = "#ffffff";
-      ctx.font = "bold 46px monospace";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.shadowColor = "#ffffff";
-      ctx.shadowBlur = 12;
-      ctx.fillText(char, 32, 32);
-
-      const tex = new THREE.CanvasTexture(canvas);
-      tex.needsUpdate = true;
-
-      const mat = new THREE.SpriteMaterial({
-        map: tex,
-        transparent: true,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false,
-        toneMapped: false,
-        opacity: FX.matrix.opacity,
-      });
-
-      const sprite = new THREE.Sprite(mat);
-      sprite.scale.setScalar(FX.matrix.size);
-      sprite.position.set(
-        (Math.random() - 0.5) * 4.2,
-        Math.random() * 3.5 - 0.5,
-        (Math.random() - 0.5) * 3.2
-      );
-      sprite.userData = {
-        speed: 0.35 + Math.random() * 0.7,
-        phase: Math.random() * Math.PI * 2,
-      };
-      arr.push(sprite);
-    }
-    return arr;
-  }, []);
-
-  useEffect(() => {
-    const g = group.current;
-    sprites.forEach((s) => g.add(s));
-    return () => sprites.forEach((s) => g.remove(s));
-  }, [sprites]);
-
-  useFrame((state, delta) => {
-    sprites.forEach((s) => {
-      s.position.y -= FX.matrix.speed * s.userData.speed * delta;
-      if (s.position.y < -2.2) {
-        s.position.y = 2.8;
-        s.position.x = (Math.random() - 0.5) * 4.2;
-        s.position.z = (Math.random() - 0.5) * 3.2;
-      }
-      s.material.opacity =
-        FX.matrix.opacity *
-        (0.55 + 0.45 * Math.sin(state.clock.elapsedTime * 1.6 + s.userData.phase));
-    });
-  });
-
-  return <group ref={group} />;
 };
 
 /* ------------------------------------------------------------------ *
@@ -217,7 +144,6 @@ const LostProgrammerCanvas = () => {
           minPolarAngle={Math.PI / 3}
         />
         <LostProgrammer isMobile={isMobile} />
-        {effectsOn && <FloatingCode />}
       </Suspense>
       <Effects enabled={effectsOn} />
       <Preload all />
