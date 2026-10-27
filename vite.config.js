@@ -10,10 +10,13 @@ export default defineConfig({
   base: '/',
   build: {
     sourcemap: enableSourceMaps,
+    target: 'esnext',            // modern browsers only → smaller bundles
+    cssCodeSplit: true,          // split CSS per chunk for faster parsing
     // Keep three.js in its own chunk so the app code can be cached and
     // re-deployed independently of the 3D runtime.
     rollupOptions: {
       output: {
+        compact: true,           // smaller output filenames
         manualChunks: {
           three: ['three'],
           'three-fiber': ['@react-three/fiber', '@react-three/drei'],

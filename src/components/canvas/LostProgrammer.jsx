@@ -14,9 +14,9 @@ const LostProgrammer = ({ isMobile }) => {
   return (
     <primitive
       object={model.scene}
-      scale={isMobile ? 0.45 : 0.6}
+      scale={isMobile ? 0.45 : 0.9}
       position={[0, isMobile ? 0 : -0.4, 0]}
-      rotation={[-Math.PI / 2, 0, 0]}
+      rotation={[-Math.PI / -1, 0, 0]}
     />
   );
 };
@@ -53,7 +53,7 @@ const LostProgrammerCanvas = () => {
         position: isMobile ? [0, 1.5, 5] : isTablet ? [0, 2, 5] : [0, 2.5, 6],
         fov: isMobile ? 50 : isTablet ? 42 : 40,
       }}
-      gl={{ alpha: true, antialias: false, powerPreference: "high-performance" }}
+      gl={{ alpha: true, antialias: false, powerPreference: "low-power", premultipliedAlpha: false }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <ambientLight intensity={0.7} />

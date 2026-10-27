@@ -45,12 +45,12 @@ const TicofabCanvas = () => {
       className="w-full h-full"
       frameloop='demand'
       shadows
-      dpr={isMobile ? [1, 1.5] : [1, 2]}
+      dpr={isMobile ? [1, 1.5] : [1, 1.5]}
       camera={{
         position: isMobile ? [10, 4, 5] : isTablet ? [14, 5, 5] : [18, 5, 5],
         fov: isMobile ? 40 : isTablet ? 30 : 25,
       }}
-      gl={{ preserveDrawingBuffer: true, antialias: false, powerPreference: "high-performance" }}
+      gl={{ preserveDrawingBuffer: false, antialias: false, powerPreference: "low-power", premultipliedAlpha: false }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <ambientLight intensity={5.0} />

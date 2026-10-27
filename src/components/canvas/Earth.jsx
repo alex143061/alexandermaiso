@@ -40,8 +40,8 @@ const EarthCanvas = () => {
       className="w-full h-full"
       shadows
       frameloop='demand'
-      dpr={isMobile ? [1, 1.5] : [1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
+      dpr={isMobile ? [1, 1.5] : [1, 1.5]}
+      gl={{ preserveDrawingBuffer: false, premultipliedAlpha: false }}
       camera={{
         fov: isMobile ? 55 : isTablet ? 48 : 45,
         near: 0.1,

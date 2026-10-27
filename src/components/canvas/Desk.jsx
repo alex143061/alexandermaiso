@@ -45,12 +45,12 @@ const DeskCanvas = () => {
       className="w-full h-full"
       frameloop="demand"
       shadows
-      dpr={isMobile ? [1, 1.5] : [1, 2]}
+      dpr={isMobile ? [1, 1.5] : [1, 1.5]}
       camera={{
         position: isMobile ? [0, 1.5, 5] : isTablet ? [0, 2, 5] : [0, 2.5, 6],
         fov: isMobile ? 50 : isTablet ? 42 : 40,
       }}
-      gl={{ preserveDrawingBuffer: true, antialias: false, powerPreference: "high-performance" }}
+      gl={{ preserveDrawingBuffer: false, antialias: false, powerPreference: "low-power", premultipliedAlpha: false }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <ambientLight intensity={0.6} />
