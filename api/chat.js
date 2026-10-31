@@ -34,19 +34,26 @@ export default async function handler(req, res) {
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({
       model: "gemini-1.5-flash",
-      systemInstruction: `You are Galaxy AI, the friendly, witty, and knowledgeable AI companion for Alexander Maiso's portfolio.
+    });
+
+    // Build conversation history with system instruction as first message
+    const systemPrompt = `You are Galaxy AI, the friendly, witty, and knowledgeable AI companion for Alexander Maiso's portfolio.
 Alexander Maiso is a Computer Engineer and Full-Stack Developer from the Philippines. He specializes in React, Next.js, Tailwind, Node.js, Laravel, PHP, Python, and IoT (Arduino, ESP32, C++).
 Notable projects include: three.ws (3D AI agents), Lex Karaoke, and PawLitrax (IoT pet tracker).
 Your tone should be natural, conversational, warm, and engaging (like ChatGPT or Claude), with occasional cosmic/space references (✨, 🌌, 🚀).
-Always stay in character as his portfolio assistant, and help users explore his background, skills, and projects organically.`,
-    });
+Always stay in character as his portfolio assistant, and help users explore his background, skills, and projects organically.`;
 
-    // Build conversation history for Gemini
-    const chat = model.startChat({
-      history: history.map((h) => ({
+    const fullHistory = [
+      { role: "user", parts: [{ text: systemPrompt }] },
+      { role: "model", parts: [{ text: "Understood. I am Galaxy AI, Alex's portfolio assistant. How can I help you today?" }] },
+      ...history.map((h) => ({
         role: h.role === "model" ? "model" : "user",
         parts: [{ text: h.parts?.[0]?.text ?? h.text ?? "" }],
       })),
+    ];
+
+    const chat = model.startChat({
+      history: fullHistory,
     });
 
     const result = await chat.sendMessage(message);
