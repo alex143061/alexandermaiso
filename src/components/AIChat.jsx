@@ -25,7 +25,7 @@ const MAX_HISTORY = 10;
 const API_ENDPOINT = "/api/chat";
 
 const AIChat = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([INITIAL_MESSAGE]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
