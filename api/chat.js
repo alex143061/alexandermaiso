@@ -56,7 +56,7 @@ Always stay in character as his portfolio assistant, and help users explore his 
       { role: "user", parts: [{ text: message }] },
     ];
 
-    const geminiUrl = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${apiKey}`;
+    const geminiUrl = `https://generativelanguage.googleapis.com/v1/models/gemini-1.0-pro:generateContent?key=${apiKey}`;
 
     const response = await fetch(geminiUrl, {
       method: "POST",
