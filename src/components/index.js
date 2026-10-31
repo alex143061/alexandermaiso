@@ -11,6 +11,7 @@ import CanvasLoader from "./Loader";
 import Footer from "./Footer";
 import Toast from "./Toast";
 import Modal from "./Modal";
+import AIChat from "./AIChat";
 
 export {
   Hero,
@@ -26,4 +27,5 @@ export {
   Footer,
   Toast,
   Modal,
+  AIChat,
 };
