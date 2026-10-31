@@ -7,16 +7,19 @@ import {
   Experience,
   Feedbacks,
   Hero,
-  Navbar,
   Tech,
   Works,
   Footer,
+  AIChat,
 } from "./components";
 import { usePageMeta } from "./hooks/usePageMeta";
 
 // The background star field pulls in three.js — defer it so the critical
 // path (nav, hero copy, sections) can paint immediately.
 const StarsCanvas = lazy(() => import("./components/canvas/Stars"));
+
+// Lazy-load the navbar so it doesn't block the initial render.
+const Navbar = lazy(() => import("./components/Navbar"));
 
 // Route-level code splitting: each page becomes its own chunk.
 const Login = lazy(() => import("./pages/Login"));
@@ -76,7 +79,9 @@ const App = () => {
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
-      <Navbar />
+      <Suspense fallback={null}>
+        <Navbar />
+      </Suspense>
 
       <Suspense fallback={<RouteFallback />}>
         <Routes>
@@ -122,6 +127,7 @@ const App = () => {
           />
         </Routes>
       </Suspense>
+      <AIChat />
     </BrowserRouter>
   );
 };
