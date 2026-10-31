@@ -14,9 +14,11 @@ export default async function handler(req, res) {
 
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    console.error("GEMINI_API_KEY is not configured on the server.");
+    console.error("DEBUG: GEMINI_API_KEY is not configured on the server.");
     return res.status(500).json({ error: "AI service is not configured." });
   }
+
+  console.log("DEBUG: API key loaded, length:", apiKey.length);
 
   let { message, history = [] } = req.body || {};
 
@@ -32,9 +34,11 @@ export default async function handler(req, res) {
 
   try {
     const genAI = new GoogleGenerativeAI(apiKey);
+    console.log("DEBUG: GoogleGenerativeAI initialized");
     const model = genAI.getGenerativeModel({
       model: "gemini-1.5-flash",
     });
+    console.log("DEBUG: model created");
 
     // Build conversation history with system instruction as first message
     const systemPrompt = `You are Galaxy AI, the friendly, witty, and knowledgeable AI companion for Alexander Maiso's portfolio.
@@ -55,14 +59,18 @@ Always stay in character as his portfolio assistant, and help users explore his 
     const chat = model.startChat({
       history: fullHistory,
     });
+    console.log("DEBUG: chat started");
 
     const result = await chat.sendMessage(message);
+    console.log("DEBUG: message sent");
     const response = result.response;
     const text = response.text();
+    console.log("DEBUG: response received, length:", text?.length || 0);
 
     return res.status(200).json({ reply: text });
   } catch (err) {
-    console.error("Gemini error:", err.message);
-    return res.status(500).json({ error: "Failed to get a response from the AI." });
+    console.error("DEBUG: Gemini error:", err.message);
+    console.error("DEBUG: Error stack:", err.stack);
+    return res.status(500).json({ error: "Failed to get a response from the AI.", debug: err.message });
   }
 }
