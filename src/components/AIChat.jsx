@@ -107,13 +107,13 @@ const AIChat = () => {
     <>
       {!isOpen && (
         <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           onClick={() => setIsOpen(true)}
           aria-label="Open AI chat"
-          className="fixed bottom-6 right-6 z-[1000] w-14 h-14 bg-gradient-to-br from-teal-500 via-purple-500 to-orange-500 rounded-full flex items-center justify-center shadow-2xl focus:outline-none focus:ring-2 focus:ring-teal-400"
+          className="fixed bottom-4 right-4 z-[1000] w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-teal-500 via-purple-500 to-orange-500 rounded-full flex items-center justify-center shadow-2xl focus:outline-none focus:ring-2 focus:ring-teal-400 touch-manipulation"
         >
-          <BsRobot size={24} className="text-white" />
+          <BsRobot size={20} className="text-white" />
         </motion.button>
       )}
 
@@ -123,9 +123,9 @@ const AIChat = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className="fixed bottom-6 right-6 z-[1000] w-full max-w-md h-[85vh] flex flex-col lg:h-[70vh]"
+            className="fixed bottom-4 right-4 left-4 z-[1000] w-full max-w-md h-[90vh] md:bottom-6 md:right-6 md:left-auto md:h-[70vh] flex flex-col lg:h-[70vh]"
           >
-            <div className="bg-gradient-to-br from-teal-500 via-purple-500 to-orange-500 rounded-t-3xl p-5 flex items-center gap-3 shadow-xl">
+            <div className="bg-gradient-to-br from-teal-500 via-purple-500 to-orange-500 rounded-t-3xl p-4 md:p-5 flex items-center gap-3 shadow-xl">
               <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
                 <BsStars size={20} className="text-white" />
               </div>
@@ -151,7 +151,7 @@ const AIChat = () => {
               </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-black/10 backdrop-blur-sm" aria-label="Conversation">
+            <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-3 md:space-y-4 bg-black/10 backdrop-blur-sm" aria-label="Conversation">
               <AnimatePresence mode="wait">
                 {messages.map((msg, idx) => (
                   <motion.div
@@ -199,7 +199,7 @@ const AIChat = () => {
             </div>
 
             {suggestionsVisible && (
-              <div className="p-3 space-y-2 border-t border-white/10 bg-black/20 backdrop-blur-sm">
+              <div className="p-2 md:p-3 space-y-2 border-t border-white/10 bg-black/20 backdrop-blur-sm">
                 <p className="text-xs text-white/50 uppercase tracking-wider font-medium px-2">Try asking:</p>
                 <div className="flex flex-wrap gap-2 px-2">
                   {SUGGESTIONS.map((s, idx) => (
@@ -215,7 +215,7 @@ const AIChat = () => {
               </div>
             )}
 
-            <div className="p-4 border-t border-white/10 bg-black/40 backdrop-blur-md">
+            <div className="p-3 md:p-4 border-t border-white/10 bg-black/40 backdrop-blur-md">
               <form onSubmit={handleSend} className="flex gap-2">
                 <input
                   ref={inputRef}
