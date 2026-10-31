@@ -75,7 +75,17 @@ const AIChat = () => {
         body: JSON.stringify({ message: text, history }),
       });
 
-      const data = await response.json();
+      const responseText = await response.text();
+
+      if (!response.ok) {
+        throw new Error(`Server error (${response.status}): ${responseText || "Unknown error"}`);
+      }
+
+      if (!responseText || responseText.trim() === "") {
+        throw new Error("Empty response from server. Is the API running?");
+      }
+
+      const data = JSON.parse(responseText);
 
       if (!response.ok || data.error) {
         throw new Error(data.error || "Something went wrong.");
