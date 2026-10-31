@@ -68,7 +68,7 @@ Always stay in character as his portfolio assistant, and help users explore his 
 
     if (!response.ok) {
       console.error("Gemini API error:", response.status, responseText);
-      return res.status(500).json({ error: "Failed to get a response from the AI." });
+      return res.status(500).json({ error: "Failed to get a response from the AI.", debug: `Gemini status ${response.status}: ${responseText}` });
     }
 
     const data = JSON.parse(responseText);
