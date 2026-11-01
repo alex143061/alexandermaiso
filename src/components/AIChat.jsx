@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BsStars } from "react-icons/bs";
 import { FiX, FiSend, FiTrash2 } from "react-icons/fi";
 import { logo_white } from "../assets";
 
@@ -50,6 +49,7 @@ const AIChat = () => {
     if (!text || loading) return;
 
     setInput("");
+    if (inputRef.current) inputRef.current.style.height = "";
     setSuggestionsVisible(false);
     setError(null);
     addMessage("user", text);
@@ -101,6 +101,13 @@ const AIChat = () => {
       handleSend();
     }
   };
+
+  const handleInputChange = (e) => {
+    setInput(e.target.value);
+    e.target.style.height = "auto";
+    e.target.style.height = `${Math.min(e.target.scrollHeight, 128)}px`;
+  };
+
   return (
     <>
       {!isOpen && (
@@ -115,12 +122,9 @@ const AIChat = () => {
             aria-hidden="true"
             className="pointer-events-none absolute -inset-3 z-0 rounded-full animate-chat-ripple"
           />
-          <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-400 via-purple-500 to-orange-400 p-[2px]">
+          <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-400 via-purple-500 to-orange-400 p-[2px]"          >
             <span className="flex h-full w-full items-center justify-center rounded-full bg-[#11131c]">
               <img src={logo_white} alt="" className="h-8 w-8 object-contain" />
-            </span>
-            <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-teal-300 text-[#10131d] shadow-md">
-              <BsStars size={10} />
             </span>
           </span>
         </motion.button>
@@ -132,9 +136,9 @@ const AIChat = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className="fixed bottom-4 left-4 right-4 z-[1000] flex h-[min(90dvh,48rem)] max-h-[calc(100dvh-2rem)] w-auto max-w-md flex-col md:bottom-6 md:left-auto md:right-6 md:h-[min(70dvh,48rem)] md:max-h-[calc(100dvh-3rem)] md:w-[min(26rem,calc(100vw-3rem))]"
+            className="fixed inset-x-0 bottom-0 z-[1000] flex h-[100dvh] max-h-[100dvh] w-full flex-col overflow-hidden bg-[#10131d] shadow-2xl md:inset-x-auto md:bottom-6 md:right-6 md:h-[min(70dvh,48rem)] md:max-h-[calc(100dvh-3rem)] md:w-[min(26rem,calc(100vw-3rem))] md:rounded-3xl"
           >
-            <div className="flex shrink-0 items-center gap-3 rounded-t-3xl bg-gradient-to-br from-teal-500 via-purple-500 to-orange-500 p-4 shadow-xl md:p-5">
+            <div className="flex shrink-0 items-center gap-3 bg-gradient-to-br from-teal-500 via-purple-500 to-orange-500 p-4 shadow-xl md:rounded-t-3xl md:p-5">
               <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center">
                 <img src={logo_white} alt="Alexander Maiso" className="w-8 h-8 object-contain" />
               </div>
@@ -168,14 +172,14 @@ const AIChat = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className={`max-w-[85%] ${msg.role === "user" ? "ml-auto text-right" : "mr-auto text-left"}`}
+                    className={`w-fit max-w-[88%] break-words [overflow-wrap:anywhere] ${msg.role === "user" ? "ml-auto" : "mr-auto"}`}
                   >
                     <div
-                      className={`inline-block p-3 rounded-2xl ${msg.role === "user" ? "bg-teal-500 text-white rounded-tr-none" : "bg-white/5 text-white rounded-tl-none border border-white/10"}`}
+                      className={`w-fit max-w-full whitespace-pre-wrap break-words rounded-2xl p-3 text-left [overflow-wrap:anywhere] ${msg.role === "user" ? "bg-teal-500 text-white rounded-tr-none" : "bg-white/5 text-white rounded-tl-none border border-white/10"}`}
                     >
                       {msg.text}
                     </div>
-                    <span className={`text-xs block mt-1 ${msg.role === "user" ? "text-teal-400" : "text-white/50"}`}>
+                    <span className={`mt-1 block text-xs ${msg.role === "user" ? "text-right text-teal-400" : "text-white/50"}`}>
                       {new Date(msg.time).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                     </span>
                   </motion.div>
@@ -224,17 +228,17 @@ const AIChat = () => {
               </div>
             )}
 
-            <div className="shrink-0 border-t border-white/10 bg-black/40 p-3 backdrop-blur-md md:p-4">
-              <form onSubmit={handleSend} className="flex min-w-0 gap-2">
-                <input
+            <div className="shrink-0 border-t border-white/10 bg-black/40 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-md md:p-4">
+              <form onSubmit={handleSend} className="flex min-w-0 items-end gap-2">
+                <textarea
                   ref={inputRef}
-                  type="text"
+                  rows={1}
                   value={input}
-                  onChange={(e) => setInput(e.target.value)}
+                  onChange={handleInputChange}
                   onKeyDown={handleKeyDown}
                   placeholder="Type a message…"
                   disabled={loading}
-                  className="h-12 min-w-0 flex-1 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-base text-white placeholder-white/40 transition focus:outline-none focus:ring-2 focus:ring-teal-400"
+                  className="min-h-12 max-h-32 min-w-0 flex-1 resize-none overflow-y-auto rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-base leading-6 text-white placeholder-white/40 transition focus:outline-none focus:ring-2 focus:ring-teal-400"
                   aria-label="Your message"
                 />
                 <button
