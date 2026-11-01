@@ -78,37 +78,24 @@
   }
 }
 
-@keyframes chat-ring-pulse {
+@keyframes chat-ripple {
   0% {
-    opacity: 0.9;
+    opacity: 0.3;
     transform: scale(1);
-    background-color: var(--chat-ring-start);
-  }
-  55% {
-    opacity: 0.75;
-    background-color: var(--chat-ring-mid);
   }
   100% {
     opacity: 0;
-    transform: scale(1.24);
-    background-color: var(--chat-ring-end);
+    transform: scale(1.2);
   }
 }
 
-.animate-chat-ring {
-  animation: chat-ring-pulse 1.8s ease-out infinite;
-}
-
-.chat-ring-teal {
-  --chat-ring-start: rgba(45, 212, 191, 0.3);
-  --chat-ring-mid: rgba(192, 132, 252, 0.25);
-  --chat-ring-end: rgba(251, 146, 60, 0.2);
-}
-
-.chat-ring-purple {
-  --chat-ring-start: rgba(168, 85, 247, 0.28);
-  --chat-ring-mid: rgba(251, 146, 60, 0.24);
-  --chat-ring-end: rgba(45, 212, 191, 0.18);
+.animate-chat-ripple {
+  background: linear-gradient(
+    120deg,
+    rgba(45, 212, 191, 0.24),
+    rgba(145, 93, 252, 0.22)
+  );
+  animation: chat-ripple 2.6s ease-out infinite;
 }
 
 .hash-span {
