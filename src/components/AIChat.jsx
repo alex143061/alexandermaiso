@@ -151,9 +151,9 @@ const AIChat = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className="fixed bottom-4 left-4 right-4 z-[1000] flex h-[min(82dvh,48rem)] max-h-[calc(100dvh-2rem)] w-auto max-w-md flex-col overflow-hidden rounded-3xl border border-white/10 bg-[#10131d]/75 shadow-2xl backdrop-blur-xl md:bottom-6 md:left-auto md:right-6 md:h-[min(70dvh,48rem)] md:max-h-[calc(100dvh-3rem)] md:w-[min(26rem,calc(100vw-3rem))]"
+            className="fixed bottom-4 left-4 right-4 z-[1000] flex h-[min(82dvh,48rem)] max-h-[calc(100dvh-2rem)] w-auto max-w-md flex-col overflow-hidden rounded-3xl border border-white/15 bg-[#0c1323]/35 shadow-2xl backdrop-blur-md md:bottom-6 md:left-auto md:right-6 md:h-[min(70dvh,48rem)] md:max-h-[calc(100dvh-3rem)] md:w-[min(26rem,calc(100vw-3rem))]"
           >
-            <div className="flex shrink-0 items-center gap-3 rounded-t-3xl bg-[#0c1323] p-4 shadow-xl md:p-5">
+            <div className="flex shrink-0 items-center gap-3 rounded-t-3xl border-b border-white/10 bg-[#0c1323]/45 p-4 shadow-xl backdrop-blur-md md:p-5">
               <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center">
                 <img src={logo_white} alt="Alexander Maiso" className="w-8 h-8 object-contain" />
               </div>
@@ -179,7 +179,7 @@ const AIChat = () => {
               </div>
             </div>
 
-            <div className="min-h-0 flex-1 space-y-3 overflow-y-auto bg-black/10 p-3 backdrop-blur-sm md:space-y-4 md:p-4" aria-label="Conversation">
+            <div className="min-h-0 flex-1 space-y-3 overflow-y-auto bg-transparent p-3 md:space-y-4 md:p-4" aria-label="Conversation">
               <AnimatePresence mode="wait">
                 {messages.map((msg, idx) => (
                   <motion.div
@@ -227,7 +227,7 @@ const AIChat = () => {
             </div>
 
             {suggestionsVisible && (
-              <div className="shrink-0 space-y-2 border-t border-white/10 bg-black/20 p-2 backdrop-blur-sm md:p-3">
+              <div className="shrink-0 space-y-2 border-t border-white/10 bg-[#0c1323]/20 p-2 backdrop-blur-sm md:p-3">
                 <p className="text-xs text-white/50 uppercase tracking-wider font-medium px-2">Try asking:</p>
                 <div className="flex flex-wrap gap-2 px-2">
                   {SUGGESTIONS.map((s, idx) => (
@@ -243,7 +243,7 @@ const AIChat = () => {
               </div>
             )}
 
-            <div className="shrink-0 border-t border-white/10 bg-black/40 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-md md:p-4">
+            <div className="shrink-0 border-t border-white/10 bg-[#0c1323]/30 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-md md:p-4">
               <form onSubmit={handleSend} className="flex min-w-0 items-end gap-2">
                 <textarea
                   ref={inputRef}
