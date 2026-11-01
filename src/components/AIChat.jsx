@@ -132,9 +132,9 @@ const AIChat = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className="fixed bottom-4 right-4 left-4 z-[1000] w-full max-w-md h-[90vh] md:bottom-6 md:right-6 md:left-auto md:h-[70vh] flex flex-col lg:h-[70vh]"
+            className="fixed bottom-4 left-4 right-4 z-[1000] flex h-[min(90dvh,48rem)] max-h-[calc(100dvh-2rem)] w-auto max-w-md flex-col md:bottom-6 md:left-auto md:right-6 md:h-[min(70dvh,48rem)] md:max-h-[calc(100dvh-3rem)] md:w-[min(26rem,calc(100vw-3rem))]"
           >
-            <div className="bg-gradient-to-br from-teal-500 via-purple-500 to-orange-500 rounded-t-3xl p-4 md:p-5 flex items-center gap-3 shadow-xl">
+            <div className="flex shrink-0 items-center gap-3 rounded-t-3xl bg-gradient-to-br from-teal-500 via-purple-500 to-orange-500 p-4 shadow-xl md:p-5">
               <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center">
                 <img src={logo_white} alt="Alexander Maiso" className="w-8 h-8 object-contain" />
               </div>
@@ -160,7 +160,7 @@ const AIChat = () => {
               </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-3 md:space-y-4 bg-black/10 backdrop-blur-sm" aria-label="Conversation">
+            <div className="min-h-0 flex-1 space-y-3 overflow-y-auto bg-black/10 p-3 backdrop-blur-sm md:space-y-4 md:p-4" aria-label="Conversation">
               <AnimatePresence mode="wait">
                 {messages.map((msg, idx) => (
                   <motion.div
@@ -208,7 +208,7 @@ const AIChat = () => {
             </div>
 
             {suggestionsVisible && (
-              <div className="p-2 md:p-3 space-y-2 border-t border-white/10 bg-black/20 backdrop-blur-sm">
+              <div className="shrink-0 space-y-2 border-t border-white/10 bg-black/20 p-2 backdrop-blur-sm md:p-3">
                 <p className="text-xs text-white/50 uppercase tracking-wider font-medium px-2">Try asking:</p>
                 <div className="flex flex-wrap gap-2 px-2">
                   {SUGGESTIONS.map((s, idx) => (
@@ -224,8 +224,8 @@ const AIChat = () => {
               </div>
             )}
 
-            <div className="p-3 md:p-4 border-t border-white/10 bg-black/40 backdrop-blur-md">
-              <form onSubmit={handleSend} className="flex gap-2">
+            <div className="shrink-0 border-t border-white/10 bg-black/40 p-3 backdrop-blur-md md:p-4">
+              <form onSubmit={handleSend} className="flex min-w-0 gap-2">
                 <input
                   ref={inputRef}
                   type="text"
@@ -234,16 +234,16 @@ const AIChat = () => {
                   onKeyDown={handleKeyDown}
                   placeholder="Type a message…"
                   disabled={loading}
-                  className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-teal-400 transition"
+                  className="h-12 min-w-0 flex-1 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-base text-white placeholder-white/40 transition focus:outline-none focus:ring-2 focus:ring-teal-400"
                   aria-label="Your message"
                 />
                 <button
                   type="submit"
                   disabled={loading || !input.trim()}
-                  className="w-10 h-10 rounded-full bg-gradient-to-br from-teal-500 to-purple-500 flex items-center justify-center text-white disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg transition focus:outline-none focus:ring-2 focus:ring-teal-400"
+                  className="flex h-12 w-12 min-w-[3rem] shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-500 to-purple-500 text-white transition hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-teal-400 disabled:cursor-not-allowed disabled:opacity-50"
                   aria-label="Send message"
                 >
-                  <FiSend size={18} />
+                  <FiSend className="shrink-0" size={20} />
                 </button>
               </form>
             </div>

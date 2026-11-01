@@ -109,7 +109,7 @@ const Hero = () => {
           <BsLinkedin
             size={30}
             aria-hidden="true"
-            className="icon hover:text-[#0e76a8] hover:translate-y-[-2px] hover:cursor-pointer transition-all ease-in duration-100"
+            className="icon transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-110 hover:cursor-pointer hover:text-[#0e76a8]"
           />
         </a>
 
@@ -123,7 +123,7 @@ const Hero = () => {
           <BsGithub
             size={30}
             aria-hidden="true"
-            className="icon hover:text-[#494646] hover:translate-y-[-2px] hover:cursor-pointer transition-all ease-in duration-100"
+            className="icon transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-110 hover:cursor-pointer hover:text-[#c9d1d9]"
           />
         </a>
 
@@ -137,7 +137,7 @@ const Hero = () => {
           <BsTwitter
             size={30}
             aria-hidden="true"
-            className="icon hover:text-[#1DA1F2] hover:translate-y-[-2px] hover:cursor-pointer transition-all ease-in duration-100"
+            className="icon transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-110 hover:cursor-pointer hover:text-[#1DA1F2]"
           />
         </a>
 
@@ -151,7 +151,7 @@ const Hero = () => {
           <BsDiscord
             size={30}
             aria-hidden="true"
-            className="icon hover:text-[#5865F2] hover:translate-y-[-2px] hover:cursor-pointer transition-all ease-in duration-100"
+            className="icon transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-110 hover:cursor-pointer hover:text-[#5865F2]"
           />
         </a>
 
@@ -165,7 +165,7 @@ const Hero = () => {
           <BsInstagram
             size={30}
             aria-hidden="true"
-            className="icon hover:text-[#E1306C] hover:translate-y-[-2px] hover:cursor-pointer transition-all ease-in duration-100"
+            className="icon transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-110 hover:cursor-pointer hover:text-[#E1306C]"
           />
         </a>
 
@@ -179,7 +179,7 @@ const Hero = () => {
           <BsFacebook
             size={30}
             aria-hidden="true"
-            className="icon hover:text-[#1877F2] hover:translate-y-[-2px] hover:cursor-pointer transition-all ease-in duration-100"
+            className="icon transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-110 hover:cursor-pointer hover:text-[#1877F2]"
           />
         </a>
       </div>
