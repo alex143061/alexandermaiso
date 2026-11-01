@@ -161,12 +161,11 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
 
             <nav className="flex flex-1 flex-col overflow-y-auto overscroll-contain px-5 py-5">
               <div className="mb-5">
-                <span className="inline-flex items-center gap-2 rounded-full border border-teal-300/15 bg-teal-300/[0.06] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-teal-200/80">
-                  <span className="h-1.5 w-1.5 rounded-full bg-teal-300" />
-                  Portfolio
-                </span>
-                <h2 className="mt-4 text-2xl font-semibold tracking-tight text-white">
-                  Explore my work<span className="text-teal-300">.</span>
+                <h2 className="text-2xl font-semibold tracking-tight text-white">
+                  Explore my{" "}
+                  <span className="bg-gradient-to-r from-teal-300 via-purple-300 to-orange-300 bg-clip-text text-transparent">
+                    work.
+                  </span>
                 </h2>
                 <p className="mt-1 text-sm leading-relaxed text-white/45">
                   Projects, experience, and a little about me.
@@ -185,9 +184,9 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
                     setActive("");
                     onClose();
                   }}
-                  className="group relative flex items-center gap-3 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.09] to-white/[0.025] p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-200/30 hover:from-teal-200/[0.1] hover:to-purple-300/[0.06] hover:shadow-[0_12px_30px_rgba(0,0,0,0.2)]"
+                  className="group relative flex items-center gap-3 overflow-hidden rounded-2xl border border-purple-300/20 bg-gradient-to-br from-teal-300/[0.12] via-purple-400/[0.09] to-orange-300/[0.08] p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-200/40 hover:from-teal-200/[0.18] hover:to-purple-300/[0.12] hover:shadow-[0_12px_30px_rgba(45,212,191,0.1)]"
                 >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-teal-300/20 to-purple-400/20 text-teal-100 ring-1 ring-white/10 transition-transform duration-300 group-hover:scale-105">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-teal-300/25 to-purple-400/25 text-teal-100 ring-1 ring-white/10 transition-transform duration-300 group-hover:scale-105">
                     <FiDownload size={19} />
                   </span>
                   <span className="min-w-0 flex-1">
@@ -201,10 +200,10 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
               </motion.div>
 
               <div className="mb-2 mt-7 flex items-center gap-3">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-purple-200/60">
                   Discover
                 </span>
-                <span className="h-px flex-1 bg-white/[0.08]" />
+                <span className="h-px flex-1 bg-gradient-to-r from-purple-300/25 to-transparent" />
               </div>
               <ul className="flex flex-col gap-1">
                 {navLinks.map((nav, index) => (
@@ -214,12 +213,18 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.15 + index * 0.04, duration: 0.18 }}
                     onClick={() => onNavClick(nav)}
-                    className={`group flex cursor-pointer items-center gap-3 rounded-xl border border-transparent px-3 py-3 transition-all duration-200 hover:translate-x-1 hover:border-white/[0.06] hover:bg-white/[0.045] ${
-                      active === nav.title ? "border-white/[0.06] bg-white/[0.04]" : ""
+                    className={`group flex cursor-pointer items-center gap-3 rounded-xl border border-transparent px-3 py-3 transition-all duration-200 hover:translate-x-1 hover:border-purple-200/10 hover:bg-gradient-to-r hover:from-teal-300/[0.06] hover:via-purple-300/[0.05] hover:to-transparent ${
+                      active === nav.title ? "border-teal-200/10 bg-teal-300/[0.06]" : ""
                     }`}
                   >
-                    <span className={`w-6 text-[10px] font-medium tabular-nums transition-colors ${
-                      active === nav.title ? "text-teal-300" : "text-white/25 group-hover:text-white/50"
+                    <span className={`w-6 text-[10px] font-semibold tabular-nums transition-colors ${
+                      active === nav.title
+                        ? "text-teal-300"
+                        : index % 3 === 0
+                          ? "text-teal-200/45 group-hover:text-teal-200"
+                          : index % 3 === 1
+                            ? "text-purple-200/45 group-hover:text-purple-200"
+                            : "text-orange-200/45 group-hover:text-orange-200"
                     }`}>
                       {String(index + 1).padStart(2, "0")}
                     </span>
@@ -251,18 +256,18 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
                 <Link
                   to="/blog"
                   onClick={onClose}
-                  className="group flex items-center justify-between rounded-xl bg-white/[0.035] px-3.5 py-3 text-sm text-white/60 transition-colors hover:bg-white/[0.07] hover:text-white"
+                  className="group flex items-center justify-between rounded-xl border border-white/[0.06] bg-gradient-to-br from-purple-300/[0.08] to-white/[0.02] px-3.5 py-3 text-sm text-white/65 transition-all hover:border-purple-200/20 hover:from-purple-300/[0.14] hover:text-white"
                 >
                   Blog
-                  <FiArrowUpRight size={15} className="text-white/30 transition-colors group-hover:text-white/75" />
+                  <FiArrowUpRight size={15} className="text-purple-200/55 transition-colors group-hover:text-purple-100" />
                 </Link>
                 <Link
                   to="/login"
                   onClick={onClose}
-                  className="group flex items-center justify-between rounded-xl bg-white/[0.035] px-3.5 py-3 text-sm text-white/60 transition-colors hover:bg-white/[0.07] hover:text-white"
+                  className="group flex items-center justify-between rounded-xl border border-white/[0.06] bg-gradient-to-br from-orange-300/[0.07] to-white/[0.02] px-3.5 py-3 text-sm text-white/65 transition-all hover:border-orange-200/20 hover:from-orange-300/[0.13] hover:text-white"
                 >
                   Live demo
-                  <FiArrowUpRight size={15} className="text-white/30 transition-colors group-hover:text-white/75" />
+                  <FiArrowUpRight size={15} className="text-orange-200/55 transition-colors group-hover:text-orange-100" />
                 </Link>
               </div>
             </nav>
