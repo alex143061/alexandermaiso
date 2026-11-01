@@ -138,7 +138,7 @@ const AIChat = () => {
             exit={{ opacity: 0, y: 20 }}
             className="fixed bottom-4 left-4 right-4 z-[1000] flex h-[min(82dvh,48rem)] max-h-[calc(100dvh-2rem)] w-auto max-w-md flex-col overflow-hidden rounded-3xl border border-white/10 bg-[#10131d]/75 shadow-2xl backdrop-blur-xl md:bottom-6 md:left-auto md:right-6 md:h-[min(70dvh,48rem)] md:max-h-[calc(100dvh-3rem)] md:w-[min(26rem,calc(100vw-3rem))]"
           >
-            <div className="flex shrink-0 items-center gap-3 rounded-t-3xl bg-gradient-to-br from-teal-500 via-purple-500 to-orange-500 p-4 shadow-xl md:p-5">
+            <div className="flex shrink-0 items-center gap-3 rounded-t-3xl bg-[#0c1323] p-4 shadow-xl md:p-5">
               <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center">
                 <img src={logo_white} alt="Alexander Maiso" className="w-8 h-8 object-contain" />
               </div>
