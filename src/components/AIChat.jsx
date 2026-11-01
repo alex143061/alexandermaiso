@@ -28,10 +28,24 @@ const AIChat = () => {
   const [suggestionsVisible, setSuggestionsVisible] = useState(true);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+  const chatPanelRef = useRef(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+
+    const handleOutsidePointer = (event) => {
+      if (!chatPanelRef.current?.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", handleOutsidePointer);
+    return () => document.removeEventListener("pointerdown", handleOutsidePointer);
+  }, [isOpen]);
 
   const addMessage = (role, text) => {
     setMessages((prev) => [...prev, { role, text, time: new Date() }]);
@@ -133,6 +147,7 @@ const AIChat = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            ref={chatPanelRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}

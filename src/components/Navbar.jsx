@@ -114,17 +114,13 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
             role="dialog"
             aria-modal="true"
             aria-label="Menu"
-            className="fixed right-0 top-0 z-[9991] flex h-screen w-[86%] max-w-sm flex-col overflow-hidden border-l border-white/10 bg-gradient-to-b from-[#111827] via-[#0b1220] to-[#0f172a]"
+            className="fixed right-0 top-0 z-[9991] flex h-screen w-[86%] max-w-sm flex-col overflow-hidden border-l border-white/10 bg-[#0c1323]/95 text-white shadow-2xl backdrop-blur-2xl"
             style={{ pointerEvents: open ? "auto" : "none", willChange: "transform" }}
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Gradient accent edge */}
-            <span className="pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-gradient-to-b from-teal-500 via-purple-500 to-orange-500" />
-
-            {/* Header + aesthetic close button */}
             <div className="relative flex items-center justify-between border-b border-white/10 px-5 py-4">
               <div
                 className="flex items-center gap-2 cursor-pointer"
@@ -143,11 +139,11 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
                   src={logo_white}
                   alt=""
                   aria-hidden="true"
-                  className="h-10 w-10 object-contain"
-                  width="40"
-                  height="40"
+                  className="h-8 w-8 object-contain"
+                  width="32"
+                  height="32"
                 />
-                <span className="text-sm font-bold tracking-wide text-white">
+                <span className="text-sm font-semibold text-white">
                   Alexander Maiso
                 </span>
               </div>
@@ -155,24 +151,29 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
                 type="button"
                 aria-label="Close menu"
                 onClick={onClose}
-                className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 bg-white/5 transition-all duration-300 hover:rotate-90 hover:border-teal-400/60 hover:bg-white/10 active:scale-90 touch-manipulation"
+                className="relative flex h-10 w-10 items-center justify-center rounded-full text-white/60 transition-colors hover:bg-white/5 hover:text-white active:scale-95 touch-manipulation"
               >
                 <span className="absolute h-[2px] w-5 rounded-full bg-white rotate-45" />
                 <span className="absolute h-[2px] w-5 rounded-full bg-white -rotate-45" />
               </button>
             </div>
 
-            {/* Drawer content */}
-            <nav className="flex-1 overflow-y-auto overscroll-contain px-4 py-5 flex flex-col">
-              {/* Showcase CTAs — top of menu so they're visible immediately */}
+            <nav className="flex flex-1 flex-col overflow-y-auto overscroll-contain px-5 py-6">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.05, duration: 0.2 }}
               >
-                <a href={resume} download onClick={() => setActive("")} className="group block">
-                  <div className="flex w-full items-center justify-between gap-3 rounded-2xl bg-white px-5 py-4 text-[#0f172a] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:shadow-[0_16px_32px_-12px_rgba(255,255,255,0.3)] active:translate-y-0">
-                    <span className="flex items-center gap-2.5">
+                <a
+                  href={resume}
+                  download
+                  onClick={() => {
+                    setActive("");
+                    onClose();
+                  }}
+                  className="group flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3.5 transition-colors hover:border-white/20 hover:bg-white/[0.07]"
+                >
+                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/[0.06] text-white/75">
                       <svg
                         className="h-4 w-4 fill-current"
                         xmlns="http://www.w3.org/2000/svg"
@@ -180,36 +181,19 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
                       >
                         <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
                       </svg>
-                      <span className="text-sm font-bold tracking-wide">View My Resume</span>
-                    </span>
-                    <span className="rounded-lg bg-slate-100 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-500">
-                      PDF
-                    </span>
-                  </div>
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-medium text-white">View my resume</span>
+                    <span className="mt-0.5 block text-xs text-white/45">PDF document</span>
+                  </span>
+                  <span className="text-xs font-medium tracking-wide text-white/40">PDF</span>
                 </a>
-
-                {/* CRUD demo + Blog */}
-                <div className="mt-3 grid grid-cols-2 gap-3">
-                  <div className="flex flex-col items-center gap-2 rounded-xl border border-white/10 bg-white/5 p-3 transition-colors hover:border-white/25">
-                    <CrudButton onClick={onClose} />
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-secondary">
-                      Live demo
-                    </span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 rounded-xl border border-white/10 bg-white/5 p-3 transition-colors hover:border-white/25">
-                    <BlogsButton onClick={onClose} />
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-secondary">
-                      Insights
-                    </span>
-                  </div>
-                </div>
               </motion.div>
 
-              {/* Links */}
-              <p className="px-3 pb-3 pt-6 text-[11px] font-bold uppercase tracking-[0.3em] text-secondary">
-                Menu
+              <p className="px-1 pb-2 pt-8 text-xs font-medium text-white/40">
+                Explore
               </p>
-              <ul className="flex flex-col gap-1 pb-4">
+              <ul className="flex flex-col">
                 {navLinks.map((nav, index) => (
                   <motion.li
                     key={nav.id}
@@ -217,36 +201,43 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.15 + index * 0.04, duration: 0.18 }}
                     onClick={() => onNavClick(nav)}
-                    className={`group flex cursor-pointer items-center gap-3 rounded-xl px-3 py-3 transition-colors duration-200 hover:bg-white/5 ${
-                      active === nav.title ? "bg-white/10" : ""
-                    }`}
+                    className="group flex cursor-pointer items-center border-b border-white/[0.06] py-3.5"
                   >
-                    <span
-                      className={`text-[11px] font-bold tabular-nums ${
-                        active === nav.title ? "text-teal-400" : "text-secondary"
-                      }`}
-                    >
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
                     <a
                       href={`#${nav.id}`}
                       onClick={(e) => e.preventDefault()}
                       aria-current={active === nav.title ? "true" : undefined}
-                      className={`text-[16px] font-medium transition-all duration-200 group-hover:translate-x-1 ${
+                      className={`text-sm font-medium transition-colors group-hover:text-white ${
                         active === nav.title
                           ? "text-white"
-                          : "text-secondary group-hover:text-white"
+                          : "text-white/60"
                       }`}
                     >
                       {nav.title}
                     </a>
                     {active === nav.title && (
-                      <span className="ml-auto h-2 w-2 rounded-full bg-gradient-to-r from-teal-400 to-orange-400" />
+                      <span className="ml-auto h-1.5 w-1.5 rounded-full bg-teal-400" />
                     )}
                   </motion.li>
                 ))}
               </ul>
 
+              <div className="mt-auto flex items-center gap-5 pt-8 text-sm">
+                <Link
+                  to="/blog"
+                  onClick={onClose}
+                  className="text-white/55 transition-colors hover:text-white"
+                >
+                  Blog
+                </Link>
+                <Link
+                  to="/login"
+                  onClick={onClose}
+                  className="text-white/55 transition-colors hover:text-white"
+                >
+                  Live demo
+                </Link>
+              </div>
             </nav>
           </motion.aside>
         )}
@@ -314,11 +305,12 @@ const Navbar = () => {
           >
             <img
               src={logo_white}
-              alt=""
+              alt="Alexander Maiso logo"
               aria-hidden="true"
               className="w-12 h-12 sm:w-24 sm:h-24 object-contain"
               width="96"
               height="96"
+              loading="lazy"
             />
             <p className="text-white text-[18px] font-bold flex">
               Alexander Maiso
@@ -352,7 +344,6 @@ const Navbar = () => {
                 </a>
               </li>
             ))}
-
             <CrudButton />
             <BlogsButton />
           </ul>
