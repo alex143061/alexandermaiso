@@ -109,7 +109,7 @@ const AIChat = () => {
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsOpen(true)}
           aria-label="Chat with Alex's AI assistant"
-          className="fixed bottom-4 right-4 z-[1000] flex items-center gap-3 rounded-full border border-white/20 bg-[#10131d]/95 py-2 pl-2 pr-5 text-left shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-colors hover:border-purple-300/60 hover:bg-[#171a27] focus:outline-none focus:ring-2 focus:ring-teal-400 touch-manipulation md:bottom-6 md:right-6"
+          className="fixed bottom-4 right-4 z-[1000] flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-[#10131d]/95 shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-colors hover:border-purple-300/60 hover:bg-[#171a27] focus:outline-none focus:ring-2 focus:ring-teal-400 touch-manipulation md:bottom-6 md:right-6"
         >
           <span
             aria-hidden="true"
@@ -122,10 +122,6 @@ const AIChat = () => {
             <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-teal-300 text-[#10131d] shadow-md">
               <BsStars size={10} />
             </span>
-          </span>
-          <span className="relative z-10 flex flex-col">
-            <span className="text-sm font-bold leading-tight text-white">Alex's AI Assistant</span>
-            <span className="mt-1 text-[11px] leading-tight text-white/65">Curious? Ask me anything!</span>
           </span>
         </motion.button>
       )}
