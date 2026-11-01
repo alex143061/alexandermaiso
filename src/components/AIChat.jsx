@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BsChatDotsFill, BsRobot, BsStars, BsX } from "react-icons/bs";
+import { BsStars } from "react-icons/bs";
 import { FiX, FiSend, FiTrash2 } from "react-icons/fi";
+import { logo_white } from "../assets";
 
 const INITIAL_MESSAGE = {
   role: "assistant",
@@ -104,13 +105,24 @@ const AIChat = () => {
     <>
       {!isOpen && (
         <motion.button
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ y: -3, scale: 1.03 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsOpen(true)}
-          aria-label="Open AI chat"
-          className="fixed bottom-4 right-4 z-[1000] w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-teal-500 via-purple-500 to-orange-500 rounded-full flex items-center justify-center shadow-2xl focus:outline-none focus:ring-2 focus:ring-teal-400 touch-manipulation"
+          aria-label="Chat with Galaxy AI — ask me anything"
+          className="fixed bottom-4 right-4 z-[1000] flex items-center gap-3 rounded-full border border-white/20 bg-[#10131d]/95 py-2 pl-2 pr-5 text-left shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-colors hover:border-purple-300/60 hover:bg-[#171a27] focus:outline-none focus:ring-2 focus:ring-teal-400 touch-manipulation md:bottom-6 md:right-6"
         >
-          <BsRobot size={20} className="text-white" />
+          <span className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-400 via-purple-500 to-orange-400 p-[2px]">
+            <span className="flex h-full w-full items-center justify-center rounded-full bg-[#11131c]">
+              <img src={logo_white} alt="" className="h-8 w-8 object-contain" />
+            </span>
+            <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-teal-300 text-[#10131d] shadow-md">
+              <BsStars size={10} />
+            </span>
+          </span>
+          <span className="flex flex-col">
+            <span className="text-sm font-bold leading-tight text-white">Ask Galaxy AI</span>
+            <span className="mt-1 text-[11px] leading-tight text-white/65">Curious? Ask me anything ✨</span>
+          </span>
         </motion.button>
       )}
 
@@ -123,12 +135,12 @@ const AIChat = () => {
             className="fixed bottom-4 right-4 left-4 z-[1000] w-full max-w-md h-[90vh] md:bottom-6 md:right-6 md:left-auto md:h-[70vh] flex flex-col lg:h-[70vh]"
           >
             <div className="bg-gradient-to-br from-teal-500 via-purple-500 to-orange-500 rounded-t-3xl p-4 md:p-5 flex items-center gap-3 shadow-xl">
-              <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                <BsStars size={20} className="text-white" />
+              <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center">
+                <img src={logo_white} alt="Alexander Maiso" className="w-8 h-8 object-contain" />
               </div>
               <div className="flex-1">
                 <h3 className="text-white font-semibold text-sm leading-tight">Galaxy AI</h3>
-                <p className="text-teal-100 text-xs opacity-90">Alex's portfolio assistant</p>
+                <p className="text-teal-100 text-xs opacity-90">Ask me anything ✨</p>
               </div>
               <div className="flex items-center gap-2">
                 <button
