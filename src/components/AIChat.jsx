@@ -3,12 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BsChatDotsFill, BsRobot, BsStars, BsX } from "react-icons/bs";
 import { FiX, FiSend, FiTrash2 } from "react-icons/fi";
 
-const SYSTEM_INSTRUCTION = `You are Galaxy AI, the friendly, witty, and knowledgeable AI companion for Alexander Maiso's portfolio.
-Alexander Maiso is a Computer Engineer and Full-Stack Developer from the Philippines. He specializes in React, Next.js, Tailwind, Node.js, Laravel, PHP, Python, and IoT (Arduino, ESP32, C++).
-Notable projects include: three.ws (3D AI agents), Lex Karaoke, and PawLitrax (IoT pet tracker).
-Your tone should be natural, conversational, warm, and engaging (like ChatGPT or Claude), with occasional cosmic/space references (✨, 🌌, 🚀).
-Always stay in character as his portfolio assistant, and help users explore his background, skills, and projects organically.`;
-
 const INITIAL_MESSAGE = {
   role: "assistant",
   text: "Hey! I'm Alex's AI Galaxy companion. 🌌 Ask me anything about his projects, skills, or just chat with me!",
@@ -43,15 +37,14 @@ const AIChat = () => {
   };
 
   const handleSuggestion = (query) => {
-    setInput(query);
     setSuggestionsVisible(false);
     inputRef.current?.focus();
-    handleSend();
+    handleSend(undefined, query);
   };
 
-  const handleSend = async (e) => {
-    if (e) e.preventDefault();
-    const text = input.trim();
+  const handleSend = async (e, submittedText = input) => {
+    if (e?.preventDefault) e.preventDefault();
+    const text = submittedText.trim();
     if (!text || loading) return;
 
     setInput("");
@@ -62,6 +55,7 @@ const AIChat = () => {
 
     try {
       const history = messages
+        .slice(1)
         .slice(-MAX_HISTORY)
         .map((m) => ({
           role: m.role,
