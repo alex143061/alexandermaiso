@@ -35,6 +35,11 @@
   color: #fff;
 }
 
+.hero-canvas-overlay,
+.hero-canvas-overlay * {
+  pointer-events: none !important;
+}
+
 /* --- Accessibility ------------------------------------------------------ */
 
 /* Keyboard users can jump straight past the navigation to the main content. */

@@ -72,7 +72,7 @@ const Hero = () => {
         </div>
       </div>
       <Suspense fallback={null}>
-        <div className="absolute inset-0 z-50 pointer-events-none">
+        <div className="hero-canvas-overlay absolute inset-0 z-50">
           <LostProgrammerCanvas />
         </div>
       </Suspense>
