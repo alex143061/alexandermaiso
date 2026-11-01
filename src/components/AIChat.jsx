@@ -6,6 +6,7 @@ import { FiX, FiSend, FiTrash2 } from "react-icons/fi";
 const INITIAL_MESSAGE = {
   role: "assistant",
   text: "Hey! I'm Alex's AI Galaxy companion. 🌌 Ask me anything about his projects, skills, or just chat with me!",
+  time: new Date(),
 };
 
 const SUGGESTIONS = [
@@ -69,27 +70,19 @@ const AIChat = () => {
         body: JSON.stringify({ message: text, history }),
       });
 
-      const responseText = await response.text();
+      const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(`Server error (${response.status}): ${responseText || "Unknown error"}`);
+        throw new Error(data.error || `Server error (${response.status}).`);
       }
-
-      if (!responseText || responseText.trim() === "") {
-        throw new Error("Empty response from server. Is the API running?");
-      }
-
-      const data = JSON.parse(responseText);
-
-      if (!response.ok || data.error) {
-        throw new Error(data.error || "Something went wrong.");
+      if (data.error) {
+        throw new Error(data.error);
       }
 
       addMessage("assistant", data.reply || "I'm not sure how to respond to that. 🌠");
     } catch (err) {
       console.error("Chat error:", err);
       setError(err.message || "Failed to connect. Please try again.");
-      addMessage("assistant", "Sorry, I'm having trouble connecting right now. 🚀 Try again in a moment!");
     } finally {
       setLoading(false);
     }

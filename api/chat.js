@@ -46,8 +46,11 @@ export default async function handler(req, res) {
 
     const data = await response.json();
     if (!response.ok) {
-      console.error("Gemini API error:", response.status, data.error?.message || response.statusText);
-      return res.status(502).json({ error: "Failed to get a response from the AI." });
+      const providerError = typeof data.error?.message === "string"
+        ? data.error.message.replaceAll(geminiApiKey, "[redacted]").slice(0, 300)
+        : response.statusText;
+      console.error("Gemini API error:", response.status, providerError);
+      return res.status(502).json({ error: `Gemini API error (${response.status}): ${providerError}` });
     }
 
     const reply = data.candidates?.[0]?.content?.parts
