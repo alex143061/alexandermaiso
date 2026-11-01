@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { FiArrowRight, FiArrowUpRight, FiDownload } from "react-icons/fi";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
@@ -158,7 +159,20 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
               </button>
             </div>
 
-            <nav className="flex flex-1 flex-col overflow-y-auto overscroll-contain px-5 py-6">
+            <nav className="flex flex-1 flex-col overflow-y-auto overscroll-contain px-5 py-5">
+              <div className="mb-5">
+                <span className="inline-flex items-center gap-2 rounded-full border border-teal-300/15 bg-teal-300/[0.06] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-teal-200/80">
+                  <span className="h-1.5 w-1.5 rounded-full bg-teal-300" />
+                  Portfolio
+                </span>
+                <h2 className="mt-4 text-2xl font-semibold tracking-tight text-white">
+                  Explore my work<span className="text-teal-300">.</span>
+                </h2>
+                <p className="mt-1 text-sm leading-relaxed text-white/45">
+                  Projects, experience, and a little about me.
+                </p>
+              </div>
+
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -171,29 +185,28 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
                     setActive("");
                     onClose();
                   }}
-                  className="group flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3.5 transition-colors hover:border-white/20 hover:bg-white/[0.07]"
+                  className="group relative flex items-center gap-3 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.09] to-white/[0.025] p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-200/30 hover:from-teal-200/[0.1] hover:to-purple-300/[0.06] hover:shadow-[0_12px_30px_rgba(0,0,0,0.2)]"
                 >
-                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/[0.06] text-white/75">
-                      <svg
-                        className="h-4 w-4 fill-current"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-                      </svg>
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-teal-300/20 to-purple-400/20 text-teal-100 ring-1 ring-white/10 transition-transform duration-300 group-hover:scale-105">
+                    <FiDownload size={19} />
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="block text-sm font-medium text-white">View my resume</span>
-                    <span className="mt-0.5 block text-xs text-white/45">PDF document</span>
+                    <span className="block text-sm font-semibold text-white">View my resume</span>
+                    <span className="mt-1 block text-xs text-white/45">Experience, skills &amp; more</span>
                   </span>
-                  <span className="text-xs font-medium tracking-wide text-white/40">PDF</span>
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/45 transition-all duration-300 group-hover:border-teal-200/30 group-hover:text-teal-100">
+                    <FiArrowUpRight size={16} />
+                  </span>
                 </a>
               </motion.div>
 
-              <p className="px-1 pb-2 pt-8 text-xs font-medium text-white/40">
-                Explore
-              </p>
-              <ul className="flex flex-col">
+              <div className="mb-2 mt-7 flex items-center gap-3">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35">
+                  Discover
+                </span>
+                <span className="h-px flex-1 bg-white/[0.08]" />
+              </div>
+              <ul className="flex flex-col gap-1">
                 {navLinks.map((nav, index) => (
                   <motion.li
                     key={nav.id}
@@ -201,13 +214,20 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.15 + index * 0.04, duration: 0.18 }}
                     onClick={() => onNavClick(nav)}
-                    className="group flex cursor-pointer items-center border-b border-white/[0.06] py-3.5"
+                    className={`group flex cursor-pointer items-center gap-3 rounded-xl border border-transparent px-3 py-3 transition-all duration-200 hover:translate-x-1 hover:border-white/[0.06] hover:bg-white/[0.045] ${
+                      active === nav.title ? "border-white/[0.06] bg-white/[0.04]" : ""
+                    }`}
                   >
+                    <span className={`w-6 text-[10px] font-medium tabular-nums transition-colors ${
+                      active === nav.title ? "text-teal-300" : "text-white/25 group-hover:text-white/50"
+                    }`}>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                     <a
                       href={`#${nav.id}`}
                       onClick={(e) => e.preventDefault()}
                       aria-current={active === nav.title ? "true" : undefined}
-                      className={`text-sm font-medium transition-colors group-hover:text-white ${
+                      className={`flex-1 text-sm font-medium transition-colors group-hover:text-white ${
                         active === nav.title
                           ? "text-white"
                           : "text-white/60"
@@ -215,27 +235,34 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
                     >
                       {nav.title}
                     </a>
-                    {active === nav.title && (
-                      <span className="ml-auto h-1.5 w-1.5 rounded-full bg-teal-400" />
-                    )}
+                    <FiArrowRight
+                      size={15}
+                      className={`transition-all duration-200 ${
+                        active === nav.title
+                          ? "text-teal-300"
+                          : "text-white/20 group-hover:translate-x-0.5 group-hover:text-white/70"
+                      }`}
+                    />
                   </motion.li>
                 ))}
               </ul>
 
-              <div className="mt-auto flex items-center gap-5 pt-8 text-sm">
+              <div className="mt-auto grid grid-cols-2 gap-3 border-t border-white/[0.08] pt-5">
                 <Link
                   to="/blog"
                   onClick={onClose}
-                  className="text-white/55 transition-colors hover:text-white"
+                  className="group flex items-center justify-between rounded-xl bg-white/[0.035] px-3.5 py-3 text-sm text-white/60 transition-colors hover:bg-white/[0.07] hover:text-white"
                 >
                   Blog
+                  <FiArrowUpRight size={15} className="text-white/30 transition-colors group-hover:text-white/75" />
                 </Link>
                 <Link
                   to="/login"
                   onClick={onClose}
-                  className="text-white/55 transition-colors hover:text-white"
+                  className="group flex items-center justify-between rounded-xl bg-white/[0.035] px-3.5 py-3 text-sm text-white/60 transition-colors hover:bg-white/[0.07] hover:text-white"
                 >
                   Live demo
+                  <FiArrowUpRight size={15} className="text-white/30 transition-colors group-hover:text-white/75" />
                 </Link>
               </div>
             </nav>
