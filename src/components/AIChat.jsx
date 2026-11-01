@@ -6,7 +6,7 @@ import { logo_white } from "../assets";
 
 const INITIAL_MESSAGE = {
   role: "assistant",
-  text: "Hey! I'm Alex's AI Galaxy companion. 🌌 Ask me anything about his projects, skills, or just chat with me!",
+  text: "Hey! I'm Alex's AI assistant. Ask me anything about his projects, skills, or just chat with me!",
   time: new Date(),
 };
 
@@ -108,7 +108,7 @@ const AIChat = () => {
           whileHover={{ y: -3, scale: 1.03 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsOpen(true)}
-          aria-label="Chat with Galaxy AI — ask me anything"
+          aria-label="Chat with Alex's AI assistant"
           className="fixed bottom-4 right-4 z-[1000] flex items-center gap-3 rounded-full border border-white/20 bg-[#10131d]/95 py-2 pl-2 pr-5 text-left shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-colors hover:border-purple-300/60 hover:bg-[#171a27] focus:outline-none focus:ring-2 focus:ring-teal-400 touch-manipulation md:bottom-6 md:right-6"
         >
           <span className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-400 via-purple-500 to-orange-400 p-[2px]">
@@ -120,8 +120,8 @@ const AIChat = () => {
             </span>
           </span>
           <span className="flex flex-col">
-            <span className="text-sm font-bold leading-tight text-white">Ask Galaxy AI</span>
-            <span className="mt-1 text-[11px] leading-tight text-white/65">Curious? Ask me anything ✨</span>
+            <span className="text-sm font-bold leading-tight text-white">Alex's AI Assistant</span>
+            <span className="mt-1 text-[11px] leading-tight text-white/65">Curious? Ask me anything!</span>
           </span>
         </motion.button>
       )}
@@ -139,8 +139,8 @@ const AIChat = () => {
                 <img src={logo_white} alt="Alexander Maiso" className="w-8 h-8 object-contain" />
               </div>
               <div className="flex-1">
-                <h3 className="text-white font-semibold text-sm leading-tight">Galaxy AI</h3>
-                <p className="text-teal-100 text-xs opacity-90">Ask me anything ✨</p>
+                <h3 className="text-white font-semibold text-sm leading-tight">Alex's AI Assistant</h3>
+                <p className="text-teal-100 text-xs opacity-90">Curious? Ask me anything!</p>
               </div>
               <div className="flex items-center gap-2">
                 <button
