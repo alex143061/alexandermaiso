@@ -80,22 +80,23 @@
 
 @keyframes chat-ripple {
   0% {
-    opacity: 0.3;
+    opacity: 0.65;
     transform: scale(1);
   }
   100% {
     opacity: 0;
-    transform: scale(1.2);
+    transform: scale(1.22);
   }
 }
 
 .animate-chat-ripple {
+  border: 1px solid rgba(153, 246, 228, 0.45);
   background: linear-gradient(
     120deg,
-    rgba(45, 212, 191, 0.24),
-    rgba(145, 93, 252, 0.22)
+    rgba(45, 212, 191, 0.42),
+    rgba(145, 93, 252, 0.38)
   );
-  animation: chat-ripple 2.6s ease-out infinite;
+  animation: chat-ripple 2.2s ease-out infinite;
 }
 
 .hash-span {

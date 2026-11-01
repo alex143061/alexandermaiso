@@ -113,7 +113,7 @@ const AIChat = () => {
         >
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute -inset-2 z-0 rounded-full animate-chat-ripple"
+            className="pointer-events-none absolute -inset-3 z-0 rounded-full animate-chat-ripple"
           />
           <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-400 via-purple-500 to-orange-400 p-[2px]">
             <span className="flex h-full w-full items-center justify-center rounded-full bg-[#11131c]">
