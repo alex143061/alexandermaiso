@@ -38,7 +38,7 @@ export default async function handler(req, res) {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${groqApiKey}` },
       body: JSON.stringify({
-        model: "llama-3.3-70b-versatile",
+        model: "openai/gpt-oss-120b",
         messages: [{ role: "system", content: systemMessage }, ...messages],
         temperature: 0.7,
       }),
