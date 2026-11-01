@@ -82,17 +82,42 @@
   0% {
     opacity: 0.95;
     transform: scale(1);
-    box-shadow: 0 0 10px 2px rgba(45, 212, 191, 0.45);
+    border-color: var(--chat-ring-start);
+    box-shadow: 0 0 10px 2px var(--chat-ring-glow-start);
+  }
+  55% {
+    opacity: 0.7;
+    border-color: var(--chat-ring-mid);
+    box-shadow: 0 0 16px 4px var(--chat-ring-glow-mid);
   }
   100% {
     opacity: 0;
     transform: scale(1.24);
-    box-shadow: 0 0 22px 6px rgba(168, 85, 247, 0.25);
+    border-color: var(--chat-ring-end);
+    box-shadow: 0 0 22px 6px var(--chat-ring-glow-end);
   }
 }
 
 .animate-chat-ring {
   animation: chat-ring-pulse 1.8s ease-out infinite;
+}
+
+.chat-ring-teal {
+  --chat-ring-start: #5eead4;
+  --chat-ring-mid: #c084fc;
+  --chat-ring-end: #fb923c;
+  --chat-ring-glow-start: rgba(45, 212, 191, 0.45);
+  --chat-ring-glow-mid: rgba(192, 132, 252, 0.35);
+  --chat-ring-glow-end: rgba(251, 146, 60, 0.25);
+}
+
+.chat-ring-purple {
+  --chat-ring-start: #c084fc;
+  --chat-ring-mid: #fb923c;
+  --chat-ring-end: #5eead4;
+  --chat-ring-glow-start: rgba(168, 85, 247, 0.4);
+  --chat-ring-glow-mid: rgba(251, 146, 60, 0.3);
+  --chat-ring-glow-end: rgba(45, 212, 191, 0.25);
 }
 
 .hash-span {

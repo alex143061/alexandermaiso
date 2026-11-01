@@ -113,11 +113,11 @@ const AIChat = () => {
         >
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute -inset-2 rounded-full border-[3px] border-teal-300 animate-chat-ring"
+            className="pointer-events-none absolute -inset-2 rounded-full border-[3px] animate-chat-ring chat-ring-teal"
           />
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute -inset-2 rounded-full border-2 border-purple-300 animate-chat-ring [animation-delay:0.8s]"
+            className="pointer-events-none absolute -inset-2 rounded-full border-2 animate-chat-ring chat-ring-purple [animation-delay:0.8s]"
           />
           <span className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-400 via-purple-500 to-orange-400 p-[2px]">
             <span className="flex h-full w-full items-center justify-center rounded-full bg-[#11131c]">
