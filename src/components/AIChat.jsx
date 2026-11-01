@@ -111,6 +111,10 @@ const AIChat = () => {
           aria-label="Chat with Alex's AI assistant"
           className="fixed bottom-4 right-4 z-[1000] flex items-center gap-3 rounded-full border border-white/20 bg-[#10131d]/95 py-2 pl-2 pr-5 text-left shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-colors hover:border-purple-300/60 hover:bg-[#171a27] focus:outline-none focus:ring-2 focus:ring-teal-400 touch-manipulation md:bottom-6 md:right-6"
         >
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -inset-1 rounded-full border-2 border-teal-300/70 animate-chat-ring"
+          />
           <span className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-400 via-purple-500 to-orange-400 p-[2px]">
             <span className="flex h-full w-full items-center justify-center rounded-full bg-[#11131c]">
               <img src={logo_white} alt="" className="h-8 w-8 object-contain" />
