@@ -113,13 +113,13 @@ const AIChat = () => {
         >
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute -inset-2 rounded-full border-[3px] animate-chat-ring chat-ring-teal"
+            className="pointer-events-none absolute -inset-2 z-0 rounded-full animate-chat-ring chat-ring-teal"
           />
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute -inset-2 rounded-full border-2 animate-chat-ring chat-ring-purple [animation-delay:0.8s]"
+            className="pointer-events-none absolute -inset-2 z-0 rounded-full animate-chat-ring chat-ring-purple [animation-delay:0.8s]"
           />
-          <span className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-400 via-purple-500 to-orange-400 p-[2px]">
+          <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal-400 via-purple-500 to-orange-400 p-[2px]">
             <span className="flex h-full w-full items-center justify-center rounded-full bg-[#11131c]">
               <img src={logo_white} alt="" className="h-8 w-8 object-contain" />
             </span>
@@ -127,7 +127,7 @@ const AIChat = () => {
               <BsStars size={10} />
             </span>
           </span>
-          <span className="flex flex-col">
+          <span className="relative z-10 flex flex-col">
             <span className="text-sm font-bold leading-tight text-white">Alex's AI Assistant</span>
             <span className="mt-1 text-[11px] leading-tight text-white/65">Curious? Ask me anything!</span>
           </span>

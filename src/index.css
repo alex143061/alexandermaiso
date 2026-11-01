@@ -80,18 +80,18 @@
 
 @keyframes chat-ring-pulse {
   0% {
-    opacity: 0.95;
+    opacity: 0.9;
     transform: scale(1);
-    border-color: var(--chat-ring-start);
+    background-color: var(--chat-ring-start);
   }
   55% {
-    opacity: 0.7;
-    border-color: var(--chat-ring-mid);
+    opacity: 0.75;
+    background-color: var(--chat-ring-mid);
   }
   100% {
     opacity: 0;
     transform: scale(1.24);
-    border-color: var(--chat-ring-end);
+    background-color: var(--chat-ring-end);
   }
 }
 
@@ -100,15 +100,15 @@
 }
 
 .chat-ring-teal {
-  --chat-ring-start: #5eead4;
-  --chat-ring-mid: #c084fc;
-  --chat-ring-end: #fb923c;
+  --chat-ring-start: rgba(45, 212, 191, 0.3);
+  --chat-ring-mid: rgba(192, 132, 252, 0.25);
+  --chat-ring-end: rgba(251, 146, 60, 0.2);
 }
 
 .chat-ring-purple {
-  --chat-ring-start: #c084fc;
-  --chat-ring-mid: #fb923c;
-  --chat-ring-end: #5eead4;
+  --chat-ring-start: rgba(168, 85, 247, 0.28);
+  --chat-ring-mid: rgba(251, 146, 60, 0.24);
+  --chat-ring-end: rgba(45, 212, 191, 0.18);
 }
 
 .hash-span {
