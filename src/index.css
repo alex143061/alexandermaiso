@@ -98,12 +98,8 @@
 }
 
 .animate-chat-ripple {
-  border: 1px solid rgba(153, 246, 228, 0.65);
-  background: linear-gradient(
-    120deg,
-    rgba(45, 212, 191, 0.38),
-    rgba(145, 93, 252, 0.34)
-  );
+  border: 1px solid rgba(252, 165, 165, 0.8);
+  background: rgba(239, 68, 68, 0.36);
   animation: chat-ripple 2.4s linear infinite;
 }
 
