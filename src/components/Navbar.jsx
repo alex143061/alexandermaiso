@@ -97,7 +97,7 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
         {open && (
           <motion.div
             key="nav-backdrop"
-            className="fixed inset-0 z-[9990] bg-black/35"
+            className="fixed inset-0 z-[9990] bg-black/10"
             style={{ pointerEvents: open ? "auto" : "none", touchAction: "none" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -115,7 +115,7 @@ const MobileMenu = ({ open, onClose, active, setActive, onNavClick }) => {
             role="dialog"
             aria-modal="true"
             aria-label="Menu"
-            className="fixed right-0 top-0 z-[9991] flex h-screen w-[86%] max-w-sm flex-col overflow-hidden border-l border-white/10 bg-[#0c1323]/65 text-white shadow-2xl backdrop-blur-2xl"
+            className="fixed right-0 top-0 z-[9991] flex h-screen w-[86%] max-w-sm flex-col overflow-hidden border-l border-white/10 bg-[#0c1323]/35 text-white shadow-2xl backdrop-blur-md"
             style={{ pointerEvents: open ? "auto" : "none", willChange: "transform" }}
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
